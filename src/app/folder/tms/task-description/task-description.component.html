@@ -1,0 +1,132 @@
+<ion-header>
+    <ion-toolbar class="toolBar">
+        <ion-buttons slot="start">
+            <ion-buttons slot="start">
+            </ion-buttons>
+            <ion-button class="btnHome"  (click)="goBack()">
+              <!-- <i class="fas fa-arrow-left"></i> &nbsp; -->
+              <ion-icon name="chevron-back-outline"></ion-icon>back
+            </ion-button>
+        </ion-buttons>
+      <ion-title>{{'Task details'|translate}}</ion-title>
+        <!-- <ion-icon name="ellipsis-vertical" *ngIf=" details && details.stage == 'Created'" class="menuBtn"></ion-icon> -->
+        <!-- [style.color]="'white'" -->
+    </ion-toolbar>
+</ion-header>
+<!-- <ul class="breadcrumb">
+  <li><span (click)="breadcrumb();">{{'Tasks'|translate}}</span>&nbsp;<i class="fas fa-chevron-right"></i>&nbsp;</li>
+  <li class="active">{{'Task details'|translate}}</li>
+</ul> -->
+<!-- <ion-content>
+  <ion-spinner *ngIf="showSpinner == true" color="secondary" name="circles"></ion-spinner>
+  <ion-grid *ngIf="details && resonTab == false">
+    <ion-row class="tabHead">
+      <ion-col>{{'Project'|translate}} : </ion-col> <ion-col>{{details.project}}</ion-col>
+    </ion-row>
+
+    <ion-row class="tabHead">
+      <ion-col>{{'Date'|translate}} : </ion-col> <ion-col>{{details.start_date | date:"MM-dd-yyyy"}}</ion-col>
+    </ion-row>
+    
+    <ion-row class="tabHead">
+      <ion-col>{{'Shift'|translate}} : </ion-col> <ion-col>{{details.shiftid | translate}}</ion-col>
+    </ion-row>
+
+    <ion-row class="tabHead">
+      <ion-col>{{'Scheduled time'|translate}} : </ion-col> <ion-col>{{details.start_date | date: "shortTime"}} - {{details.finish_date | date: "shortTime"}}</ion-col>
+    </ion-row>
+
+    <ion-row class="tabHead">
+      <ion-col>{{'Status'|translate}} : </ion-col> <ion-col [ngStyle]="{'color': (details.stage =='Created') ? '#3dc2ff' : '' || (details.stage =='Completed') ? 'green' : '' || (details.stage =='Accepted') ? '#e0ac08' : ''}">{{details.stage|translate}}</ion-col>
+    </ion-row>
+
+    <ion-row class="tabHead">
+      <ion-col>{{'Priority'|translate}} : </ion-col> <ion-col [ngStyle]="{'color': (details.priority =='Medium' || details.priority =='medium') ? '#ffc409' : '' || (details.priority =='Low' || details.priority =='low') ? '#28ba62' : '' || (details.priority =='High' || details.priority =='high') ? '#ff0000' : ''}">{{details.priority|translate}}</ion-col>
+    </ion-row>
+
+    <ion-row class="tabHead" *ngIf="details.stage=='Completed'">
+        <ion-col>{{'Completed date'|translate}} : </ion-col> <ion-col>{{details.finish_date | date:"MM-dd-yyyy"}}</ion-col>
+    </ion-row>
+    <ion-row class="tabHead">
+      <ion-col>{{'Address'|translate}} : </ion-col> 
+      <ion-col>
+        {{details.address1}}<br/>
+        {{details.address2}}<br/>
+        {{details.city}}-{{details.zipcode}}<br/>
+        {{details.state}}
+        {{details.Country}}
+      </ion-col>
+    </ion-row>
+    <div *ngIf="details.stage == 'Created' || details.stage == 'Reopen'">
+      <ion-button class="gen" color="#00aaa0" (click)="accept()">{{'Accept'|translate}}</ion-button>
+      <ion-button class="gen" color="#00aaa0" (click)="rej()" >{{'Reject'|translate}}</ion-button>
+    </div>
+  </ion-grid>
+</ion-content> -->
+
+<ion-content>
+  <ion-spinner *ngIf="showSpinner == true" color="secondary" name="circles"></ion-spinner>
+  <ion-grid *ngIf="details && resonTab == false">
+    <ion-card>
+      <ion-card-header class="card_desgn">
+        <div class="main">{{details.taskName}}</div>
+        <span class="owner">{{details.project}}</span>
+        <span class="email_dt pos" [ngStyle]="{'color': (details.stage =='Created') ? '#3382f8' : '' || (details.stage =='Completed') ? '#00b71c' : '' || (details.stage =='Accepted') ? '#ffa500' : ''}">
+          {{details.stage|translate}}
+        </span>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <div class="owner">{{'Date'|translate}}</div>
+            <span class="org">{{details.start_date | date:"MM-dd-yyyy"}}</span>
+          </ion-col>
+          <ion-col>
+            <div class="owner">{{'Scheduled time'|translate}}</div>
+            <span class="org">{{details.start_date | date: "shortTime"}} - {{details.finish_date | date: "shortTime"}}</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div class="owner">{{'Priority'|translate}}</div>
+            <span class="org" [ngStyle]="{'color': (details.priority =='Medium' || details.priority =='medium') ? '#ffc409' : '' || (details.priority =='Low' || details.priority =='low') ? '#28ba62' : '' || (details.priority =='High' || details.priority =='high') ? '#ff0000' : ''}">{{details.priority|translate}}</span>
+          </ion-col>
+
+          <ion-col>
+            <div class="owner">{{'Tasks Location'|translate}}</div>
+            <span class="org">{{details.loc_name}}</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="8">
+            <div class="owner">{{'Address'|translate}}</div>
+            <span class="org">
+              {{details.address1}}&nbsp;
+              {{details.address2}}&nbsp;
+              {{details.city}}&nbsp;{{details.zipcode}}&nbsp;
+              {{details.state}}
+              {{details.Country}}
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-row class="ryt">
+      <ion-col size="12">
+        <div *ngIf="details.stage == 'Created' || details.stage == 'Reopen'"> 
+          <button ion-button class="bottom-button rej" (click)="rej()">
+            {{'Reject'|translate}}
+          </button> 
+          <button ion-button class="bottom-button accept" (click)="accept()">
+            {{'Accept'|translate}}
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h2 class="nodat" *ngIf="nodat == true">No Data</h2>
+</ion-content>

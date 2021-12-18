@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+            <ion-button class="btnHome"  (click)="goBack()">
+              <!-- <i class="fas fa-arrow-left"></i> &nbsp; -->
+              <ion-icon name="chevron-back-outline"></ion-icon>back
+            </ion-button>
+              <!-- <ion-menu-button></ion-menu-button> -->
+          </ion-buttons>
+      </ion-buttons>
+      <ion-title>{{'Task details'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="notesTab == false">
+    <ion-card>
+      <ion-card-header class="card_desgn">
+        <div class="main">{{tasknam}}</div>
+        <!-- <div *ngIf="notesTab == false"> -->
+          <div class="owner" *ngIf="checkInDay">{{'Checked in at'|translate}} {{checkInDay | date:"MM-dd-yyyy hh:mm a"}}</div>
+          <div class="owner" *ngIf="checkoutDay">{{'Checked out at'|translate}} {{checkoutDay | date:"MM-dd-yyyy hh:mm a"}}</div>
+        <!-- </div> -->
+      <!-- <span class="email_dt pos" [ngStyle]="{'color': (details.stage =='Created') ? '#3dc2ff' : '' || (details.stage =='Completed') ? 'green' : '' || (details.stage =='Accepted') ? '#e0ac08' : ''}">
+          {{details.stage|translate}}
+        </span> -->
+      </ion-card-header>
+
+      <ion-card-content>
+        <agm-map style="height:60vh" [zoom]='19' [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+
+        <div class="btnGroup">
+          <ion-row>
+            <ion-col size="6">
+              <ion-button class="btn" [disabled]="enableCheckIn == false" (click)="checkIn()">&nbsp;{{'Check in'|translate}}&nbsp;</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button class="btn" [disabled]="enableCheckOut == false" (click)="break()">&nbsp;&nbsp;&nbsp;{{'Interval'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;</ion-button>              
+            </ion-col>
+            <ion-col size="6">
+              <ion-button class="btn" [disabled]="enableBreak == false" (click)="checkOut()">{{'Check out'|translate}}</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button class="btn" [disabled]="enableComplet == false" (click)="statusComplet()">{{'Completed'|translate}}</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+  <div class="top" *ngIf="notesTab == true">
+    <ion-item>   
+      <ion-label position="floating">{{'Notes'|translate}}</ion-label>
+      <ion-textarea rows="4" cols="20" placeholder="{{'Enter notes'|translate}}" [(ngModel)]="notes" name="notes"></ion-textarea>
+    </ion-item>
+    <ion-button class="rejc" expand="full" color="#00aaa0" (click)="submitNotes()">{{'Submit'|translate}}</ion-button>
+  </div>
+
+</ion-content>
+
+<!-- <ion-content>
+  <ion-grid *ngIf="notesTab == false">
+  <div class="dayDetails">
+    <h4>{{currentDay | date:"MM-dd-yyyy hh:mm a"}}</h4>
+    <p *ngIf="checkInDay">{{'Checked in at'|translate}} {{checkInDay | date:"MM-dd-yyyy hh:mm a"}}</p>
+    <p *ngIf="checkoutDay">{{'Checked out at'|translate}} {{checkoutDay | date:"MM-dd-yyyy hh:mm a"}}</p>
+  </div>
+  <ul class="breadcrumb">
+    <li><span (click)="breadcrumb();">{{'Tasks'|translate}}</span>&nbsp;<i class="fas fa-chevron-right"></i>&nbsp;</li>
+    <li class="active">{{'Check in'|translate}} / {{'Check out'|translate}} : {{tasknam}}</li>
+  </ul>
+
+  <div class="btnGroup">
+      <ion-button class="punchBtns" color="#00aaa0" [disabled]="enableCheckIn == false" (click)="checkIn()">&nbsp;{{'Check in'|translate}}&nbsp;</ion-button>
+      <ion-button class="punchBtns" color="#00aaa0" [disabled]="enableCheckOut == false" (click)="checkOut()">{{'Check out'|translate}}</ion-button>
+      <ion-button class="punchBtns" *ngIf="type == 'TMS'" [disabled]="enableBreak == false" color="#00aaa0" (click)="break()">&nbsp;&nbsp;&nbsp;{{'Interval'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;</ion-button>
+      <ion-button class="punchBtns" color="#00aaa0" *ngIf="type == 'TMS'" [disabled]="enableComplet == false" (click)="statusComplet()">{{'Completed'|translate}}</ion-button>
+  </div>
+  <agm-map style="height:500px" [zoom]='19' [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+</ion-grid>
+
+<div class="top" *ngIf="notesTab == true">
+  <ion-item>   
+    <ion-label position="floating">{{'Notes'|translate}}</ion-label>
+    <ion-textarea rows="4" cols="20" placeholder="{{'Enter notes'|translate}}" [(ngModel)]="notes" name="notes"></ion-textarea>
+  </ion-item>
+  <ion-button class="rejc" expand="full" color="#00aaa0" (click)="submitNotes()">{{'Submit'|translate}}</ion-button>
+</div>
+</ion-content> -->

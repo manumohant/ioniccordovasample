@@ -1,0 +1,271 @@
+// ion-header{
+//     --ion-background-color: #006495 !important;
+// }
+// .dayDetails{
+//   color: white;
+//   text-align: center;
+//   background: #006495;
+//   padding: 2% 0px;
+//   font-size: 0.9rem;
+// }
+// ion-title{
+//   color:white !important;
+//   text-transform: capitalize;
+// }
+// .fa-arrow-left{
+//   color:white !important;
+
+// }
+// .btnGroup{
+//     text-align: center;
+//     padding:2% 0px;
+// }
+// .comp{
+//   background: #006495;
+//   margin:6% 0px;
+// }
+
+// .btnGroup > ion-button{
+//     margin:2% 4%;
+//     background: #3382f8 !important;
+//     color:white;
+// }
+// ion-menu-button{
+//   color: white !important;
+// }
+
+// .menuBtn{
+//   position: absolute;
+//   bottom: 32%;
+//   right: 3%;
+//   background: none;
+//   font-size: 23px;
+// }
+
+// /* Breadcrumb */
+// .breadcrumb {
+//   padding: 5px;
+//   list-style: none;
+//   background:#0b76aa;
+//   font-weight: normal;
+//   color: #FFF;
+//   overflow: hidden;
+//   margin: 0;
+//   font-size: 14px;
+// }
+// .breadcrumb li {
+//   display: inline-block;
+//   color: #FFF;
+// }
+// .breadcrumb span {
+//   color: #C7D9E2;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
+// .breadcrumb .fa-chevron-right {
+//   color: #C7D9E2 !important;
+// }
+// .view-container {
+//   overflow: hidden;
+// }
+
+// .punchBtns{
+//   width: 35vw;
+// }
+
+
+// .gen{
+//     color:white;
+//     background: #006495;
+//     text-align: center;
+//     margin: 7% 10%;
+//     margin-top:20%;
+// }
+// .rejc{
+//     color:white;
+//     background: #006495;
+//     text-align: center;
+//     margin-top:20%;
+// }
+// .menuBtn{
+//     position: absolute;
+//     bottom: 23%;
+//     right: 0px;
+//     background: none;
+//     font-size: 29px;
+//   }
+
+// //   .btnHome{
+// //     color:white;
+// // }
+// ion-spinner{
+//     margin: 20% 45%;
+// }
+
+// /* Breadcrumb */
+// .breadcrumb {
+//     padding: 5px;
+//     list-style: none;
+//     background:#0b76aa;
+//     // height: 40px;
+//     font-weight: normal;
+//     color: #FFF;
+//     overflow: hidden;
+//     margin: 0;
+//     font-size: 14px;
+//   }
+//   .breadcrumb li {
+//     display: inline-block;
+//     color: #FFF;
+//   }
+//   .breadcrumb span {
+//     color: #C7D9E2;
+//     text-decoration: none;
+//     cursor: pointer;
+//   }
+//   .breadcrumb .fa-chevron-right {
+//     color: #C7D9E2 !important;
+//   }
+//   .view-container {
+//     overflow: hidden;
+//   }
+
+.rejc{
+  color:white;
+  background: #006495;
+  text-align: center;
+  margin-top:10%;
+}
+
+ion-spinner{
+  margin: 20% 45%;
+}
+.nodat {
+  color: #b3a2a2 !important;
+}
+
+.mail{
+float: right;
+margin-right: 10px;
+font-size: 1rem !important;
+}
+ion-card {
+border-radius: 10px;
+}
+.card_desgn{
+// height: 91px;
+// margin: 10px 15px;
+border-radius: 10px 10px 0 0;
+box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+background-color: #fef8ed;
+padding: 15px 10px 10px 10px;
+left: 50%;
+transform: translate(-50%);
+}
+.org {
+font-family: Poppins;
+font-size: 12px;
+font-weight: 600;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #000000;
+margin: 0 15px 1px 0;
+}
+.owner {
+font-family: Poppins;
+font-size: 12px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #818181;
+margin: 1px 10px 0 0;
+}
+.pos {
+float: right;
+}
+.main{
+font-family: Poppins;
+font-size: 14px;
+font-weight: 600;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #000000;
+margin: 0 5px 0 0;
+}
+.email_dt{
+font-family: Poppins;
+font-size: 12px;
+font-weight: 600;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+// color: #ffa500;
+margin: 0 3px 0 5px;
+}
+button{
+  // width: 100px;
+  // height: 30px;
+  border-radius: 6px;
+  // border: solid 2px #3382f8;
+  margin: 5px 0 5px 15px;
+  // color: #3382f8 !important;
+  background-color: transparent;
+  // float: right;
+}
+.accept{
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  background-color: #3382f8;
+  color: #ffffff;
+  padding: 10px 10px;
+}
+
+.rej{
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  background-color: transparent;
+  color: #3382f8;
+  padding: 10px 10px;
+}
+
+.btnGroup{
+  left: 50%;
+  transform: translate(-50%);
+  display: inline-block;
+  position: relative;
+  padding: 5px 2px 0 0;
+}
+
+ion-card-content {
+  padding: 0 !important;
+}
+.btn {
+  width: 90%;
+  margin: auto;
+  left: 50%;
+  transform: translate(-50%);
+  position: relative;
+}

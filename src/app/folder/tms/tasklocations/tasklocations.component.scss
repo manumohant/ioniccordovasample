@@ -1,0 +1,46 @@
+ion-col{
+  color:white;
+  margin:1px 2px;
+}
+
+ion-spinner{
+  margin: 20% 45%;
+}
+
+agm-info-window{
+ padding: 2px !important;
+}
+.menuBtn{
+    position: absolute;
+    bottom: 23%;
+    right: 0px;
+    background: none;
+    font-size: 29px;
+  }
+/* Breadcrumb */
+.breadcrumb {
+    padding: 5px;
+    list-style: none;
+    background:#0b76aa;
+    // height: 40px;
+    font-weight: normal;
+    color: #FFF;
+    overflow: hidden;
+    margin: 0;
+    font-size: 14px;
+  }
+  .breadcrumb li {
+    display: inline-block;
+    color: #FFF;
+  }
+  .breadcrumb span {
+    color: #C7D9E2;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .breadcrumb .fa-chevron-right {
+    color: #C7D9E2 !important;
+  }
+  .view-container {
+      overflow: hidden;
+  }

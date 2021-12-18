@@ -1,0 +1,64 @@
+.btnHome{
+  color:white;
+}
+.avlbl {
+  float: right;
+  margin-right: 1rem;
+}
+.iconsize{
+    text-align: center;
+    font-size: 1.5rem;
+    margin: auto;
+}
+.pos {
+    margin-top: 8px;
+}
+.iconBtn{
+  background-color: #eaf2fe;
+}
+
+.algn{
+  margin-left:0.8rem;
+}
+  :host ::ng-deep {
+    .monthview-container {
+          height: auto !important;
+      }
+      .event-detail-container {
+          display: none;
+      }
+  }
+
+// Indicator for events
+
+  // .indicator-container {
+  //   padding-left: 0.5rem;
+  //   padding-bottom: 0.4rem;
+  // }
+   
+  // .event-indicator {
+  //   background: var(--ion-color-danger);
+  //   width: 5px;
+  //   height: 5px;
+  //   border-radius: 5px;
+  //   display: table-cell;
+  // }
+  .avl {
+    color: var(--ion-color-danger) !important;
+    font-size: 0.5rem !important;
+  }
+  :host ::ng-deep {
+    .monthview-primary-with-event {
+      background-color: white !important;
+      color: black !important;
+    }
+   
+    .monthview-selected {
+      background-color: var(--ion-color-success) !important;
+    }
+  }
+   
+  // .with-event {
+  //   background-color: var(--ion-color-danger);
+  //   border-radius: 15px;
+  // }

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'Leaves'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-row>
+    <!-- Move back one screen of the slides -->
+    <ion-col size="2">
+      <ion-button fill="clear" size="small" (click)="back()" class="iconBtn">
+        <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+ 
+    <ion-col size="8" class="ion-text-center">
+      <h2 class="pos">{{ viewTitle }}</h2>
+    </ion-col>
+ 
+    <!-- Move forward one screen of the slides -->
+    <ion-col size="2">
+      <ion-button fill="clear" size="small" (click)="next()" class="iconBtn">
+        <ion-icon name="chevron-forward-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+ 
+  <calendar
+    [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    (onEventSelected)="onEventSelected($event)"
+    (click)="applyLeave(calendar.currentDate)"    
+    id="cal"
+  >
+  </calendar> 
+<br/>
+  <ion-button color="primary" (click)="onSubmit()" class="leavBtn">
+    {{'Apply leave'|translate}}
+  </ion-button>
+</ion-content>

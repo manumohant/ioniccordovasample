@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      </ion-buttons>
+    <ion-title>New Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Project</ion-label>
+    <ion-select [(ngModel)]="selectedProject" required="true">
+      <ion-select-option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Task Name</ion-label>
+    <ion-input type="text" [(ngModel)]="taskName" name="taskName" (ionBlur)="checkTaskName()" required="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Task Description</ion-label>
+    <ion-input type="text" [(ngModel)]="taskDescription" name="taskDescription" required="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Expected Start Date</ion-label>
+     <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="startDate" name="title" required="true"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Expected End Date</ion-label>
+     <ion-datetime displayFormat="MMMM DD YYYY" [(ngModel)]="endDate" name="title" required="true"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Expected Duration(Hrs)</ion-label>
+    <ion-input type="number" [(ngModel)]="duration" name="title" required="true"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Priority</ion-label>
+    <ion-select [(ngModel)]="priority">
+      <ion-select-option value="0">Low</ion-select-option>
+      <ion-select-option value="1">Medium</ion-select-option>
+      <ion-select-option value="2">High</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input type="text" [(ngModel)]="address" name="address" (ionChange)="getAdd($event)" required="true"></ion-input>
+  </ion-item>
+
+  <ion-button class="gen" color="#00aaa0" (click)="createTask()">CREATE</ion-button>
+</ion-content>

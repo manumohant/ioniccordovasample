@@ -1,0 +1,24 @@
+// ion-title{
+//   color:white !important;
+// }
+.gen{
+  color:black;
+  background: #ddd;
+  margin-top: 1.2rem;
+}
+
+.tabHead{
+  color:#000;
+  position: sticky;
+  top: 0;
+  display:block;
+  z-index: 5;
+  --ion-item-background:#f7f7f7;
+}
+.dt{
+  font-size: 0.8rem;
+}
+
+.altern:nth-child(odd) {
+  --ion-item-background:#f7f7f7;
+}

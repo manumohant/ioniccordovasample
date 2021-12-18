@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+      <ion-buttons slot="start" class="btnHome">
+         <ion-button class="btnHome" (click)="goBack()">
+            <i class="fas fa-arrow-left"></i> &nbsp;
+          </ion-button>
+      </ion-buttons>
+    <ion-title>Add Availability</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">Customer</ion-label>
+    <ion-select [(ngModel)]="customer_recnum" (ngModelChange)="location(customer_recnum)">
+      <ion-select-option *ngFor="let cust of customersList" value="{{cust.recnum}}">{{cust.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">Category</ion-label>
+    <ion-select [(ngModel)]="category_type">
+      <ion-select-option *ngFor="let category of categoryList" value="{{category.recnum}}">{{category.type}} ({{category.category_name}})</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">Skill</ion-label>
+    <ion-select [(ngModel)]="cust_skill">
+      <ion-select-option *ngFor="let skill of skillsList" value="{{skill.id}}">{{skill.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="loc">
+    <ion-label position="floating" class="fntcolor">Location</ion-label>
+    <ion-select [(ngModel)]="cust_locn">
+      <ion-select-option *ngFor="let loc of locationList" value="{{loc.id}}">{{loc.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">From</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="frm_dt" name="frm_dt" required></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">To</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="to_dt" name="to_dt" required></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">Start Time</ion-label>
+    <ion-datetime display-format="HH:mm A" picker-format="h:mm A" [(ngModel)]="start_time"  name="start_time" required></ion-datetime>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">End Time</ion-label>
+    <ion-datetime display-format="HH:mm A" picker-format="h:mm A" [(ngModel)]="end_time"  name="end_time" required></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" class="fntcolor">Status</ion-label>
+    <ion-select [(ngModel)]="status">
+      <ion-select-option value="Available">Available</ion-select-option>
+      <ion-select-option value="Unavailable">Unavailable</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="addAvaialability()">Submit</ion-button>
+</ion-content>

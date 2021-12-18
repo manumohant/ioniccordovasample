@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'Tasks Location'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ul class="breadcrumb">
+    <li><span (click)="breadcrumb();">{{'Tasks'|translate}}</span>&nbsp;<i class="fas fa-chevron-right"></i>&nbsp;</li>
+    <li class="active">{{'Tasks Location'|translate}}</li>
+  </ul>
+  <ion-grid [style.padding]="'0'">
+    <ion-row>
+      <ion-col  [style.background]="'#0a7fcf'" (click)="goToLi('Created')">
+        {{'Assigned'|translate}} :{{assignedCount}}
+      </ion-col>
+      <ion-col [style.background]="'#eaa200'" (click)="goToLi('Accepted')">
+        {{'Accepted'|translate}}: {{accepCount}}
+      </ion-col>
+      
+      <ion-col [style.background]="'#9d9fa6'" (click)="goToLi('ReOpen')">
+        {{'Reopen'|translate}}: {{reOpenCount}}
+      </ion-col>      
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid [style.padding]="'0'">
+    <ion-row  *ngIf="taskList">
+        <ion-col [style.background]="'#5fb543'" (click)="goToLi('Completed')">
+          {{'Completed'|translate}}: {{completCount}}
+        </ion-col>
+        <ion-col [style.background]="'#eb445a'" (click)="goToLi('Rejected')">
+          {{'Rejected'|translate}}: {{rejectCount}}
+        </ion-col>
+
+        <ion-col [style.background]="'#577590'" (click)="goToLi('All')">
+          {{'Total'|translate}}: {{taskList.length}}
+        </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+  <agm-map style="height:500px" [zoom]='11' [latitude]="lat" [longitude]="lon" [usePanning]="true">   
+    <agm-marker *ngFor="let d of details" (markerClick)="clickedMarker(infowindow)" [latitude]="d.lat" [longitude]="d.lon" [iconUrl]="{'url': (d.stage == 'Created')?'assets/icon/marker_blue.png':'' || (d.stage == 'Accepted')?'assets/icon/marker_orange.png':'' || (d.stage == 'Completed')?'assets/icon/marker_green.png':'' || (d.stage == 'ReOpen')?'assets/icon/marker_grey.png':''|| (d.stage == 'Rejected')?'assets/icon/marker_red.png':''}">
+      <agm-info-window #infowindow>
+        <b>{{d.taskname}}</b><br/>{{d.description}}<br/>
+        {{d.address}}
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+  
+</ion-content>

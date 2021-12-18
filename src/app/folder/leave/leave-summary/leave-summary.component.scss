@@ -1,0 +1,29 @@
+.btnHome{
+  color:white;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+.pos {
+  margin-top: 8px;
+}
+.leavBtn {
+  float: right;
+  margin-right: 1rem;
+}
+.iconBtn{
+  background-color: #eaf2fe;
+}
+
+:host ::ng-deep {
+    .monthview-container {
+        height: auto !important;
+    }
+ 
+    .event-detail-container {
+        display: none;
+    }
+}
+.avl {
+  color: var(--ion-color-danger) !important;
+  font-size: 0.5rem !important;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "FluentMWM_CEP_MTMCB",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

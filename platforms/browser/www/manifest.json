@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "CEPTMS",
+  "short_name": "CEPTMS",
+  "version": "io.ionic.cep_tms",
+  "description": "CEPTMS",
+  "author": "Ionic Framework Team",
+  "icons": [],
+  "start_url": "index.html"
+}

@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar class="toolBar">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
+    <ion-title>{{'Tasks'|translate}}</ion-title>
+    <!-- <ion-buttons slot="end">
+    <ion-button slot="end" class="btnHome" (click)="goToLoc('All')">
+      <ion-icon name="compass-sharp" ios="compass-outline" md="compass-sharp"></ion-icon>
+    </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-spinner *ngIf="showSpinner == true" color="secondary" name="circles"></ion-spinner>
+  <!-- <ion-item>
+    <ion-label>Language</ion-label>
+    <ion-select [(ngModel)]="lang" (ngModelChange)="switchLanguage()">
+      <ion-select-option value="en">English</ion-select-option>
+      <ion-select-option value="cn">Chinese</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size=5>
+          <ion-item class="primary1">
+              <ion-label position="floating" class="lbl">{{'Start date'|translate}}</ion-label>
+              <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="firstDay"  value="firstDay" name="firstDate" ngDefaultControl></ion-datetime>
+          </ion-item>         
+      </ion-col>
+      <ion-col size=5>
+          <ion-item class="primary1">
+              <ion-label position="floating" class="lbl">{{'End date'|translate}}</ion-label>
+              <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="lastDay"  value="lastDay" name="lastDay"  ngDefaultControl></ion-datetime>
+          </ion-item>          
+      </ion-col>
+      <ion-col size="2">
+      <ion-button size="small" type="button" class="gen" color="#00aaa0" (click)="goToLi('All')">
+        <ion-icon name="search-outline" class="search"></ion-icon>
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+      <ion-row>
+        <ion-col class="cur" [style.background]="'#f0f6ff'" [style.color]="'#3382f8'" (click)="goToLi('Created')">
+          <!-- Assign: {{taskList.length}} -->
+          <div class="cnt">{{assignedCount}}</div>
+          <div class="txts">{{'Assigned'|translate}}</div>
+        </ion-col>
+        <ion-col class="cur" [style.background]="'#edfff8'" [style.color]="'#00b71c'" (click)="goToLi('Completed')">
+          <div class="cnt">{{completCount}}</div>
+          <div class="txts">{{'Completed'|translate}}</div>
+        </ion-col>                
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="cur" [style.background]="'#fef8ed'" [style.color]="'#ffa500'" (click)="goToLi('Accepted')">
+          <div class="cnt">{{accepCount}}</div>
+          <div class="txts">{{'Accepted'|translate}}</div>
+        </ion-col>
+        <ion-col class="cur" [style.background]="'#fdeeed'" [style.color]="'#e50e00'" (click)="goToLi('Rejected')">
+          <div class="cnt">{{rejectCount}}</div>
+          <div class="txts">{{'Rejected'|translate}}</div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="cur" [style.background]="'#f5f5f5'" [style.color]="'#000000'" (click)="goToLi('Reopen')">
+          <div class="cnt">{{reOpenCount}}</div>
+          <div class="txts">{{'Reopen'|translate}}</div>
+        </ion-col>
+        <ion-col class="cur" [style.background]="'#e6f8ff'" [style.color]="'#22a7e0'" (click)="goToLi('All')">
+          <div class="cnt">{{totalCount}}</div>
+          <div class="txts">{{'Total'|translate}}</div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-list>  
+    <ion-item *ngFor="let l of taskList | slice:0:slice">          
+      <ion-row class="entireRow" (click)="goToDes(l.id, l.stage, l.taskName)">
+        <ion-col size="3">
+            <p class="des">{{l.startDate | date:"MM-dd-yyyy"}}</p>                    
+        </ion-col>
+        <ion-col size="5">
+            <!-- <p class="taskName">{{l.project}}</p> -->
+            <p class="taskName">{{l.taskName}}</p>
+            <p class="des">{{l.startDate | date: "shortTime" }} - {{l.endDate | date: "shortTime"}}</p>
+            <p class="des">{{l.shiftid|translate}}</p>
+        </ion-col>
+        <ion-col size="4">
+          <p class="des" [ngStyle]="{'color': (l.stage =='Created') ? '#0a7fcf' : '' || (l.stage =='Completed') ? '#5fb543' : '' || (l.stage =='Accepted') ? '#eaa200' : '' || (l.stage =='Rejected') ? '#eb445a' : '' || (l.stage =='Reopen') ? '#9d9fa6' : ''}"> {{l.stage|translate}}</p>
+          <p class="des">{{l.address1}}</p>
+          <p class="des">{{l.address2}}</p>
+          <p class="des">{{l.city}}-{{l.zipcode}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item class="nodat" *ngIf="nodat == true"><h6>{{'No Tasks'|translate}}</h6></ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Loading more data…"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

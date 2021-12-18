@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar  class="toolBar">
+      <ion-buttons slot="start">
+          <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      </ion-buttons>
+    <ion-title>{{'Timesheet'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=5>
+          <ion-item>
+              <ion-label position="floating">{{'Start date'|translate}}</ion-label>
+              <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="firstDay"  value="firstDay" name="firstDate" ngDefaultControl></ion-datetime>
+          </ion-item>         
+      </ion-col>
+      <ion-col size=5>
+          <ion-item>
+              <ion-label position="floating">{{'End date'|translate}}</ion-label>
+              <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="lastDay"  value="lastDay" name="lastDay"  ngDefaultControl></ion-datetime>
+          </ion-item>          
+      </ion-col>
+      <ion-col size="1">
+      <ion-button size="small" type="button" class="gen" color="#f7f7f7" (click)="getReport()">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-item lines="full" class="tabHead">
+      <ion-label>
+        <ion-text>
+          <p>{{'Date'|translate}}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label>
+        <ion-text>
+          <p>{{'Tasks'|translate}}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label>
+        <ion-text>
+          <p>{{'Time spent'|translate}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="full" *ngFor="let ar of report | slice:0:slice" class="altern">
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <p>{{ar.date | date:"MM-dd-yyyy"}}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <p>{{ar.taskname}}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <p>{{ar.checkintime}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Loading more data…"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
