@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   url: 'https://fluentelm.azurewebsites.net/api/',
-  urlPHP:'http://localhost/fluentcep_dorm_old/api/'
-  // urlPHP:'https://fsicloud2.centralindia.cloudapp.azure.com/fluentcep/api/'
+  // urlPHP:'http://localhost/fluentcep_dorm_old/api/'
+  urlPHP:'https://fsicloud2.centralindia.cloudapp.azure.com/fluentcep/api/'
   
 };
 

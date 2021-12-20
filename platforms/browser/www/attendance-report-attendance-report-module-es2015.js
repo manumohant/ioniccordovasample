@@ -1,5 +1,91 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["attendance-report-attendance-report-module"],{
 
+/***/ "./node_modules/@angular/common/locales/zh-Hans.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@angular/common/locales/zh-Hans.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+(function (factory) {
+    if ( true && typeof module.exports === "object") {
+        var v = factory(null, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    // THIS CODE IS GENERATED - DO NOT MODIFY
+    // See angular/tools/gulp-tasks/cldr/extract.js
+    var u = undefined;
+    function plural(n) {
+        return 5;
+    }
+    exports.default = [
+        'zh-Hans',
+        [['上午', '下午'], u, u],
+        u,
+        [
+            ['日', '一', '二', '三', '四', '五', '六'],
+            ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+            ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+            ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+        ],
+        u,
+        [
+            ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+            [
+                '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月',
+                '12月'
+            ],
+            [
+                '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月',
+                '十月', '十一月', '十二月'
+            ]
+        ],
+        u,
+        [['公元前', '公元'], u, u],
+        0,
+        [6, 0],
+        ['y/M/d', 'y年M月d日', u, 'y年M月d日EEEE'],
+        ['ah:mm', 'ah:mm:ss', 'z ah:mm:ss', 'zzzz ah:mm:ss'],
+        ['{1} {0}', u, u, u],
+        ['.', ',', ';', '%', '+', '-', 'E', '×', '‰', '∞', 'NaN', ':'],
+        ['#,##0.###', '#,##0%', '¤#,##0.00', '#E0'],
+        'CNY',
+        '¥',
+        '人民币',
+        {
+            'AUD': ['AU$', '$'],
+            'CNY': ['¥'],
+            'ILR': ['ILS'],
+            'JPY': ['JP¥', '¥'],
+            'KRW': ['￦', '₩'],
+            'TWD': ['NT$'],
+            'USD': ['US$', '$'],
+            'XXX': []
+        },
+        'ltr',
+        plural
+    ];
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiemgtSGFucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3BhY2thZ2VzL2NvbW1vbi9sb2NhbGVzL3poLUhhbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HOzs7Ozs7Ozs7Ozs7SUFFSCx5Q0FBeUM7SUFDekMsK0NBQStDO0lBRS9DLElBQU0sQ0FBQyxHQUFHLFNBQVMsQ0FBQztJQUVwQixTQUFTLE1BQU0sQ0FBQyxDQUFTO1FBQ3ZCLE9BQU8sQ0FBQyxDQUFDO0lBQ1gsQ0FBQztJQUVELGtCQUFlO1FBQ2IsU0FBUztRQUNULENBQUMsQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQztRQUNwQixDQUFDO1FBQ0Q7WUFDRSxDQUFDLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsQ0FBQztZQUNuQyxDQUFDLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksQ0FBQztZQUMxQyxDQUFDLEtBQUssRUFBRSxLQUFLLEVBQUUsS0FBSyxFQUFFLEtBQUssRUFBRSxLQUFLLEVBQUUsS0FBSyxFQUFFLEtBQUssQ0FBQztZQUNqRCxDQUFDLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksQ0FBQztTQUMzQztRQUNELENBQUM7UUFDRDtZQUNFLENBQUMsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLENBQUM7WUFDL0Q7Z0JBQ0UsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsS0FBSyxFQUFFLEtBQUs7Z0JBQ2xFLEtBQUs7YUFDTjtZQUNEO2dCQUNFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSTtnQkFDcEQsSUFBSSxFQUFFLEtBQUssRUFBRSxLQUFLO2FBQ25CO1NBQ0Y7UUFDRCxDQUFDO1FBQ0QsQ0FBQyxDQUFDLEtBQUssRUFBRSxJQUFJLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBQ3JCLENBQUM7UUFDRCxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUM7UUFDTixDQUFDLE9BQU8sRUFBRSxRQUFRLEVBQUUsQ0FBQyxFQUFFLFlBQVksQ0FBQztRQUNwQyxDQUFDLE9BQU8sRUFBRSxVQUFVLEVBQUUsWUFBWSxFQUFFLGVBQWUsQ0FBQztRQUNwRCxDQUFDLFNBQVMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQztRQUNwQixDQUFDLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxLQUFLLEVBQUUsR0FBRyxDQUFDO1FBQzlELENBQUMsV0FBVyxFQUFFLFFBQVEsRUFBRSxXQUFXLEVBQUUsS0FBSyxDQUFDO1FBQzNDLEtBQUs7UUFDTCxHQUFHO1FBQ0gsS0FBSztRQUNMO1lBQ0UsS0FBSyxFQUFFLENBQUMsS0FBSyxFQUFFLEdBQUcsQ0FBQztZQUNuQixLQUFLLEVBQUUsQ0FBQyxHQUFHLENBQUM7WUFDWixLQUFLLEVBQUUsQ0FBQyxLQUFLLENBQUM7WUFDZCxLQUFLLEVBQUUsQ0FBQyxLQUFLLEVBQUUsR0FBRyxDQUFDO1lBQ25CLEtBQUssRUFBRSxDQUFDLEdBQUcsRUFBRSxHQUFHLENBQUM7WUFDakIsS0FBSyxFQUFFLENBQUMsS0FBSyxDQUFDO1lBQ2QsS0FBSyxFQUFFLENBQUMsS0FBSyxFQUFFLEdBQUcsQ0FBQztZQUNuQixLQUFLLEVBQUUsRUFBRTtTQUNWO1FBQ0QsS0FBSztRQUNMLE1BQU07S0FDUCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBJbmMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG4vLyBUSElTIENPREUgSVMgR0VORVJBVEVEIC0gRE8gTk9UIE1PRElGWVxuLy8gU2VlIGFuZ3VsYXIvdG9vbHMvZ3VscC10YXNrcy9jbGRyL2V4dHJhY3QuanNcblxuY29uc3QgdSA9IHVuZGVmaW5lZDtcblxuZnVuY3Rpb24gcGx1cmFsKG46IG51bWJlcik6IG51bWJlciB7XG4gIHJldHVybiA1O1xufVxuXG5leHBvcnQgZGVmYXVsdCBbXG4gICd6aC1IYW5zJyxcbiAgW1sn5LiK5Y2IJywgJ+S4i+WNiCddLCB1LCB1XSxcbiAgdSxcbiAgW1xuICAgIFsn5pelJywgJ+S4gCcsICfkuownLCAn5LiJJywgJ+WbmycsICfkupQnLCAn5YWtJ10sXG4gICAgWyflkajml6UnLCAn5ZGo5LiAJywgJ+WRqOS6jCcsICflkajkuIknLCAn5ZGo5ZubJywgJ+WRqOS6lCcsICflkajlha0nXSxcbiAgICBbJ+aYn+acn+aXpScsICfmmJ/mnJ/kuIAnLCAn5pif5pyf5LqMJywgJ+aYn+acn+S4iScsICfmmJ/mnJ/lm5snLCAn5pif5pyf5LqUJywgJ+aYn+acn+WFrSddLFxuICAgIFsn5ZGo5pelJywgJ+WRqOS4gCcsICflkajkuownLCAn5ZGo5LiJJywgJ+WRqOWbmycsICflkajkupQnLCAn5ZGo5YWtJ11cbiAgXSxcbiAgdSxcbiAgW1xuICAgIFsnMScsICcyJywgJzMnLCAnNCcsICc1JywgJzYnLCAnNycsICc4JywgJzknLCAnMTAnLCAnMTEnLCAnMTInXSxcbiAgICBbXG4gICAgICAnMeaciCcsICcy5pyIJywgJzPmnIgnLCAnNOaciCcsICc15pyIJywgJzbmnIgnLCAnN+aciCcsICc45pyIJywgJznmnIgnLCAnMTDmnIgnLCAnMTHmnIgnLFxuICAgICAgJzEy5pyIJ1xuICAgIF0sXG4gICAgW1xuICAgICAgJ+S4gOaciCcsICfkuozmnIgnLCAn5LiJ5pyIJywgJ+Wbm+aciCcsICfkupTmnIgnLCAn5YWt5pyIJywgJ+S4g+aciCcsICflhavmnIgnLCAn5Lmd5pyIJyxcbiAgICAgICfljYHmnIgnLCAn5Y2B5LiA5pyIJywgJ+WNgeS6jOaciCdcbiAgICBdXG4gIF0sXG4gIHUsXG4gIFtbJ+WFrOWFg+WJjScsICflhazlhYMnXSwgdSwgdV0sXG4gIDAsXG4gIFs2LCAwXSxcbiAgWyd5L00vZCcsICd55bm0TeaciGTml6UnLCB1LCAneeW5tE3mnIhk5pelRUVFRSddLFxuICBbJ2FoOm1tJywgJ2FoOm1tOnNzJywgJ3ogYWg6bW06c3MnLCAnenp6eiBhaDptbTpzcyddLFxuICBbJ3sxfSB7MH0nLCB1LCB1LCB1XSxcbiAgWycuJywgJywnLCAnOycsICclJywgJysnLCAnLScsICdFJywgJ8OXJywgJ+KAsCcsICfiiJ4nLCAnTmFOJywgJzonXSxcbiAgWycjLCMjMC4jIyMnLCAnIywjIzAlJywgJ8KkIywjIzAuMDAnLCAnI0UwJ10sXG4gICdDTlknLFxuICAnwqUnLFxuICAn5Lq65rCR5biBJyxcbiAge1xuICAgICdBVUQnOiBbJ0FVJCcsICckJ10sXG4gICAgJ0NOWSc6IFsnwqUnXSxcbiAgICAnSUxSJzogWydJTFMnXSxcbiAgICAnSlBZJzogWydKUMKlJywgJ8KlJ10sXG4gICAgJ0tSVyc6IFsn77+mJywgJ+KCqSddLFxuICAgICdUV0QnOiBbJ05UJCddLFxuICAgICdVU0QnOiBbJ1VTJCcsICckJ10sXG4gICAgJ1hYWCc6IFtdXG4gIH0sXG4gICdsdHInLFxuICBwbHVyYWxcbl07XG4iXX0=
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/folder/attendance-report/generate-report/generate-report.component.html":
 /*!*******************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/folder/attendance-report/generate-report/generate-report.component.html ***!
@@ -9,7 +95,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar  class=\"toolBar\">\n      <ion-buttons slot=\"start\">\n          <ion-buttons slot=\"start\">\n              <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <!-- <ion-button class=\"btnHome\" [routerLink]=\"'/settings'\">\n            <i class=\"fas fa-arrow-left\"></i> &nbsp;\n          </ion-button> -->\n      </ion-buttons>\n    <ion-title>Attendance Report</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n          <ion-item>\n              <ion-label position=\"floating\">Start Date</ion-label>\n              <ion-datetime displayFormat=\"MMM DD YYYY\" [(ngModel)]=\"firstDay\"  value=\"firstDay\" name=\"firstDate\" ngDefaultControl></ion-datetime>\n          </ion-item>\n         \n      </ion-col>\n      <ion-col>\n          <ion-item>\n              <ion-label position=\"floating\">End Date</ion-label>\n              <ion-datetime displayFormat=\"MMM DD YYYY\" [(ngModel)]=\"lastDay\"  value=\"lastDay\" name=\"lastDay\"  ngDefaultControl></ion-datetime>\n          </ion-item>          \n      </ion-col>\n      <ion-col>\n      <ion-button type=\"button\" class=\"gen\" color=\"#00aaa0\" (click)=\"getReport()\">GENERATE</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <div class=\"tabHead\">Total Spent: &nbsp; {{totalSpent}}</div>\n\n  <ion-grid>\n\n      <ion-row class=\"tabHead\">\n        <ion-col>Date</ion-col> <ion-col>Time</ion-col> <ion-col>Status</ion-col> <ion-col>Spent</ion-col>\n      </ion-row>\n\n      <ion-row *ngFor=\"let ar of report | slice:0:slice\">\n          <ion-col>\n            {{ar.date | date}}\n          </ion-col>\n          <ion-col>\n            {{ar.time}}\n          </ion-col>\n          <ion-col>\n            {{ar.checkInOutString}}\n          </ion-col>\n          <ion-col>\n              {{ar.spent}}\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n\n    <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\n        <ion-infinite-scroll-content loadingSpinner=\"bubbles\"\n        loadingText=\"Loading more data…\"></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n  \n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar  class=\"toolBar\">\r\n      <ion-buttons slot=\"start\">\r\n          <ion-buttons slot=\"start\">\r\n              <ion-menu-button></ion-menu-button>\r\n          </ion-buttons>\r\n      </ion-buttons>\r\n    <ion-title>{{'Timesheet'|translate}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-grid>\r\n    <ion-row>\r\n      <ion-col size=5>\r\n          <ion-item>\r\n              <ion-label position=\"floating\">{{'Start date'|translate}}</ion-label>\r\n              <ion-datetime displayFormat=\"MM-DD-YYYY\" [(ngModel)]=\"firstDay\"  value=\"firstDay\" name=\"firstDate\" ngDefaultControl></ion-datetime>\r\n          </ion-item>         \r\n      </ion-col>\r\n      <ion-col size=5>\r\n          <ion-item>\r\n              <ion-label position=\"floating\">{{'End date'|translate}}</ion-label>\r\n              <ion-datetime displayFormat=\"MM-DD-YYYY\" [(ngModel)]=\"lastDay\"  value=\"lastDay\" name=\"lastDay\"  ngDefaultControl></ion-datetime>\r\n          </ion-item>          \r\n      </ion-col>\r\n      <ion-col size=\"1\">\r\n      <ion-button size=\"small\" type=\"button\" class=\"gen\" color=\"#f7f7f7\" (click)=\"getReport()\">\r\n        <ion-icon name=\"search-outline\"></ion-icon>\r\n      </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid>\r\n    <ion-item lines=\"full\" class=\"tabHead\">\r\n      <ion-label>\r\n        <ion-text>\r\n          <p>{{'Date'|translate}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n      <ion-label>\r\n        <ion-text>\r\n          <p>{{'Tasks'|translate}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n      <ion-label>\r\n        <ion-text>\r\n          <p>{{'Time spent'|translate}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n    </ion-item>\r\n    <ion-item lines=\"full\" *ngFor=\"let ar of report | slice:0:slice\" class=\"altern\">\r\n      <ion-label class=\"ion-text-wrap\">\r\n        <ion-text>\r\n          <p>{{ar.date | date:\"MM-dd-yyyy\"}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n      <ion-label class=\"ion-text-wrap\">\r\n        <ion-text>\r\n          <p>{{ar.taskname}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n      <ion-label class=\"ion-text-wrap\">\r\n        <ion-text>\r\n          <p>{{ar.checkintime}}</p>\r\n        </ion-text>\r\n      </ion-label>\r\n    </ion-item>\r\n  </ion-grid>\r\n  <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\r\n      <ion-infinite-scroll-content loadingSpinner=\"bubbles\"\r\n      loadingText=\"Loading more data…\"></ion-infinite-scroll-content>\r\n  </ion-infinite-scroll>\r\n</ion-content>");
 
 /***/ }),
 
@@ -54,11 +140,12 @@ AttendanceReportRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
 /*!**********************************************************************!*\
   !*** ./src/app/folder/attendance-report/attendance-report.module.ts ***!
   \**********************************************************************/
-/*! exports provided: AttendanceReportModule */
+/*! exports provided: createTranslateLoader, AttendanceReportModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTranslateLoader", function() { return createTranslateLoader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttendanceReportModule", function() { return AttendanceReportModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
@@ -67,6 +154,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _generate_report_generate_report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./generate-report/generate-report.component */ "./src/app/folder/attendance-report/generate-report/generate-report.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_common_locales_zh_Hans__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common/locales/zh-Hans */ "./node_modules/@angular/common/locales/zh-Hans.js");
+/* harmony import */ var _angular_common_locales_zh_Hans__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_zh_Hans__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -74,6 +166,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["registerLocaleData"])(_angular_common_locales_zh_Hans__WEBPACK_IMPORTED_MODULE_10___default.a);
+function createTranslateLoader(http) {
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_8__["TranslateHttpLoader"](http, './assets/i18n/', '.json');
+}
 let AttendanceReportModule = class AttendanceReportModule {
 };
 AttendanceReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -85,6 +186,16 @@ AttendanceReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
             _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateModule"].forRoot({
+                loader: {
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateLoader"],
+                    useFactory: createTranslateLoader,
+                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClient"]]
+                }
+            })
+        ],
+        providers: [
+            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"], useValue: 'zh-Hans' }
         ]
     })
 ], AttendanceReportModule);
@@ -127,15 +238,12 @@ let AttendanceReportService = class AttendanceReportService {
     constructor(http, storage) {
         this.http = http;
         this.storage = storage;
-        this.httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + window.localStorage.getItem('token')
-            })
-        };
+        this.userId = window.localStorage.getItem('userId');
+        // this.emprecnum=window.localStorage.getItem('user2employee');
+        this.emprecnum = window.localStorage.getItem('empId');
     }
     attenReport(empId, firstDay, lastDay) {
-        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].url + 'attendance/gettimespentinoffice/' + empId + '/' + firstDay + '/' + lastDay + '/all', this.httpOptions)
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].urlPHP + 'employee/EmpReport/' + this.userId + '/' + this.emprecnum + '/' + firstDay + '/' + lastDay)
             .map(Response => { return Response; }).catch(this.handleErrors);
     }
     handleErrors(error) {
@@ -166,7 +274,7 @@ AttendanceReportService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-title {\n  color: white !important;\n}\n\n.gen {\n  color: black;\n  background: #ddd;\n}\n\n.tabHead {\n  background: #006495;\n  color: white;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL2F0dGVuZGFuY2UtcmVwb3J0L2dlbmVyYXRlLXJlcG9ydC9FOlxcQ0VQXFxGbHVlbnRNV01fQ0VQX3Rtcy9zcmNcXGFwcFxcZm9sZGVyXFxhdHRlbmRhbmNlLXJlcG9ydFxcZ2VuZXJhdGUtcmVwb3J0XFxnZW5lcmF0ZS1yZXBvcnQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2ZvbGRlci9hdHRlbmRhbmNlLXJlcG9ydC9nZW5lcmF0ZS1yZXBvcnQvZ2VuZXJhdGUtcmVwb3J0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksdUJBQUE7QUNDSjs7QURHRTtFQUNJLFlBQUE7RUFDQSxnQkFBQTtBQ0FOOztBREdFO0VBQ0ksbUJBQUE7RUFDQSxZQUFBO0FDQU4iLCJmaWxlIjoic3JjL2FwcC9mb2xkZXIvYXR0ZW5kYW5jZS1yZXBvcnQvZ2VuZXJhdGUtcmVwb3J0L2dlbmVyYXRlLXJlcG9ydC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi10aXRsZXtcclxuICAgIGNvbG9yOndoaXRlICFpbXBvcnRhbnQ7XHJcblxyXG4gIH1cclxuXHJcbiAgLmdlbntcclxuICAgICAgY29sb3I6YmxhY2s7XHJcbiAgICAgIGJhY2tncm91bmQ6ICNkZGQ7XHJcbiAgfVxyXG5cclxuICAudGFiSGVhZHtcclxuICAgICAgYmFja2dyb3VuZDogIzAwNjQ5NTtcclxuICAgICAgY29sb3I6d2hpdGU7XHJcbiAgfSIsImlvbi10aXRsZSB7XG4gIGNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xufVxuXG4uZ2VuIHtcbiAgY29sb3I6IGJsYWNrO1xuICBiYWNrZ3JvdW5kOiAjZGRkO1xufVxuXG4udGFiSGVhZCB7XG4gIGJhY2tncm91bmQ6ICMwMDY0OTU7XG4gIGNvbG9yOiB3aGl0ZTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".gen {\n  color: black;\n  background: #ddd;\n  margin-top: 1.2rem;\n}\n\n.tabHead {\n  color: #000;\n  position: sticky;\n  top: 0;\n  display: block;\n  z-index: 5;\n  --ion-item-background:#f7f7f7;\n}\n\n.dt {\n  font-size: 0.8rem;\n}\n\n.altern:nth-child(odd) {\n  --ion-item-background:#f7f7f7;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL2F0dGVuZGFuY2UtcmVwb3J0L2dlbmVyYXRlLXJlcG9ydC9DOlxcVXNlcnNcXG1hbnVtXFxEb3dubG9hZHNcXGZsdWVudGNlcFRNUy1tYXN0ZXJcXGZsdWVudGNlcFRNUy9zcmNcXGFwcFxcZm9sZGVyXFxhdHRlbmRhbmNlLXJlcG9ydFxcZ2VuZXJhdGUtcmVwb3J0XFxnZW5lcmF0ZS1yZXBvcnQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2ZvbGRlci9hdHRlbmRhbmNlLXJlcG9ydC9nZW5lcmF0ZS1yZXBvcnQvZ2VuZXJhdGUtcmVwb3J0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURLQTtFQUNFLFdBQUE7RUFDQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxjQUFBO0VBQ0EsVUFBQTtFQUNBLDZCQUFBO0FDRkY7O0FESUE7RUFDRSxpQkFBQTtBQ0RGOztBRElBO0VBQ0UsNkJBQUE7QUNERiIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci9hdHRlbmRhbmNlLXJlcG9ydC9nZW5lcmF0ZS1yZXBvcnQvZ2VuZXJhdGUtcmVwb3J0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gaW9uLXRpdGxle1xyXG4vLyAgIGNvbG9yOndoaXRlICFpbXBvcnRhbnQ7XHJcbi8vIH1cclxuLmdlbntcclxuICBjb2xvcjpibGFjaztcclxuICBiYWNrZ3JvdW5kOiAjZGRkO1xyXG4gIG1hcmdpbi10b3A6IDEuMnJlbTtcclxufVxyXG5cclxuLnRhYkhlYWR7XHJcbiAgY29sb3I6IzAwMDtcclxuICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gIHRvcDogMDtcclxuICBkaXNwbGF5OmJsb2NrO1xyXG4gIHotaW5kZXg6IDU7XHJcbiAgLS1pb24taXRlbS1iYWNrZ3JvdW5kOiNmN2Y3Zjc7XHJcbn1cclxuLmR0e1xyXG4gIGZvbnQtc2l6ZTogMC44cmVtO1xyXG59XHJcblxyXG4uYWx0ZXJuOm50aC1jaGlsZChvZGQpIHtcclxuICAtLWlvbi1pdGVtLWJhY2tncm91bmQ6I2Y3ZjdmNztcclxufSIsIi5nZW4ge1xuICBjb2xvcjogYmxhY2s7XG4gIGJhY2tncm91bmQ6ICNkZGQ7XG4gIG1hcmdpbi10b3A6IDEuMnJlbTtcbn1cblxuLnRhYkhlYWQge1xuICBjb2xvcjogIzAwMDtcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiAwO1xuICBkaXNwbGF5OiBibG9jaztcbiAgei1pbmRleDogNTtcbiAgLS1pb24taXRlbS1iYWNrZ3JvdW5kOiNmN2Y3Zjc7XG59XG5cbi5kdCB7XG4gIGZvbnQtc2l6ZTogMC44cmVtO1xufVxuXG4uYWx0ZXJuOm50aC1jaGlsZChvZGQpIHtcbiAgLS1pb24taXRlbS1iYWNrZ3JvdW5kOiNmN2Y3Zjc7XG59Il19 */");
 
 /***/ }),
 
@@ -186,23 +294,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/__ivy_ngcc__/fesm2015/ionic-storage.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
 
 
 
 
 
 let GenerateReportComponent = class GenerateReportComponent {
-    constructor(repSer, storage) {
+    constructor(repSer, storage, translate, locale) {
         this.repSer = repSer;
         this.storage = storage;
+        this.translate = translate;
+        this.locale = locale;
         this.slice = 15;
+        this.locStorageLang = window.localStorage.getItem('lang');
+        if (this.locStorageLang == '' || this.locStorageLang == undefined || this.locStorageLang == null) {
+            this.lang = 'en';
+            this.translate.setDefaultLang('en');
+            this.translate.use('en');
+        }
+        else {
+            this.lang = this.locStorageLang;
+            this.translate.use(this.lang);
+            this.empId = window.localStorage.getItem('empId');
+        }
     }
-    //   ionViewWillEnter() {
-    //     this.storage.get('loginDetails').then(detai => {
-    //       console.log(detai.details.empId);
-    //       this.empId = detai.details.empId
-    //     });
-    // }
     ngOnInit() {
         let date = new Date();
         this.firstDay = moment__WEBPACK_IMPORTED_MODULE_3__(new Date(date.getFullYear(), date.getMonth(), 1)).format('YYYY-MM-DD');
@@ -210,7 +327,6 @@ let GenerateReportComponent = class GenerateReportComponent {
         this.getReport();
     }
     getReport() {
-        this.empId = window.localStorage.getItem('empId');
         let startDate = moment__WEBPACK_IMPORTED_MODULE_3__(this.firstDay).format('YYYY-MM-DD');
         let endDate = moment__WEBPACK_IMPORTED_MODULE_3__(this.lastDay).format('YYYY-MM-DD');
         this.repSer.attenReport(this.empId, startDate, endDate).subscribe(res => {
@@ -229,14 +345,17 @@ let GenerateReportComponent = class GenerateReportComponent {
 };
 GenerateReportComponent.ctorParameters = () => [
     { type: _attendance_report_service__WEBPACK_IMPORTED_MODULE_2__["AttendanceReportService"] },
-    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"] }
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"],] }] }
 ];
 GenerateReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-generate-report',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./generate-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/folder/attendance-report/generate-report/generate-report.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./generate-report.component.scss */ "./src/app/folder/attendance-report/generate-report/generate-report.component.scss")).default]
-    })
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"]))
 ], GenerateReportComponent);
 
 

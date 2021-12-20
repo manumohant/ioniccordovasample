@@ -50,11 +50,28 @@
     },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "io.ionic.cep_tms"
+    },
+    "cordova-plugin-background-geolocation": {
+      "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+      "ANDROID_SUPPORT_LIBRARY_VERSION": "26+",
+      "ICON": "@mipmap/icon",
+      "SMALL_ICON": "@mipmap/icon",
+      "ACCOUNT_NAME": "@string/app_name",
+      "ACCOUNT_LABEL": "@string/app_name",
+      "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+      "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+      "PACKAGE_NAME": "io.ionic.cep_tms"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "io.ionic.cep_tms"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-add-swift-support": {
       "PACKAGE_NAME": "io.ionic.tms"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "io.ionic.cep_tms"
     }
   }
 }

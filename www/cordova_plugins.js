@@ -143,6 +143,19 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.plugins.permissions"
       ]
+    },
+    {
+      "id": "cordova-plugin-background-geolocation.BackgroundGeolocation",
+      "file": "plugins/cordova-plugin-background-geolocation/www/BackgroundGeolocation.js",
+      "pluginId": "cordova-plugin-background-geolocation",
+      "clobbers": [
+        "BackgroundGeolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-background-geolocation.radio",
+      "file": "plugins/cordova-plugin-background-geolocation/www/radio.js",
+      "pluginId": "cordova-plugin-background-geolocation"
     }
   ];
   module.exports.metadata = {
@@ -160,6 +173,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-unique-device-id2": "2.0.0",
     "cordova-plugin-dreamover-uid": "1.3.0",
-    "cordova-plugin-android-permissions": "1.1.2"
+    "cordova-plugin-android-permissions": "1.1.2",
+    "cordova-plugin-background-geolocation": "3.1.0"
   };
 });

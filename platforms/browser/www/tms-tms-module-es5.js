@@ -33,7 +33,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n    <ion-toolbar  class=\"toolBar\">\n        <ion-buttons slot=\"start\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button></ion-menu-button>\n            </ion-buttons>            \n            <!-- <ion-button class=\"btnHome\" *ngIf=\"enableRequest == true\" (click)=\"goBack()\">\n              <i class=\"fas fa-arrow-left\"></i> &nbsp;\n            </ion-button> -->\n        </ion-buttons>\n      <ion-title>Tasks</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ul class=\"breadcrumb\">\n      <li class=\"active\">Tasks</li>\n      <span [style.float]=\"'right'\" (click)=\"goToLoc('All')\">\n        <ion-icon name=\"compass-sharp\" ios=\"compass-outline\" md=\"compass-sharp\"></ion-icon>\n      </span>\n    </ul>\n    <ion-spinner *ngIf=\"showSpinner == true\" color=\"secondary\" name=\"circles\"></ion-spinner>\n      <ion-grid>\n          <ion-row>\n            <ion-col  class=\"cur\" [style.background]=\"'#0a7fcf'\" (click)=\"goToLi('Created')\">\n              <!-- Assign: {{taskList.length}} -->\n              Assigned :{{assignedCount}}\n            </ion-col>\n            <ion-col class=\"cur\" [style.background]=\"'#eaa200'\" (click)=\"goToLi('Accepted')\">\n              Accepted: {{accepCount}}\n            </ion-col>\n            \n            <ion-col class=\"cur\" [style.background]=\"'#9d9fa6'\" (click)=\"goToLi('ReOpen')\">\n              ReOpen: {{reOpenCount}}\n            </ion-col>\n            \n          </ion-row>\n      <!-- </ion-grid>\n      <ion-grid> -->\n        <ion-row>\n            <ion-col class=\"cur\" [style.background]=\"'#5fb543'\" (click)=\"goToLi('Completed')\">\n                Completed: {{completCount}}\n            </ion-col>\n            <ion-col class=\"cur\" [style.background]=\"'#eb445a'\" (click)=\"goToLi('Rejected')\">\n                Rejected: {{rejectCount}}\n            </ion-col>\n\n            <ion-col class=\"cur\" [style.background]=\"'#577590'\" (click)=\"goToLi('All')\">\n              <!-- All: {{taskList.length}} -->\n              All: {{totalCount}}\n            </ion-col>\n        </ion-row>\n      </ion-grid>\n      <ion-list>  \n          <ion-item *ngFor=\"let l of taskList | slice:0:slice\">\n            <ion-label (click)=\"goToDes(l.id, l.stage, l.taskName)\"> \n              <h5 class=\"taskName\">{{l.project}}&nbsp;&nbsp; 👉 &nbsp;&nbsp;{{l.taskName}}</h5>\n              <h3 class=\"des\">{{l.description}}</h3>\n              <h6 class=\"des\">{{l.startDate | date }} - {{l.endDate | date }}</h6>\n            </ion-label>\n            <h6 [ngStyle]=\"{'color': (l.stage =='Created') ? '#0a7fcf' : '' || (l.stage =='Completed') ? '#5fb543' : '' || (l.stage =='Accepted') ? '#eaa200' : '' || (l.stage =='Rejected') ? '#eb445a' : '' || (l.stage =='Reopen') ? '#9d9fa6' : ''}\"> {{l.stage}}</h6>\n          </ion-item>\n          <ion-item class=\"nodat\" *ngIf=\"nodat == true\"><h6>No Tasks.</h6></ion-item>\n        </ion-list>\n  \n    <!-- <div class=\"top\" *ngIf=\"enableRequest == true\">\n        <ion-item>\n          <ion-label>Start Date</ion-label>\n          <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"startDate\" name=\"title\" placeholder=\"Start Date\"></ion-datetime>\n        </ion-item>\n  \n        <ion-item>\n          <ion-label>End Date</ion-label>\n          <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"endDate\" name=\"title\" placeholder=\"End Date\"></ion-datetime>\n        </ion-item>\n  \n        <ion-item>\n          <ion-label position=\"floating\">Reason</ion-label>\n          <ion-input type=\"text\" [(ngModel)]=\"reason\" name=\"title\"></ion-input>\n        </ion-item>\n  \n        <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"generate()\">GENERATE</ion-button>\n    </div> -->\n  \n    <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\n        <ion-infinite-scroll-content loadingSpinner=\"bubbles\"\n        loadingText=\"Loading more data…\"></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n  \n  </ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar class=\"toolBar\">\r\n    <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>  \r\n    <ion-title>{{'Tasks'|translate}}</ion-title>\r\n    <!-- <ion-buttons slot=\"end\">\r\n    <ion-button slot=\"end\" class=\"btnHome\" (click)=\"goToLoc('All')\">\r\n      <ion-icon name=\"compass-sharp\" ios=\"compass-outline\" md=\"compass-sharp\"></ion-icon>\r\n    </ion-button>\r\n    </ion-buttons> -->\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-spinner *ngIf=\"showSpinner == true\" color=\"secondary\" name=\"circles\"></ion-spinner>\r\n  <!-- <ion-item>\r\n    <ion-label>Language</ion-label>\r\n    <ion-select [(ngModel)]=\"lang\" (ngModelChange)=\"switchLanguage()\">\r\n      <ion-select-option value=\"en\">English</ion-select-option>\r\n      <ion-select-option value=\"cn\">Chinese</ion-select-option>\r\n    </ion-select>\r\n  </ion-item> -->\r\n\r\n  <ion-grid>\r\n    <ion-row>\r\n      <ion-col size=5>\r\n          <ion-item class=\"primary1\">\r\n              <ion-label position=\"floating\" class=\"lbl\">{{'Start date'|translate}}</ion-label>\r\n              <ion-datetime displayFormat=\"MM-DD-YYYY\" [(ngModel)]=\"firstDay\"  value=\"firstDay\" name=\"firstDate\" ngDefaultControl></ion-datetime>\r\n          </ion-item>         \r\n      </ion-col>\r\n      <ion-col size=5>\r\n          <ion-item class=\"primary1\">\r\n              <ion-label position=\"floating\" class=\"lbl\">{{'End date'|translate}}</ion-label>\r\n              <ion-datetime displayFormat=\"MM-DD-YYYY\" [(ngModel)]=\"lastDay\"  value=\"lastDay\" name=\"lastDay\"  ngDefaultControl></ion-datetime>\r\n          </ion-item>          \r\n      </ion-col>\r\n      <ion-col size=\"2\">\r\n      <ion-button size=\"small\" type=\"button\" class=\"gen\" color=\"#00aaa0\" (click)=\"goToLi('All')\">\r\n        <ion-icon name=\"search-outline\" class=\"search\"></ion-icon>\r\n      </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid>\r\n      <ion-row>\r\n        <ion-col class=\"cur\" [style.background]=\"'#f0f6ff'\" [style.color]=\"'#3382f8'\" (click)=\"goToLi('Created')\">\r\n          <!-- Assign: {{taskList.length}} -->\r\n          <div class=\"cnt\">{{assignedCount}}</div>\r\n          <div class=\"txts\">{{'Assigned'|translate}}</div>\r\n        </ion-col>\r\n        <ion-col class=\"cur\" [style.background]=\"'#edfff8'\" [style.color]=\"'#00b71c'\" (click)=\"goToLi('Completed')\">\r\n          <div class=\"cnt\">{{completCount}}</div>\r\n          <div class=\"txts\">{{'Completed'|translate}}</div>\r\n        </ion-col>                \r\n      </ion-row>\r\n\r\n      <ion-row>\r\n        <ion-col class=\"cur\" [style.background]=\"'#fef8ed'\" [style.color]=\"'#ffa500'\" (click)=\"goToLi('Accepted')\">\r\n          <div class=\"cnt\">{{accepCount}}</div>\r\n          <div class=\"txts\">{{'Accepted'|translate}}</div>\r\n        </ion-col>\r\n        <ion-col class=\"cur\" [style.background]=\"'#fdeeed'\" [style.color]=\"'#e50e00'\" (click)=\"goToLi('Rejected')\">\r\n          <div class=\"cnt\">{{rejectCount}}</div>\r\n          <div class=\"txts\">{{'Rejected'|translate}}</div>\r\n        </ion-col>\r\n      </ion-row>\r\n\r\n      <ion-row>\r\n        <ion-col class=\"cur\" [style.background]=\"'#f5f5f5'\" [style.color]=\"'#000000'\" (click)=\"goToLi('Reopen')\">\r\n          <div class=\"cnt\">{{reOpenCount}}</div>\r\n          <div class=\"txts\">{{'Reopen'|translate}}</div>\r\n        </ion-col>\r\n        <ion-col class=\"cur\" [style.background]=\"'#e6f8ff'\" [style.color]=\"'#22a7e0'\" (click)=\"goToLi('All')\">\r\n          <div class=\"cnt\">{{totalCount}}</div>\r\n          <div class=\"txts\">{{'Total'|translate}}</div>\r\n        </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  \r\n  <ion-list>  \r\n    <ion-item *ngFor=\"let l of taskList | slice:0:slice\">          \r\n      <ion-row class=\"entireRow\" (click)=\"goToDes(l.id, l.stage, l.taskName)\">\r\n        <ion-col size=\"3\">\r\n            <p class=\"des\">{{l.startDate | date:\"MM-dd-yyyy\"}}</p>                    \r\n        </ion-col>\r\n        <ion-col size=\"5\">\r\n            <!-- <p class=\"taskName\">{{l.project}}</p> -->\r\n            <p class=\"taskName\">{{l.taskName}}</p>\r\n            <p class=\"des\">{{l.startDate | date: \"shortTime\" }} - {{l.endDate | date: \"shortTime\"}}</p>\r\n            <p class=\"des\">{{l.shiftid|translate}}</p>\r\n        </ion-col>\r\n        <ion-col size=\"4\">\r\n          <p class=\"des\" [ngStyle]=\"{'color': (l.stage =='Created') ? '#0a7fcf' : '' || (l.stage =='Completed') ? '#5fb543' : '' || (l.stage =='Accepted') ? '#eaa200' : '' || (l.stage =='Rejected') ? '#eb445a' : '' || (l.stage =='Reopen') ? '#9d9fa6' : ''}\"> {{l.stage|translate}}</p>\r\n          <p class=\"des\">{{l.address1}}</p>\r\n          <p class=\"des\">{{l.address2}}</p>\r\n          <p class=\"des\">{{l.city}}-{{l.zipcode}}</p>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-item>\r\n    <ion-item class=\"nodat\" *ngIf=\"nodat == true\"><h6>{{'No Tasks'|translate}}</h6></ion-item>\r\n  </ion-list>\r\n  <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\r\n      <ion-infinite-scroll-content loadingSpinner=\"bubbles\"\r\n      loadingText=\"Loading more data…\"></ion-infinite-scroll-content>\r\n  </ion-infinite-scroll>\r\n</ion-content>";
     /***/
   },
 
@@ -53,7 +53,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar  class=\"toolBar\">\n      <ion-buttons slot=\"start\">\n          <ion-buttons slot=\"start\">\n              <ion-menu-button></ion-menu-button>\n          </ion-buttons>            \n          <!-- <ion-button class=\"btnHome\" *ngIf=\"enableRequest == true\" (click)=\"goBack()\">\n            <i class=\"fas fa-arrow-left\"></i> &nbsp;\n          </ion-button> -->\n      </ion-buttons>\n    <ion-title>New Task</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <!-- <ion-item>\n    <ion-label position=\"floating\">Supplier</ion-label>\n    <ion-select [(ngModel)]=\"selectedCompany\" (ionChange)=\"getProject($event)\">\n      <ion-select-option *ngFor=\"let company of companies\" [value]=\"company.id\">{{ company.name }}</ion-select-option>\n    </ion-select>\n  </ion-item> -->\n\n  <ion-item>\n    <ion-label position=\"floating\">Project</ion-label>\n    <ion-select [(ngModel)]=\"selectedProject\" required=\"true\">\n      <ion-select-option *ngFor=\"let project of projects\" [value]=\"project.id\">{{ project.name }}</ion-select-option>\n      <!-- <ion-select-option value=\"15\">Project 2</ion-select-option> -->\n    </ion-select>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Task Name</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"taskName\" name=\"taskName\" (ionBlur)=\"checkTaskName()\" required=\"true\"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Task Description</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"taskDescription\" name=\"taskDescription\" required=\"true\"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Expected Start Date</ion-label>\n     <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"startDate\" name=\"title\" required=\"true\"></ion-datetime>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Expected End Date</ion-label>\n     <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"endDate\" name=\"title\" required=\"true\"></ion-datetime>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Expected Duration(Hrs)</ion-label>\n    <ion-input type=\"number\" [(ngModel)]=\"duration\" name=\"title\" required=\"true\"></ion-input>\n  </ion-item>\n\n  <!-- <ion-item>\n    <ion-label position=\"floating\">Status</ion-label>\n    <ion-select [(ngModel)]=\"status\">\n      <ion-select-option value=\"1\">Created</ion-select-option>\n      <ion-select-option value=\"6\">Completed</ion-select-option>\n      <ion-select-option value=\"3\">Checkin</ion-select-option>\n      <ion-select-option value=\"2\">Accepted</ion-select-option>\n      <ion-select-option value=\"8\">Rejected</ion-select-option>\n      <ion-select-option value=\"4\">Checkout</ion-select-option>\n      <ion-select-option value=\"5\">Break</ion-select-option>\n      <ion-select-option value=\"0\">Closed</ion-select-option>\n      <ion-select-option value=\"7\">Reopen</ion-select-option>\n    </ion-select>\n  </ion-item> -->\n\n  <ion-item>\n    <ion-label position=\"floating\">Priority</ion-label>\n    <ion-select [(ngModel)]=\"priority\">\n      <ion-select-option value=\"0\">Low</ion-select-option>\n      <ion-select-option value=\"1\">Medium</ion-select-option>\n      <ion-select-option value=\"2\">High</ion-select-option>\n    </ion-select>\n  </ion-item>\n\n  <ion-item>\n    <ion-label position=\"floating\">Address</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"address\" name=\"address\" (ionChange)=\"getAdd($event)\" required=\"true\"></ion-input>\n  </ion-item>\n\n  <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"createTask()\">CREATE</ion-button>\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar  class=\"toolBar\">\r\n      <ion-buttons slot=\"start\">\r\n          <ion-buttons slot=\"start\">\r\n              <ion-menu-button></ion-menu-button>\r\n          </ion-buttons>\r\n      </ion-buttons>\r\n    <ion-title>New Task</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Project</ion-label>\r\n    <ion-select [(ngModel)]=\"selectedProject\" required=\"true\">\r\n      <ion-select-option *ngFor=\"let project of projects\" [value]=\"project.id\">{{ project.name }}</ion-select-option>\r\n    </ion-select>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Task Name</ion-label>\r\n    <ion-input type=\"text\" [(ngModel)]=\"taskName\" name=\"taskName\" (ionBlur)=\"checkTaskName()\" required=\"true\"></ion-input>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Task Description</ion-label>\r\n    <ion-input type=\"text\" [(ngModel)]=\"taskDescription\" name=\"taskDescription\" required=\"true\"></ion-input>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Expected Start Date</ion-label>\r\n     <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"startDate\" name=\"title\" required=\"true\"></ion-datetime>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Expected End Date</ion-label>\r\n     <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"endDate\" name=\"title\" required=\"true\"></ion-datetime>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Expected Duration(Hrs)</ion-label>\r\n    <ion-input type=\"number\" [(ngModel)]=\"duration\" name=\"title\" required=\"true\"></ion-input>\r\n  </ion-item>\r\n  \r\n  <ion-item>\r\n    <ion-label position=\"floating\">Priority</ion-label>\r\n    <ion-select [(ngModel)]=\"priority\">\r\n      <ion-select-option value=\"0\">Low</ion-select-option>\r\n      <ion-select-option value=\"1\">Medium</ion-select-option>\r\n      <ion-select-option value=\"2\">High</ion-select-option>\r\n    </ion-select>\r\n  </ion-item>\r\n\r\n  <ion-item>\r\n    <ion-label position=\"floating\">Address</ion-label>\r\n    <ion-input type=\"text\" [(ngModel)]=\"address\" name=\"address\" (ionChange)=\"getAdd($event)\" required=\"true\"></ion-input>\r\n  </ion-item>\r\n\r\n  <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"createTask()\">CREATE</ion-button>\r\n</ion-content>";
     /***/
   },
 
@@ -73,7 +73,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n    <ion-toolbar  class=\"toolBar\">\n        <ion-buttons slot=\"start\">\n            <ion-buttons slot=\"start\">\n                <!-- <ion-menu-button></ion-menu-button> -->\n            </ion-buttons>\n            \n            <ion-button class=\"btnHome\"  (click)=\"goBack()\">\n              <i class=\"fas fa-arrow-left\"></i> &nbsp;\n            </ion-button>\n        </ion-buttons>\n      <ion-title *ngIf=\"details\">{{details.taskName}}</ion-title>\n\n      <!-- <button class=\"menuBtn\"> -->\n          <ion-icon name=\"ellipsis-vertical\" *ngIf=\" details && details.stage == 'Created'\" class=\"menuBtn\"   [style.color]=\"'white'\"></ion-icon>\n          <!-- <ion-icon slot=\"icon-only\" name=\"more\" ></ion-icon> -->\n      <!-- </button> -->\n      \n    </ion-toolbar>\n  </ion-header>\n  <ul class=\"breadcrumb\">\n    <li><span (click)=\"breadcrumb();\">Tasks</span>&nbsp;<i class=\"fas fa-chevron-right\"></i>&nbsp;</li>\n    <li class=\"active\">Task Details</li>\n  </ul>\n  <ion-content>\n\n        <ion-spinner *ngIf=\"showSpinner == true\" color=\"secondary\" name=\"circles\"></ion-spinner>\n\n      <ion-grid *ngIf=\"details && resonTab == false\">\n\n        <ion-row class=\"tabHead\">\n          <ion-col>Project : </ion-col> <ion-col>{{details.project}}</ion-col>\n        </ion-row>\n        \n        <ion-row class=\"tabHead\">\n            <ion-col>Description : </ion-col> <ion-col>{{details.description}}</ion-col>\n        </ion-row>\n\n        <ion-row class=\"tabHead\">\n            <ion-col>Job Duration : </ion-col> <ion-col>{{details.start_date | date}} - {{details.finish_date | date}}</ion-col>\n        </ion-row>\n\n          <ion-row class=\"tabHead\">\n              <ion-col>Status : </ion-col> <ion-col [ngStyle]=\"{'color': (details.stage =='Created') ? '#3dc2ff' : '' || (details.stage =='Completed') ? 'green' : '' || (details.stage =='Accepted') ? '#e0ac08' : ''}\">{{details.stage}}</ion-col>\n          </ion-row>\n\n          <ion-row class=\"tabHead\">\n              <ion-col>Priority : </ion-col> <ion-col [ngStyle]=\"{'color': (details.priority =='Medium' || details.priority =='medium') ? '#ffc409' : '' || (details.priority =='Low' || details.priority =='low') ? '#28ba62' : '' || (details.priority =='High' || details.priority =='high') ? '#ff0000' : ''}\">{{details.priority}}</ion-col>\n          </ion-row>\n\n          <!-- <ion-row class=\"tabHead\">\n              <ion-col>Est.Time : </ion-col> <ion-col>{{details.expectedhours}} Hrs</ion-col>\n          </ion-row> -->\n\n          <ion-row class=\"tabHead\" *ngIf=\"details.stage=='Completed'\">\n              <ion-col>Completed Date : </ion-col> <ion-col>{{details.finish_date | date}}</ion-col>\n          </ion-row>\n\n          <!-- <ion-row class=\"tabHead\" *ngIf=\"details.stage=='Completed'\">\n              <ion-col>Spent Time : </ion-col> <ion-col>{{totalSpent}}</ion-col>\n          </ion-row> -->\n\n          <ion-row class=\"tabHead\">\n            <ion-col>Address : </ion-col> <ion-col>{{address}}</ion-col>\n        </ion-row>\n\n    <div *ngIf=\"details.stage == 'Created' || details.stage == 'Reopen'\">\n        <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"accept()\">Accept</ion-button>\n        <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"rej()\" >Reject</ion-button>\n    </div>\n      \n      </ion-grid>\n\n      <!-- <div class=\"top\" *ngIf=\"resonTab == true\">\n    \n          <ion-item>\n            <ion-label position=\"floating\">Reason To Reject</ion-label>\n            <ion-input type=\"text\" [(ngModel)]=\"reason\" name=\"title\"></ion-input>\n          </ion-item>\n    \n          <ion-button class=\"rejc\" expand=\"full\" color=\"#00aaa0\" (click)=\"reasonToRej()\">Reject</ion-button>\n      </div> -->\n\n  </ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\r\n    <ion-toolbar class=\"toolBar\">\r\n        <ion-buttons slot=\"start\">\r\n            <ion-buttons slot=\"start\">\r\n            </ion-buttons>\r\n            <ion-button class=\"btnHome\"  (click)=\"goBack()\">\r\n              <!-- <i class=\"fas fa-arrow-left\"></i> &nbsp; -->\r\n              <ion-icon name=\"chevron-back-outline\"></ion-icon>back\r\n            </ion-button>\r\n        </ion-buttons>\r\n      <ion-title>{{'Task details'|translate}}</ion-title>\r\n        <!-- <ion-icon name=\"ellipsis-vertical\" *ngIf=\" details && details.stage == 'Created'\" class=\"menuBtn\"></ion-icon> -->\r\n        <!-- [style.color]=\"'white'\" -->\r\n    </ion-toolbar>\r\n</ion-header>\r\n<!-- <ul class=\"breadcrumb\">\r\n  <li><span (click)=\"breadcrumb();\">{{'Tasks'|translate}}</span>&nbsp;<i class=\"fas fa-chevron-right\"></i>&nbsp;</li>\r\n  <li class=\"active\">{{'Task details'|translate}}</li>\r\n</ul> -->\r\n<!-- <ion-content>\r\n  <ion-spinner *ngIf=\"showSpinner == true\" color=\"secondary\" name=\"circles\"></ion-spinner>\r\n  <ion-grid *ngIf=\"details && resonTab == false\">\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Project'|translate}} : </ion-col> <ion-col>{{details.project}}</ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Date'|translate}} : </ion-col> <ion-col>{{details.start_date | date:\"MM-dd-yyyy\"}}</ion-col>\r\n    </ion-row>\r\n    \r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Shift'|translate}} : </ion-col> <ion-col>{{details.shiftid | translate}}</ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Scheduled time'|translate}} : </ion-col> <ion-col>{{details.start_date | date: \"shortTime\"}} - {{details.finish_date | date: \"shortTime\"}}</ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Status'|translate}} : </ion-col> <ion-col [ngStyle]=\"{'color': (details.stage =='Created') ? '#3dc2ff' : '' || (details.stage =='Completed') ? 'green' : '' || (details.stage =='Accepted') ? '#e0ac08' : ''}\">{{details.stage|translate}}</ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Priority'|translate}} : </ion-col> <ion-col [ngStyle]=\"{'color': (details.priority =='Medium' || details.priority =='medium') ? '#ffc409' : '' || (details.priority =='Low' || details.priority =='low') ? '#28ba62' : '' || (details.priority =='High' || details.priority =='high') ? '#ff0000' : ''}\">{{details.priority|translate}}</ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"tabHead\" *ngIf=\"details.stage=='Completed'\">\r\n        <ion-col>{{'Completed date'|translate}} : </ion-col> <ion-col>{{details.finish_date | date:\"MM-dd-yyyy\"}}</ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"tabHead\">\r\n      <ion-col>{{'Address'|translate}} : </ion-col> \r\n      <ion-col>\r\n        {{details.address1}}<br/>\r\n        {{details.address2}}<br/>\r\n        {{details.city}}-{{details.zipcode}}<br/>\r\n        {{details.state}}\r\n        {{details.Country}}\r\n      </ion-col>\r\n    </ion-row>\r\n    <div *ngIf=\"details.stage == 'Created' || details.stage == 'Reopen'\">\r\n      <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"accept()\">{{'Accept'|translate}}</ion-button>\r\n      <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"rej()\" >{{'Reject'|translate}}</ion-button>\r\n    </div>\r\n  </ion-grid>\r\n</ion-content> -->\r\n\r\n<ion-content>\r\n  <ion-spinner *ngIf=\"showSpinner == true\" color=\"secondary\" name=\"circles\"></ion-spinner>\r\n  <ion-grid *ngIf=\"details && resonTab == false\">\r\n    <ion-card>\r\n      <ion-card-header class=\"card_desgn\">\r\n        <div class=\"main\">{{details.taskName}}</div>\r\n        <span class=\"owner\">{{details.project}}</span>\r\n        <span class=\"email_dt pos\" [ngStyle]=\"{'color': (details.stage =='Created') ? '#3382f8' : '' || (details.stage =='Completed') ? '#00b71c' : '' || (details.stage =='Accepted') ? '#ffa500' : ''}\">\r\n          {{details.stage|translate}}\r\n        </span>\r\n      </ion-card-header>\r\n\r\n      <ion-card-content>\r\n        <ion-row>\r\n          <ion-col>\r\n            <div class=\"owner\">{{'Date'|translate}}</div>\r\n            <span class=\"org\">{{details.start_date | date:\"MM-dd-yyyy\"}}</span>\r\n          </ion-col>\r\n          <ion-col>\r\n            <div class=\"owner\">{{'Scheduled time'|translate}}</div>\r\n            <span class=\"org\">{{details.start_date | date: \"shortTime\"}} - {{details.finish_date | date: \"shortTime\"}}</span>\r\n          </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row>\r\n          <ion-col>\r\n            <div class=\"owner\">{{'Priority'|translate}}</div>\r\n            <span class=\"org\" [ngStyle]=\"{'color': (details.priority =='Medium' || details.priority =='medium') ? '#ffc409' : '' || (details.priority =='Low' || details.priority =='low') ? '#28ba62' : '' || (details.priority =='High' || details.priority =='high') ? '#ff0000' : ''}\">{{details.priority|translate}}</span>\r\n          </ion-col>\r\n\r\n          <ion-col>\r\n            <div class=\"owner\">{{'Tasks Location'|translate}}</div>\r\n            <span class=\"org\">{{details.loc_name}}</span>\r\n          </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row>\r\n          <ion-col size=\"8\">\r\n            <div class=\"owner\">{{'Address'|translate}}</div>\r\n            <span class=\"org\">\r\n              {{details.address1}}&nbsp;\r\n              {{details.address2}}&nbsp;\r\n              {{details.city}}&nbsp;{{details.zipcode}}&nbsp;\r\n              {{details.state}}\r\n              {{details.Country}}\r\n            </span>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-card-content>\r\n    </ion-card>\r\n    <ion-row class=\"ryt\">\r\n      <ion-col size=\"12\">\r\n        <div *ngIf=\"details.stage == 'Created' || details.stage == 'Reopen'\"> \r\n          <button ion-button class=\"bottom-button rej\" (click)=\"rej()\">\r\n            {{'Reject'|translate}}\r\n          </button> \r\n          <button ion-button class=\"bottom-button accept\" (click)=\"accept()\">\r\n            {{'Accept'|translate}}\r\n          </button>\r\n        </div>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <h2 class=\"nodat\" *ngIf=\"nodat == true\">No Data</h2>\r\n</ion-content>";
     /***/
   },
 
@@ -93,7 +93,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar  class=\"toolBar\">\n      <ion-buttons slot=\"start\">\n          <ion-buttons slot=\"start\">\n              <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          \n          <!-- <ion-button class=\"btnHome\" *ngIf=\"enableRequest == true\" (click)=\"goBack()\">\n            <i class=\"fas fa-arrow-left\"></i> &nbsp;\n          </ion-button> -->\n      </ion-buttons>\n    <ion-title>Tasks Locations</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n<ul class=\"breadcrumb\">\n  <li><span (click)=\"breadcrumb();\">Tasks</span>&nbsp;<i class=\"fas fa-chevron-right\"></i>&nbsp;</li>\n  <li class=\"active\">Task Locations</li>\n</ul>\n      <ion-grid [style.padding]=\"'0'\">\n          <ion-row>\n            <ion-col  [style.background]=\"'#0a7fcf'\" (click)=\"goToLi('Created')\">\n              <!-- Assign: {{taskList.length}} -->\n              Assigned :{{assignedCount}}\n            </ion-col>\n            <ion-col [style.background]=\"'#eaa200'\" (click)=\"goToLi('Accepted')\">\n              Accepted: {{accepCount}}\n            </ion-col>\n            \n            <ion-col [style.background]=\"'#9d9fa6'\" (click)=\"goToLi('ReOpen')\">\n              ReOpen: {{reOpenCount}}\n            </ion-col>\n            \n          </ion-row>\n      </ion-grid>\n      <ion-grid [style.padding]=\"'0'\">\n        <ion-row  *ngIf=\"taskList\">\n            <ion-col [style.background]=\"'#5fb543'\" (click)=\"goToLi('Completed')\">\n                Completed: {{completCount}}\n            </ion-col>\n            <ion-col [style.background]=\"'#eb445a'\" (click)=\"goToLi('Rejected')\">\n                Rejected: {{rejectCount}}\n            </ion-col>\n\n            <ion-col [style.background]=\"'#577590'\" (click)=\"goToLi('All')\">\n              All: {{taskList.length}}\n            </ion-col>\n        </ion-row>\n      </ion-grid> \n\n  <agm-map style=\"height:500px\" [zoom]='12' [latitude]=\"lat\" [longitude]=\"lon\" [usePanning]=\"true\">   \n    <agm-marker *ngFor=\"let d of details\" (markerClick)=\"clickedMarker(infowindow)\" [latitude]=\"d.lat\" [longitude]=\"d.lon\" [iconUrl]=\"{'url': (d.stage == 'Created')?'assets/icon/marker_blue.png':'' || (d.stage == 'Accepted')?'assets/icon/marker_orange.png':'' || (d.stage == 'Completed')?'assets/icon/marker_green.png':'' || (d.stage == 'ReOpen')?'assets/icon/marker_grey.png':''|| (d.stage == 'Rejected')?'assets/icon/marker_red.png':''}\">\n      <agm-info-window #infowindow>\n        <b>{{d.taskname}}</b><br/>{{d.description}}<br/>\n        {{d.address}}\n      </agm-info-window>\n    </agm-marker>\n  </agm-map>\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar  class=\"toolBar\">\r\n    <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>{{'Tasks Location'|translate}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ul class=\"breadcrumb\">\r\n    <li><span (click)=\"breadcrumb();\">{{'Tasks'|translate}}</span>&nbsp;<i class=\"fas fa-chevron-right\"></i>&nbsp;</li>\r\n    <li class=\"active\">{{'Tasks Location'|translate}}</li>\r\n  </ul>\r\n  <ion-grid [style.padding]=\"'0'\">\r\n    <ion-row>\r\n      <ion-col  [style.background]=\"'#0a7fcf'\" (click)=\"goToLi('Created')\">\r\n        {{'Assigned'|translate}} :{{assignedCount}}\r\n      </ion-col>\r\n      <ion-col [style.background]=\"'#eaa200'\" (click)=\"goToLi('Accepted')\">\r\n        {{'Accepted'|translate}}: {{accepCount}}\r\n      </ion-col>\r\n      \r\n      <ion-col [style.background]=\"'#9d9fa6'\" (click)=\"goToLi('ReOpen')\">\r\n        {{'Reopen'|translate}}: {{reOpenCount}}\r\n      </ion-col>      \r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid [style.padding]=\"'0'\">\r\n    <ion-row  *ngIf=\"taskList\">\r\n        <ion-col [style.background]=\"'#5fb543'\" (click)=\"goToLi('Completed')\">\r\n          {{'Completed'|translate}}: {{completCount}}\r\n        </ion-col>\r\n        <ion-col [style.background]=\"'#eb445a'\" (click)=\"goToLi('Rejected')\">\r\n          {{'Rejected'|translate}}: {{rejectCount}}\r\n        </ion-col>\r\n\r\n        <ion-col [style.background]=\"'#577590'\" (click)=\"goToLi('All')\">\r\n          {{'Total'|translate}}: {{taskList.length}}\r\n        </ion-col>\r\n    </ion-row>\r\n  </ion-grid> \r\n\r\n  <agm-map style=\"height:500px\" [zoom]='11' [latitude]=\"lat\" [longitude]=\"lon\" [usePanning]=\"true\">   \r\n    <agm-marker *ngFor=\"let d of details\" (markerClick)=\"clickedMarker(infowindow)\" [latitude]=\"d.lat\" [longitude]=\"d.lon\" [iconUrl]=\"{'url': (d.stage == 'Created')?'assets/icon/marker_blue.png':'' || (d.stage == 'Accepted')?'assets/icon/marker_orange.png':'' || (d.stage == 'Completed')?'assets/icon/marker_green.png':'' || (d.stage == 'ReOpen')?'assets/icon/marker_grey.png':''|| (d.stage == 'Rejected')?'assets/icon/marker_red.png':''}\">\r\n      <agm-info-window #infowindow>\r\n        <b>{{d.taskname}}</b><br/>{{d.description}}<br/>\r\n        {{d.address}}\r\n      </agm-info-window>\r\n    </agm-marker>\r\n  </agm-map>\r\n  \r\n</ion-content>";
     /***/
   },
 
@@ -113,7 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".taskName {\n  font-weight: 600;\n  text-transform: capitalize;\n  font-size: 0.9rem;\n  margin: 5px 0px;\n}\n\n.des {\n  color: #848d95;\n  margin: 5px 0px;\n}\n\nion-col {\n  color: white;\n  margin: 1px 2px;\n}\n\nion-spinner {\n  margin: 20% 45%;\n}\n\nh5 {\n  color: #55565b !important;\n}\n\n/* Breadcrumb */\n\n.breadcrumb {\n  padding: 5px;\n  list-style: none;\n  background: #0b76aa;\n  font-weight: normal;\n  color: #FFF;\n  overflow: hidden;\n  margin: 0;\n  font-size: 14px;\n}\n\n.breadcrumb li {\n  display: inline-block;\n  color: #FFF;\n}\n\n.breadcrumb span {\n  color: #C7D9E2;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.cur {\n  cursor: pointer;\n}\n\n.nodat {\n  color: #b3a2a2 !important;\n}\n\n.breadcrumb .fa-chevron-right {\n  color: #C7D9E2 !important;\n}\n\n.view-container {\n  overflow: hidden;\n}\n\nion-icon {\n  font-size: 18px;\n  margin-right: 6px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy9teS10YXNrL0U6XFxDRVBcXEZsdWVudE1XTV9DRVBfdG1zL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcbXktdGFza1xcbXktdGFzay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy9teS10YXNrL215LXRhc2suY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxnQkFBQTtFQUNBLDBCQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0FDQ0o7O0FEQ0E7RUFDSSxjQUFBO0VBQ0EsZUFBQTtBQ0VKOztBREFBO0VBQ0ksWUFBQTtFQUNBLGVBQUE7QUNHSjs7QURBQTtFQUNJLGVBQUE7QUNHSjs7QUREQTtFQUNFLHlCQUFBO0FDSUY7O0FEREEsZUFBQTs7QUFDQTtFQUNJLFlBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBRUEsbUJBQUE7RUFDQSxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQ0dKOztBRERFO0VBQ0UscUJBQUE7RUFDQSxXQUFBO0FDSUo7O0FERkU7RUFDRSxjQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0FDS0o7O0FESEU7RUFDRSxlQUFBO0FDTUo7O0FESkU7RUFDRSx5QkFBQTtBQ09KOztBRExFO0VBR0UseUJBQUE7QUNNSjs7QURFRTtFQUNFLGdCQUFBO0FDQ0o7O0FEQ0U7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci90bXMvbXktdGFzay9teS10YXNrLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRhc2tOYW1le1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gICAgZm9udC1zaXplOiAwLjlyZW07XHJcbiAgICBtYXJnaW46IDVweCAwcHg7XHJcbn1cclxuLmRlc3tcclxuICAgIGNvbG9yOiAjODQ4ZDk1O1xyXG4gICAgbWFyZ2luOiA1cHggMHB4O1xyXG59XHJcbmlvbi1jb2x7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIG1hcmdpbjoxcHggMnB4O1xyXG59XHJcblxyXG5pb24tc3Bpbm5lcntcclxuICAgIG1hcmdpbjogMjAlIDQ1JTtcclxufVxyXG5oNSB7XHJcbiAgY29sb3I6ICM1NTU2NWIgIWltcG9ydGFudDtcclxufVxyXG5cclxuLyogQnJlYWRjcnVtYiAqL1xyXG4uYnJlYWRjcnVtYiB7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBsaXN0LXN0eWxlOiBub25lO1xyXG4gICAgYmFja2dyb3VuZDojMGI3NmFhO1xyXG4gICAgLy8gaGVpZ2h0OiA0MHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgIGNvbG9yOiAjRkZGO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICB9XHJcbiAgLmJyZWFkY3J1bWIgbGkge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgY29sb3I6ICNGRkY7XHJcbiAgfVxyXG4gIC5icmVhZGNydW1iIHNwYW4ge1xyXG4gICAgY29sb3I6ICNDN0Q5RTI7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG4gIC5jdXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIH1cclxuICAubm9kYXQge1xyXG4gICAgY29sb3I6ICNiM2EyYTIgIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmJyZWFkY3J1bWIgLmZhLWNoZXZyb24tcmlnaHQge1xyXG4gICAgLy8gcGFkZGluZzogMCAxMHB4O1xyXG4gICAgLy8gZm9udC1zaXplOiAxM3B4O1xyXG4gICAgY29sb3I6ICNDN0Q5RTIgIWltcG9ydGFudDtcclxuICB9XHJcbiAgXHJcbiAgLy8gICBAbWVkaWEgKG1heC13aWR0aDogNjAwcHgpIHtcclxuICAvLyAgICAgdWwge1xyXG4gIC8vICAgICAgIG1hcmdpbi1sZWZ0OiAtMzAlO1xyXG4gIC8vICAgICB9XHJcbiAgLy8gICB9XHJcbiAgLnZpZXctY29udGFpbmVyIHtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgfVxyXG4gIGlvbi1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgIG1hcmdpbi1yaWdodDogNnB4O1xyXG4gIH0iLCIudGFza05hbWUge1xuICBmb250LXdlaWdodDogNjAwO1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgZm9udC1zaXplOiAwLjlyZW07XG4gIG1hcmdpbjogNXB4IDBweDtcbn1cblxuLmRlcyB7XG4gIGNvbG9yOiAjODQ4ZDk1O1xuICBtYXJnaW46IDVweCAwcHg7XG59XG5cbmlvbi1jb2wge1xuICBjb2xvcjogd2hpdGU7XG4gIG1hcmdpbjogMXB4IDJweDtcbn1cblxuaW9uLXNwaW5uZXIge1xuICBtYXJnaW46IDIwJSA0NSU7XG59XG5cbmg1IHtcbiAgY29sb3I6ICM1NTU2NWIgIWltcG9ydGFudDtcbn1cblxuLyogQnJlYWRjcnVtYiAqL1xuLmJyZWFkY3J1bWIge1xuICBwYWRkaW5nOiA1cHg7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG4gIGJhY2tncm91bmQ6ICMwYjc2YWE7XG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG4gIGNvbG9yOiAjRkZGO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTRweDtcbn1cblxuLmJyZWFkY3J1bWIgbGkge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGNvbG9yOiAjRkZGO1xufVxuXG4uYnJlYWRjcnVtYiBzcGFuIHtcbiAgY29sb3I6ICNDN0Q5RTI7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uY3VyIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ubm9kYXQge1xuICBjb2xvcjogI2IzYTJhMiAhaW1wb3J0YW50O1xufVxuXG4uYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XG4gIGNvbG9yOiAjQzdEOUUyICFpbXBvcnRhbnQ7XG59XG5cbi52aWV3LWNvbnRhaW5lciB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbmlvbi1pY29uIHtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBtYXJnaW4tcmlnaHQ6IDZweDtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".entireRow {\n  width: 100%;\n}\n\n.taskName {\n  font-weight: 600;\n  text-transform: capitalize;\n  font-size: 0.9rem;\n  margin: 5px 0px;\n  color: #55565b !important;\n}\n\n.btnHome {\n  color: #fff;\n}\n\n.des {\n  color: #848d95;\n  margin: 5px 0px;\n  font-size: 0.9rem;\n}\n\n.stage {\n  font-size: 0.9rem;\n  margin: 5px 0px;\n  vertical-align: middle;\n}\n\n.gen {\n  width: 51px;\n  height: 45px;\n  border-radius: 6px;\n  background-color: #fff9ea;\n  margin-top: 0.5rem;\n  color: #3382f8;\n}\n\nion-button {\n  --box-shadow:none;\n}\n\n.search {\n  margin: 0 1.7px 1.7px 0;\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: #3382f8;\n}\n\nion-spinner {\n  margin: 20% 45%;\n}\n\nh5 {\n  color: #55565b !important;\n}\n\n/* Breadcrumb */\n\n.breadcrumb {\n  padding: 5px;\n  list-style: none;\n  background: #0b76aa;\n  font-weight: normal;\n  color: #FFF;\n  overflow: hidden;\n  margin: 0;\n  font-size: 1rem;\n}\n\n.breadcrumb li {\n  display: inline-block;\n  color: #FFF;\n}\n\n.breadcrumb span {\n  color: #C7D9E2;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.cur {\n  width: 160px;\n  height: 90px;\n  margin: 10px 10px;\n  padding: 16px 6px 21px;\n  border-radius: 10px;\n}\n\n.cnt {\n  width: 100%;\n  height: 39px;\n  font-family: Poppins;\n  font-size: 28px;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: 0.84px;\n  text-align: center;\n}\n\n.txts {\n  width: 100%;\n  height: 15px;\n  font-family: Poppins;\n  font-size: 10px;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: 1px;\n  text-align: center;\n}\n\n.nodat {\n  color: #b3a2a2 !important;\n}\n\n.breadcrumb .fa-chevron-right {\n  color: #C7D9E2 !important;\n}\n\n.view-container {\n  overflow: hidden;\n}\n\nion-icon {\n  font-size: 1.2rem;\n  margin-right: 6px;\n}\n\n.primary1 {\n  --border-color: var(--ion-color-primary, #3382f8);\n}\n\n.lbl {\n  --color: var(--ion-item-color, var(--ion-text-color, #818181));\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy9teS10YXNrL0M6XFxVc2Vyc1xcbWFudW1cXERvd25sb2Fkc1xcZmx1ZW50Y2VwVE1TLW1hc3RlclxcZmx1ZW50Y2VwVE1TL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcbXktdGFza1xcbXktdGFzay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy9teS10YXNrL215LXRhc2suY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0FDQ0Y7O0FEQ0E7RUFDSSxnQkFBQTtFQUNBLDBCQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7QUNFSjs7QURBQTtFQUNFLFdBQUE7QUNHRjs7QURLQTtFQUNJLGNBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7QUNGSjs7QURJQTtFQUNFLGlCQUFBO0VBQ0EsZUFBQTtFQUVBLHNCQUFBO0FDRkY7O0FES0E7RUFHRSxXQUFBO0VBQ0EsWUFBQTtFQUdBLGtCQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7QUNORjs7QURTQTtFQUNFLGlCQUFBO0FDTkY7O0FEUUE7RUFHRSx1QkFBQTtFQUVBLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0FDUkY7O0FEVUE7RUFDSSxlQUFBO0FDUEo7O0FEU0E7RUFDRSx5QkFBQTtBQ05GOztBRFNBLGVBQUE7O0FBQ0E7RUFDSSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtFQUVBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsU0FBQTtFQUNBLGVBQUE7QUNQSjs7QURTRTtFQUNFLHFCQUFBO0VBQ0EsV0FBQTtBQ05KOztBRFFFO0VBQ0UsY0FBQTtFQUNBLHFCQUFBO0VBQ0EsZUFBQTtBQ0xKOztBRE9FO0VBS0UsWUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7QUNSSjs7QURXRTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBRUEsb0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0FDVEo7O0FEV0U7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUVBLG9CQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQ1RKOztBRFlFO0VBQ0UseUJBQUE7QUNUSjs7QURXRTtFQUNFLHlCQUFBO0FDUko7O0FEVUU7RUFDRSxnQkFBQTtBQ1BKOztBRFNFO0VBQ0UsaUJBQUE7RUFDQSxpQkFBQTtBQ05KOztBRFVFO0VBQ0UsaURBQUE7QUNQSjs7QURTRTtFQUNFLDhEQUFBO0FDTkoiLCJmaWxlIjoic3JjL2FwcC9mb2xkZXIvdG1zL215LXRhc2svbXktdGFzay5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lbnRpcmVSb3d7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLnRhc2tOYW1le1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gICAgZm9udC1zaXplOiAwLjlyZW07XHJcbiAgICBtYXJnaW46IDVweCAwcHg7XHJcbiAgICBjb2xvcjogIzU1NTY1YiAhaW1wb3J0YW50O1xyXG59XHJcbi5idG5Ib21lIHtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG4vLyAuZ2Vue1xyXG4vLyAgIGNvbG9yOmJsYWNrO1xyXG4vLyAgIGJhY2tncm91bmQ6ICNkZGQ7XHJcbi8vICAgbWFyZ2luLXRvcDogMC41cmVtO1xyXG4vLyB9XHJcblxyXG4uZGVze1xyXG4gICAgY29sb3I6ICM4NDhkOTU7XHJcbiAgICBtYXJnaW46IDVweCAwcHg7XHJcbiAgICBmb250LXNpemU6IDAuOXJlbTtcclxufVxyXG4uc3RhZ2Uge1xyXG4gIGZvbnQtc2l6ZTogMC45cmVtO1xyXG4gIG1hcmdpbjogNXB4IDBweDtcclxuICAvLyBkaXNwbGF5OiB0YWJsZS1jZWxsO1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcblxyXG59XHJcbi5nZW57XHJcbiAgLy8gY29sb3I6YmxhY2s7XHJcbiAgLy8gYmFja2dyb3VuZDogI2RkZDtcclxuICB3aWR0aDogNTFweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgLy8gbWFyZ2luOiAyOXB4IDIwcHggNDNweCAyMi41cHg7XHJcbiAgLy8gcGFkZGluZzogMTVweCAxNy4zcHggMTQuNHB4IDE4LjJweDtcclxuICBib3JkZXItcmFkaXVzOiA2cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjllYTtcclxuICBtYXJnaW4tdG9wOiAwLjVyZW07XHJcbiAgY29sb3I6ICMzMzgyZjg7XHJcbiAgLy8gYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbmlvbi1idXR0b257XHJcbiAgLS1ib3gtc2hhZG93Om5vbmU7XHJcbn1cclxuLnNlYXJjaCB7XHJcbiAgLy8gd2lkdGg6IDEzLjhweDtcclxuICAvLyBoZWlnaHQ6IDEzLjhweDtcclxuICBtYXJnaW46IDAgMS43cHggMS43cHggMDtcclxuICAvLyBib3JkZXI6IHNvbGlkIDEuNXB4ICMzMzgyZjg7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgZm9udC13ZWlnaHQ6IDcwMDtcclxuICBjb2xvcjogIzMzODJmODtcclxufVxyXG5pb24tc3Bpbm5lcntcclxuICAgIG1hcmdpbjogMjAlIDQ1JTtcclxufVxyXG5oNSB7XHJcbiAgY29sb3I6ICM1NTU2NWIgIWltcG9ydGFudDtcclxufVxyXG5cclxuLyogQnJlYWRjcnVtYiAqL1xyXG4uYnJlYWRjcnVtYiB7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBsaXN0LXN0eWxlOiBub25lO1xyXG4gICAgYmFja2dyb3VuZDojMGI3NmFhO1xyXG4gICAgLy8gaGVpZ2h0OiA0MHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgIGNvbG9yOiAjRkZGO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGZvbnQtc2l6ZTogMXJlbTtcclxuICB9XHJcbiAgLmJyZWFkY3J1bWIgbGkge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgY29sb3I6ICNGRkY7XHJcbiAgfVxyXG4gIC5icmVhZGNydW1iIHNwYW4ge1xyXG4gICAgY29sb3I6ICNDN0Q5RTI7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG4gIC5jdXIge1xyXG4gICAgLy8gY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgLy8gY29sb3I6ICNmZmY7XHJcbiAgICAvLyBtYXJnaW46IDEwcHg7XHJcbiAgICAvLyBoZWlnaHQ6IDkwcHg7XHJcbiAgICB3aWR0aDogMTYwcHg7XHJcbiAgICBoZWlnaHQ6IDkwcHg7XHJcbiAgICBtYXJnaW46IDEwcHggMTBweDtcclxuICAgIHBhZGRpbmc6IDE2cHggNnB4IDIxcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgLy8gYmFja2dyb3VuZC1jb2xvcjogI2VkZmZmODtcclxuICB9XHJcbiAgLmNudCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMzlweDtcclxuICAgIC8vIG1hcmdpbjogMCAyMnB4IDEycHg7XHJcbiAgICBmb250LWZhbWlseTogUG9wcGlucztcclxuICAgIGZvbnQtc2l6ZTogMjhweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICBmb250LXN0cmV0Y2g6IG5vcm1hbDtcclxuICAgIGZvbnQtc3R5bGU6IG5vcm1hbDtcclxuICAgIGxpbmUtaGVpZ2h0OiBub3JtYWw7XHJcbiAgICBsZXR0ZXItc3BhY2luZzogMC44NHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIH1cclxuICAudHh0cyB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTVweDtcclxuICAgIC8vIG1hcmdpbjogMzZweCAwIDA7XHJcbiAgICBmb250LWZhbWlseTogUG9wcGlucztcclxuICAgIGZvbnQtc2l6ZTogMTBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICBmb250LXN0cmV0Y2g6IG5vcm1hbDtcclxuICAgIGZvbnQtc3R5bGU6IG5vcm1hbDtcclxuICAgIGxpbmUtaGVpZ2h0OiBub3JtYWw7XHJcbiAgICBsZXR0ZXItc3BhY2luZzogMXB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgLy8gY29sb3I6ICMzMzgyZjg7XHJcbiAgfVxyXG4gIC5ub2RhdCB7XHJcbiAgICBjb2xvcjogI2IzYTJhMiAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XHJcbiAgICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAudmlldy1jb250YWluZXIge1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICB9XHJcbiAgaW9uLWljb24ge1xyXG4gICAgZm9udC1zaXplOiAxLjJyZW07XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDZweDtcclxuICB9XHJcbiAgLy8gLS1ib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1pb24taXRlbS1ib3JkZXItY29sb3IsIHZhcigtLWlvbi1ib3JkZXItY29sb3IsIHZhcigtLWlvbi1jb2xvci1zdGVwLTE1MCwgcmdiYSgwLCAwLCAwLCAwLjEzKSkpKTtcclxuXHJcbiAgLnByaW1hcnkxIHtcclxuICAgIC0tYm9yZGVyLWNvbG9yOiB2YXIoLS1pb24tY29sb3ItcHJpbWFyeSwgIzMzODJmOCk7XHJcbiAgfVxyXG4gIC5sYmx7XHJcbiAgICAtLWNvbG9yOiB2YXIoLS1pb24taXRlbS1jb2xvciwgdmFyKC0taW9uLXRleHQtY29sb3IsICM4MTgxODEpKTtcclxuICB9IiwiLmVudGlyZVJvdyB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4udGFza05hbWUge1xuICBmb250LXdlaWdodDogNjAwO1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgZm9udC1zaXplOiAwLjlyZW07XG4gIG1hcmdpbjogNXB4IDBweDtcbiAgY29sb3I6ICM1NTU2NWIgIWltcG9ydGFudDtcbn1cblxuLmJ0bkhvbWUge1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmRlcyB7XG4gIGNvbG9yOiAjODQ4ZDk1O1xuICBtYXJnaW46IDVweCAwcHg7XG4gIGZvbnQtc2l6ZTogMC45cmVtO1xufVxuXG4uc3RhZ2Uge1xuICBmb250LXNpemU6IDAuOXJlbTtcbiAgbWFyZ2luOiA1cHggMHB4O1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xufVxuXG4uZ2VuIHtcbiAgd2lkdGg6IDUxcHg7XG4gIGhlaWdodDogNDVweDtcbiAgYm9yZGVyLXJhZGl1czogNnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOWVhO1xuICBtYXJnaW4tdG9wOiAwLjVyZW07XG4gIGNvbG9yOiAjMzM4MmY4O1xufVxuXG5pb24tYnV0dG9uIHtcbiAgLS1ib3gtc2hhZG93Om5vbmU7XG59XG5cbi5zZWFyY2gge1xuICBtYXJnaW46IDAgMS43cHggMS43cHggMDtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG4gIGNvbG9yOiAjMzM4MmY4O1xufVxuXG5pb24tc3Bpbm5lciB7XG4gIG1hcmdpbjogMjAlIDQ1JTtcbn1cblxuaDUge1xuICBjb2xvcjogIzU1NTY1YiAhaW1wb3J0YW50O1xufVxuXG4vKiBCcmVhZGNydW1iICovXG4uYnJlYWRjcnVtYiB7XG4gIHBhZGRpbmc6IDVweDtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgYmFja2dyb3VuZDogIzBiNzZhYTtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgY29sb3I6ICNGRkY7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIG1hcmdpbjogMDtcbiAgZm9udC1zaXplOiAxcmVtO1xufVxuXG4uYnJlYWRjcnVtYiBsaSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgY29sb3I6ICNGRkY7XG59XG5cbi5icmVhZGNydW1iIHNwYW4ge1xuICBjb2xvcjogI0M3RDlFMjtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5jdXIge1xuICB3aWR0aDogMTYwcHg7XG4gIGhlaWdodDogOTBweDtcbiAgbWFyZ2luOiAxMHB4IDEwcHg7XG4gIHBhZGRpbmc6IDE2cHggNnB4IDIxcHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG59XG5cbi5jbnQge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAzOXB4O1xuICBmb250LWZhbWlseTogUG9wcGlucztcbiAgZm9udC1zaXplOiAyOHB4O1xuICBmb250LXdlaWdodDogNjAwO1xuICBmb250LXN0cmV0Y2g6IG5vcm1hbDtcbiAgZm9udC1zdHlsZTogbm9ybWFsO1xuICBsaW5lLWhlaWdodDogbm9ybWFsO1xuICBsZXR0ZXItc3BhY2luZzogMC44NHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi50eHRzIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTVweDtcbiAgZm9udC1mYW1pbHk6IFBvcHBpbnM7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgZm9udC1zdHJldGNoOiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgbGluZS1oZWlnaHQ6IG5vcm1hbDtcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4ubm9kYXQge1xuICBjb2xvcjogI2IzYTJhMiAhaW1wb3J0YW50O1xufVxuXG4uYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XG4gIGNvbG9yOiAjQzdEOUUyICFpbXBvcnRhbnQ7XG59XG5cbi52aWV3LWNvbnRhaW5lciB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbmlvbi1pY29uIHtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIG1hcmdpbi1yaWdodDogNnB4O1xufVxuXG4ucHJpbWFyeTEge1xuICAtLWJvcmRlci1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnksICMzMzgyZjgpO1xufVxuXG4ubGJsIHtcbiAgLS1jb2xvcjogdmFyKC0taW9uLWl0ZW0tY29sb3IsIHZhcigtLWlvbi10ZXh0LWNvbG9yLCAjODE4MTgxKSk7XG59Il19 */";
     /***/
   },
 
@@ -160,13 +160,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic-native/splash-screen/ngx */
+    "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic-native/status-bar/ngx */
+    "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
     var MyTaskComponent = /*#__PURE__*/function () {
-      function MyTaskComponent(tmsServ, router) {
+      function MyTaskComponent(tmsServ, router, platform, splashScreen, statusBar, _location, alertController, translate) {
         _classCallCheck(this, MyTaskComponent);
 
         this.tmsServ = tmsServ;
         this.router = router;
+        this.platform = platform;
+        this.splashScreen = splashScreen;
+        this.statusBar = statusBar;
+        this._location = _location;
+        this.alertController = alertController;
+        this.translate = translate;
         this.accepCount = 0;
         this.reOpenCount = 0;
         this.completCount = 0;
@@ -175,7 +221,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.totalCount = 0;
         this.showSpinner = true;
         this.nodat = false;
+        this.firstDay = new Date().toISOString();
         this.slice = 7;
+        this.locStorageLang = window.localStorage.getItem('lang');
+
+        if (this.locStorageLang == '' || this.locStorageLang == undefined || this.locStorageLang == null) {
+          this.lang = 'en';
+          this.translate.setDefaultLang('en');
+          this.translate.use('en');
+        } else {
+          this.lang = this.locStorageLang;
+          this.translate.use(this.lang);
+        }
+
+        var date = new Date();
+        this.firstDay = moment__WEBPACK_IMPORTED_MODULE_9__(new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1)).format('YYYY-MM-DD');
+        this.lastDay = moment__WEBPACK_IMPORTED_MODULE_9__(new Date(date.getFullYear(), date.getMonth(), date.getDate())).format('YYYY-MM-DD');
       }
 
       _createClass(MyTaskComponent, [{
@@ -183,16 +244,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this = this;
 
+          this.accepCount = 0;
+          this.reOpenCount = 0;
+          this.completCount = 0;
+          this.rejectCount = 0;
+          this.assignedCount = 0;
+          this.totalCount = 0;
+          this.currentDay = new Date();
           this.nodat = false;
           this.router.navigateByUrl('/folder/tms/mytask', {
             skipLocationChange: true
           }).then(function () {
             _this.router.navigate(['/folder/tms/mytask']);
           });
-          this.userId = window.localStorage.getItem('userId'); // alert(this.userId);
+          this.userId = window.localStorage.getItem('userId'); // to get current date
+          // let tDay:string = new Date().toISOString();
 
-          this.tmsServ.getTaskList(this.userId).subscribe(function (res) {
-            // console.log(res);
+          var startDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.firstDay).format('YYYY-MM-DD');
+          var endDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.lastDay).format('YYYY-MM-DD');
+          this.tmsServ.getTaskList(this.userId, startDate, endDate).subscribe(function (res) {
             _this.taskList = res['data'];
             _this.totalCount = _this.taskList.length;
             _this.showSpinner = false;
@@ -211,9 +281,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "switchLanguage",
+        value: function switchLanguage() {
+          window.localStorage.setItem('lang', this.lang);
+          this.translate.use(this.lang);
+        }
+      }, {
         key: "goToDes",
         value: function goToDes(tid, status, name) {
-          // alert(tid)
           if (status == 'Accepted') {
             this.router.navigateByUrl('/folder/punch/in/' + tid);
           } else {
@@ -230,8 +305,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function goToLi(status) {
           var _this2 = this;
 
-          this.tmsServ.getTaskList(this.userId).subscribe(function (res) {
+          this.accepCount = 0;
+          this.reOpenCount = 0;
+          this.completCount = 0;
+          this.rejectCount = 0;
+          this.assignedCount = 0;
+          this.totalCount = 0;
+          this.currentDay = new Date();
+          this.nodat = false;
+          var startDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.firstDay).format('YYYY-MM-DD');
+          var endDate = moment__WEBPACK_IMPORTED_MODULE_9__(this.lastDay).format('YYYY-MM-DD');
+          this.tmsServ.getTaskList(this.userId, startDate, endDate).subscribe(function (res) {
             _this2.taskList = res['data'];
+            _this2.totalCount = _this2.taskList.length;
+            _this2.showSpinner = false;
+            res['data'].map(function (val) {
+              if (val.stage == "Created") _this2.assignedCount++;
+              if (val.stage == "Completed") _this2.completCount++;
+              if (val.stage == "Accepted") _this2.accepCount++;
+              if (val.stage == "Reopen") _this2.reOpenCount++;
+              if (val.stage == "Rejected") _this2.rejectCount++;
+            });
 
             if (status == 'All') {
               _this2.taskList = res['data'];
@@ -249,7 +343,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               } else _this2.nodat = false;
             } // console.log(this.taskList);    
 
-          }); // this.router.navigateByUrl('/folder/tms/taskloc/' +status);    
+          });
         }
       }, {
         key: "doInfinite",
@@ -271,6 +365,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _tms_service__WEBPACK_IMPORTED_MODULE_2__["TmsService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["Platform"]
+      }, {
+        type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"]
+      }, {
+        type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"]
+      }, {
+        type: _angular_common__WEBPACK_IMPORTED_MODULE_7__["Location"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"]
+      }, {
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
       }];
     };
 
@@ -302,7 +408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".gen {\n  color: black;\n  background: #ddd;\n  text-align: center;\n  margin: 5% 35%;\n}\n\n/* Works - pass \"my-custom-class\" in cssClass to increase specificity */\n\n.my-custom-class .alert-wrapper {\n  background: #e5e5e5;\n}\n\n.my-custom-class {\n  --background: #e5e5e5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL0U6XFxDRVBcXEZsdWVudE1XTV9DRVBfdG1zL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcbmV3dGFza1xcbmV3dGFzay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL25ld3Rhc2suY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7QUNDSjs7QURFQSx1RUFBQTs7QUFDQTtFQUNJLG1CQUFBO0FDQ0o7O0FEQ0E7RUFDSSxxQkFBQTtBQ0VKIiwiZmlsZSI6InNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL25ld3Rhc2suY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2Vue1xyXG4gICAgY29sb3I6YmxhY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZGRkO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiA1JSAzNSU7XHJcbn1cclxuXHJcbi8qIFdvcmtzIC0gcGFzcyBcIm15LWN1c3RvbS1jbGFzc1wiIGluIGNzc0NsYXNzIHRvIGluY3JlYXNlIHNwZWNpZmljaXR5ICovXHJcbi5teS1jdXN0b20tY2xhc3MgLmFsZXJ0LXdyYXBwZXIge1xyXG4gICAgYmFja2dyb3VuZDogI2U1ZTVlNTtcclxufVxyXG4ubXktY3VzdG9tLWNsYXNzIHtcclxuICAgIC0tYmFja2dyb3VuZDogI2U1ZTVlNTtcclxufSIsIi5nZW4ge1xuICBjb2xvcjogYmxhY2s7XG4gIGJhY2tncm91bmQ6ICNkZGQ7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luOiA1JSAzNSU7XG59XG5cbi8qIFdvcmtzIC0gcGFzcyBcIm15LWN1c3RvbS1jbGFzc1wiIGluIGNzc0NsYXNzIHRvIGluY3JlYXNlIHNwZWNpZmljaXR5ICovXG4ubXktY3VzdG9tLWNsYXNzIC5hbGVydC13cmFwcGVyIHtcbiAgYmFja2dyb3VuZDogI2U1ZTVlNTtcbn1cblxuLm15LWN1c3RvbS1jbGFzcyB7XG4gIC0tYmFja2dyb3VuZDogI2U1ZTVlNTtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".gen {\n  color: black;\n  background: #ddd;\n  text-align: center;\n  margin: 5% 35%;\n}\n\n/* Works - pass \"my-custom-class\" in cssClass to increase specificity */\n\n.my-custom-class .alert-wrapper {\n  background: #e5e5e5;\n}\n\n.my-custom-class {\n  --background: #e5e5e5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL0M6XFxVc2Vyc1xcbWFudW1cXERvd25sb2Fkc1xcZmx1ZW50Y2VwVE1TLW1hc3RlclxcZmx1ZW50Y2VwVE1TL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcbmV3dGFza1xcbmV3dGFzay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL25ld3Rhc2suY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7QUNDSjs7QURFQSx1RUFBQTs7QUFDQTtFQUNJLG1CQUFBO0FDQ0o7O0FEQ0E7RUFDSSxxQkFBQTtBQ0VKIiwiZmlsZSI6InNyYy9hcHAvZm9sZGVyL3Rtcy9uZXd0YXNrL25ld3Rhc2suY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2Vue1xyXG4gICAgY29sb3I6YmxhY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZGRkO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiA1JSAzNSU7XHJcbn1cclxuXHJcbi8qIFdvcmtzIC0gcGFzcyBcIm15LWN1c3RvbS1jbGFzc1wiIGluIGNzc0NsYXNzIHRvIGluY3JlYXNlIHNwZWNpZmljaXR5ICovXHJcbi5teS1jdXN0b20tY2xhc3MgLmFsZXJ0LXdyYXBwZXIge1xyXG4gICAgYmFja2dyb3VuZDogI2U1ZTVlNTtcclxufVxyXG4ubXktY3VzdG9tLWNsYXNzIHtcclxuICAgIC0tYmFja2dyb3VuZDogI2U1ZTVlNTtcclxufSIsIi5nZW4ge1xuICBjb2xvcjogYmxhY2s7XG4gIGJhY2tncm91bmQ6ICNkZGQ7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luOiA1JSAzNSU7XG59XG5cbi8qIFdvcmtzIC0gcGFzcyBcIm15LWN1c3RvbS1jbGFzc1wiIGluIGNzc0NsYXNzIHRvIGluY3JlYXNlIHNwZWNpZmljaXR5ICovXG4ubXktY3VzdG9tLWNsYXNzIC5hbGVydC13cmFwcGVyIHtcbiAgYmFja2dyb3VuZDogI2U1ZTVlNTtcbn1cblxuLm15LWN1c3RvbS1jbGFzcyB7XG4gIC0tYmFja2dyb3VuZDogI2U1ZTVlNTtcbn0iXX0= */";
     /***/
   },
 
@@ -396,9 +502,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getProject() {
           var _this5 = this;
 
-          // this.companyid=event.detail.value;
           this.tmsServ.getProject(this.companyid).subscribe(function (res) {
-            _this5.projects = res['data']; // console.log(this.projects)
+            _this5.projects = res['data'];
           }, function (err) {// this.errMsg = err;
           });
         }
@@ -453,7 +558,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.nativeGeocoder.forwardGeocode(this.address, options).then(function (result) {
             _this7.lat = result[0].latitude;
-            _this7.lon = result[0].longitude; // alert(JSON.stringify(this.address +' The coordinates are latitude=' + this.lat + ' and longitude=' + this.lon))
+            _this7.lon = result[0].longitude;
           })["catch"](function (error) {
             return console.log(error);
           });
@@ -476,18 +581,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             lat: this.lat,
             lon: this.lon,
             empid: this.empId
-          }; // if((this.selectedProject)(this.taskName)
-          //   (this.taskDescription)
-          //   (this.startDate)
-          //   (this.endDate)
-          //   (this.duration)
-          //   (this.address)){
-          // }
-          // console.log(payload)
-          // alert(JSON.stringify(payload));
-
+          };
           this.tmsServ.createTask(payload).subscribe(function (res) {
-            // console.log(res['data']);
             _this8.router.navigateByUrl('/folder/tms/mytask');
           }, function (err) {
             console.log(err);
@@ -538,7 +633,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".gen {\n  color: white;\n  background: #006495;\n  text-align: center;\n  margin: 7% 10%;\n  margin-top: 20%;\n}\n\n.rejc {\n  color: white;\n  background: #006495;\n  text-align: center;\n  margin-top: 20%;\n}\n\n.menuBtn {\n  position: absolute;\n  bottom: 23%;\n  right: 0px;\n  background: none;\n  font-size: 29px;\n}\n\n.btnHome {\n  color: white;\n}\n\nion-spinner {\n  margin: 20% 45%;\n}\n\n/* Breadcrumb */\n\n.breadcrumb {\n  padding: 5px;\n  list-style: none;\n  background: #0b76aa;\n  font-weight: normal;\n  color: #FFF;\n  overflow: hidden;\n  margin: 0;\n  font-size: 14px;\n}\n\n.breadcrumb li {\n  display: inline-block;\n  color: #FFF;\n}\n\n.breadcrumb span {\n  color: #C7D9E2;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.breadcrumb .fa-chevron-right {\n  color: #C7D9E2 !important;\n}\n\n.view-container {\n  overflow: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrLWRlc2NyaXB0aW9uL0U6XFxDRVBcXEZsdWVudE1XTV9DRVBfdG1zL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcdGFzay1kZXNjcmlwdGlvblxcdGFzay1kZXNjcmlwdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrLWRlc2NyaXB0aW9uL3Rhc2stZGVzY3JpcHRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGNBQUE7RUFDQSxlQUFBO0FDQ0o7O0FEQ0E7RUFDSSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7QUNFSjs7QURBQTtFQUNJLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUNHSjs7QURBRTtFQUNFLFlBQUE7QUNHSjs7QUREQTtFQUNJLGVBQUE7QUNJSjs7QUREQSxlQUFBOztBQUNBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFFQSxtQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLFNBQUE7RUFDQSxlQUFBO0FDR0o7O0FEREU7RUFDRSxxQkFBQTtFQUNBLFdBQUE7QUNJSjs7QURGRTtFQUNFLGNBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7QUNLSjs7QURIRTtFQUdFLHlCQUFBO0FDSUo7O0FESUU7RUFDRSxnQkFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrLWRlc2NyaXB0aW9uL3Rhc2stZGVzY3JpcHRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2Vue1xyXG4gICAgY29sb3I6d2hpdGU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMDA2NDk1O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiA3JSAxMCU7XHJcbiAgICBtYXJnaW4tdG9wOjIwJTtcclxufVxyXG4ucmVqY3tcclxuICAgIGNvbG9yOndoaXRlO1xyXG4gICAgYmFja2dyb3VuZDogIzAwNjQ5NTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbi10b3A6MjAlO1xyXG59XHJcbi5tZW51QnRue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAyMyU7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMjlweDtcclxuICB9XHJcblxyXG4gIC5idG5Ib21le1xyXG4gICAgY29sb3I6d2hpdGU7XHJcbn1cclxuaW9uLXNwaW5uZXJ7XHJcbiAgICBtYXJnaW46IDIwJSA0NSU7XHJcbn1cclxuXHJcbi8qIEJyZWFkY3J1bWIgKi9cclxuLmJyZWFkY3J1bWIge1xyXG4gICAgcGFkZGluZzogNXB4O1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6IzBiNzZhYTtcclxuICAgIC8vIGhlaWdodDogNDBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICBjb2xvcjogI0ZGRjtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG4gIC5icmVhZGNydW1iIGxpIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGNvbG9yOiAjRkZGO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiBzcGFuIHtcclxuICAgIGNvbG9yOiAjQzdEOUUyO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XHJcbiAgICAvLyBwYWRkaW5nOiAwIDEwcHg7XHJcbiAgICAvLyBmb250LXNpemU6IDEzcHg7XHJcbiAgICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xyXG4gIH1cclxuICBcclxuICAvLyAgIEBtZWRpYSAobWF4LXdpZHRoOiA2MDBweCkge1xyXG4gIC8vICAgICB1bCB7XHJcbiAgLy8gICAgICAgbWFyZ2luLWxlZnQ6IC0zMCU7XHJcbiAgLy8gICAgIH1cclxuICAvLyAgIH1cclxuICAudmlldy1jb250YWluZXIge1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICB9IiwiLmdlbiB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYmFja2dyb3VuZDogIzAwNjQ5NTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW46IDclIDEwJTtcbiAgbWFyZ2luLXRvcDogMjAlO1xufVxuXG4ucmVqYyB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYmFja2dyb3VuZDogIzAwNjQ5NTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAyMCU7XG59XG5cbi5tZW51QnRuIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDIzJTtcbiAgcmlnaHQ6IDBweDtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgZm9udC1zaXplOiAyOXB4O1xufVxuXG4uYnRuSG9tZSB7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuaW9uLXNwaW5uZXIge1xuICBtYXJnaW46IDIwJSA0NSU7XG59XG5cbi8qIEJyZWFkY3J1bWIgKi9cbi5icmVhZGNydW1iIHtcbiAgcGFkZGluZzogNXB4O1xuICBsaXN0LXN0eWxlOiBub25lO1xuICBiYWNrZ3JvdW5kOiAjMGI3NmFhO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBjb2xvcjogI0ZGRjtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgbWFyZ2luOiAwO1xuICBmb250LXNpemU6IDE0cHg7XG59XG5cbi5icmVhZGNydW1iIGxpIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBjb2xvcjogI0ZGRjtcbn1cblxuLmJyZWFkY3J1bWIgc3BhbiB7XG4gIGNvbG9yOiAjQzdEOUUyO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmJyZWFkY3J1bWIgLmZhLWNoZXZyb24tcmlnaHQge1xuICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xufVxuXG4udmlldy1jb250YWluZXIge1xuICBvdmVyZmxvdzogaGlkZGVuO1xufSJdfQ== */";
+    __webpack_exports__["default"] = "ion-spinner {\n  margin: 20% 45%;\n}\n\n.nodat {\n  color: #b3a2a2 !important;\n}\n\n.mail {\n  float: right;\n  margin-right: 10px;\n  font-size: 1rem !important;\n}\n\nion-card {\n  border-radius: 10px;\n}\n\n.card_desgn {\n  border-radius: 10px 10px 0 0;\n  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\n  background-color: #fef8ed;\n  padding: 15px 10px 10px 10px;\n}\n\n.org {\n  font-family: Poppins;\n  font-size: 12px;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: left;\n  color: #000000;\n  margin: 0 15px 1px 0;\n}\n\n.owner {\n  font-family: Poppins;\n  font-size: 12px;\n  font-weight: normal;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: left;\n  color: #818181;\n  margin: 1px 10px 0 0;\n}\n\n.pos {\n  float: right;\n}\n\n.main {\n  font-family: Poppins;\n  font-size: 14px;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: left;\n  color: #000000;\n  margin: 0 5px 0 0;\n}\n\n.email_dt {\n  font-family: Poppins;\n  font-size: 12px;\n  font-weight: 600;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: left;\n  margin: 0 3px 0 5px;\n}\n\nbutton {\n  width: 100px;\n  border-radius: 6px;\n  margin: 5px 10px 5px 10px;\n  background-color: transparent;\n}\n\n.accept {\n  font-family: Poppins;\n  font-size: 13px;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: center;\n  background-color: #3382f8;\n  color: #ffffff;\n  padding: 10px 10px;\n}\n\n.rej {\n  font-family: Poppins;\n  font-size: 13px;\n  font-weight: 500;\n  font-stretch: normal;\n  font-style: normal;\n  line-height: normal;\n  letter-spacing: normal;\n  text-align: center;\n  background-color: transparent;\n  color: #3382f8;\n  padding: 10px 10px;\n}\n\n.ryt {\n  float: right;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrLWRlc2NyaXB0aW9uL0M6XFxVc2Vyc1xcbWFudW1cXERvd25sb2Fkc1xcZmx1ZW50Y2VwVE1TLW1hc3RlclxcZmx1ZW50Y2VwVE1TL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcdGFzay1kZXNjcmlwdGlvblxcdGFzay1kZXNjcmlwdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrLWRlc2NyaXB0aW9uL3Rhc2stZGVzY3JpcHRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBeURBO0VBQ0UsZUFBQTtBQ3hERjs7QUQwREE7RUFDRSx5QkFBQTtBQ3ZERjs7QUQwREE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSwwQkFBQTtBQ3ZEQTs7QUR5REE7RUFDQSxtQkFBQTtBQ3REQTs7QUR3REE7RUFHQSw0QkFBQTtFQUNBLG9DQUFBO0VBQ0EseUJBQUE7RUFDQSw0QkFBQTtBQ3ZEQTs7QUR5REE7RUFDQSxvQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0VBQ0Esb0JBQUE7QUN0REE7O0FEd0RBO0VBQ0Esb0JBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLG9CQUFBO0FDckRBOztBRHVEQTtFQUNBLFlBQUE7QUNwREE7O0FEc0RBO0VBQ0Esb0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLGlCQUFBO0FDbkRBOztBRHFEQTtFQUNBLG9CQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQSxnQkFBQTtFQUVBLG1CQUFBO0FDbkRBOztBRHFEQTtFQUNFLFlBQUE7RUFFQSxrQkFBQTtFQUVBLHlCQUFBO0VBRUEsNkJBQUE7QUNyREY7O0FEd0RBO0VBQ0Usb0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EseUJBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7QUNyREY7O0FEd0RBO0VBQ0Usb0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsNkJBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7QUNyREY7O0FEdURBO0VBQ0UsWUFBQTtBQ3BERiIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci90bXMvdGFzay1kZXNjcmlwdGlvbi90YXNrLWRlc2NyaXB0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gLmdlbntcclxuLy8gICAgIGNvbG9yOndoaXRlO1xyXG4vLyAgICAgYmFja2dyb3VuZDogIzAwNjQ5NTtcclxuLy8gICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuLy8gICAgIG1hcmdpbjogNyUgMTAlO1xyXG4vLyAgICAgbWFyZ2luLXRvcDoyMCU7XHJcbi8vIH1cclxuLy8gLnJlamN7XHJcbi8vICAgICBjb2xvcjp3aGl0ZTtcclxuLy8gICAgIGJhY2tncm91bmQ6ICMwMDY0OTU7XHJcbi8vICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbi8vICAgICBtYXJnaW4tdG9wOjIwJTtcclxuLy8gfVxyXG4vLyAubWVudUJ0bntcclxuLy8gICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuLy8gICAgIGJvdHRvbTogMjMlO1xyXG4vLyAgICAgcmlnaHQ6IDBweDtcclxuLy8gICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbi8vICAgICBmb250LXNpemU6IDI5cHg7XHJcbi8vICAgfVxyXG5cclxuLy8gLy8gICAuYnRuSG9tZXtcclxuLy8gLy8gICAgIGNvbG9yOndoaXRlO1xyXG4vLyAvLyB9XHJcbi8vIGlvbi1zcGlubmVye1xyXG4vLyAgICAgbWFyZ2luOiAyMCUgNDUlO1xyXG4vLyB9XHJcblxyXG4vLyAvKiBCcmVhZGNydW1iICovXHJcbi8vIC5icmVhZGNydW1iIHtcclxuLy8gICAgIHBhZGRpbmc6IDVweDtcclxuLy8gICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbi8vICAgICBiYWNrZ3JvdW5kOiMwYjc2YWE7XHJcbi8vICAgICAvLyBoZWlnaHQ6IDQwcHg7XHJcbi8vICAgICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4vLyAgICAgY29sb3I6ICNGRkY7XHJcbi8vICAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4vLyAgICAgbWFyZ2luOiAwO1xyXG4vLyAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4vLyAgIH1cclxuLy8gICAuYnJlYWRjcnVtYiBsaSB7XHJcbi8vICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbi8vICAgICBjb2xvcjogI0ZGRjtcclxuLy8gICB9XHJcbi8vICAgLmJyZWFkY3J1bWIgc3BhbiB7XHJcbi8vICAgICBjb2xvcjogI0M3RDlFMjtcclxuLy8gICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuLy8gICAgIGN1cnNvcjogcG9pbnRlcjtcclxuLy8gICB9XHJcbi8vICAgLmJyZWFkY3J1bWIgLmZhLWNoZXZyb24tcmlnaHQge1xyXG4vLyAgICAgY29sb3I6ICNDN0Q5RTIgIWltcG9ydGFudDtcclxuLy8gICB9XHJcbi8vICAgLnZpZXctY29udGFpbmVyIHtcclxuLy8gICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbi8vICAgfVxyXG5cclxuXHJcbmlvbi1zcGlubmVye1xyXG4gIG1hcmdpbjogMjAlIDQ1JTtcclxufVxyXG4ubm9kYXQge1xyXG4gIGNvbG9yOiAjYjNhMmEyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYWlse1xyXG5mbG9hdDogcmlnaHQ7XHJcbm1hcmdpbi1yaWdodDogMTBweDtcclxuZm9udC1zaXplOiAxcmVtICFpbXBvcnRhbnQ7XHJcbn1cclxuaW9uLWNhcmQge1xyXG5ib3JkZXItcmFkaXVzOiAxMHB4O1xyXG59XHJcbi5jYXJkX2Rlc2due1xyXG4vLyBoZWlnaHQ6IDkxcHg7XHJcbi8vIG1hcmdpbjogMTBweCAxNXB4O1xyXG5ib3JkZXItcmFkaXVzOiAxMHB4IDEwcHggMCAwO1xyXG5ib3gtc2hhZG93OiAwIDAgMCAwIHJnYmEoMCwgMCwgMCwgMCk7XHJcbmJhY2tncm91bmQtY29sb3I6ICNmZWY4ZWQ7XHJcbnBhZGRpbmc6IDE1cHggMTBweCAxMHB4IDEwcHg7XHJcbn1cclxuLm9yZyB7XHJcbmZvbnQtZmFtaWx5OiBQb3BwaW5zO1xyXG5mb250LXNpemU6IDEycHg7XHJcbmZvbnQtd2VpZ2h0OiA2MDA7XHJcbmZvbnQtc3RyZXRjaDogbm9ybWFsO1xyXG5mb250LXN0eWxlOiBub3JtYWw7XHJcbmxpbmUtaGVpZ2h0OiBub3JtYWw7XHJcbmxldHRlci1zcGFjaW5nOiBub3JtYWw7XHJcbnRleHQtYWxpZ246IGxlZnQ7XHJcbmNvbG9yOiAjMDAwMDAwO1xyXG5tYXJnaW46IDAgMTVweCAxcHggMDtcclxufVxyXG4ub3duZXIge1xyXG5mb250LWZhbWlseTogUG9wcGlucztcclxuZm9udC1zaXplOiAxMnB4O1xyXG5mb250LXdlaWdodDogbm9ybWFsO1xyXG5mb250LXN0cmV0Y2g6IG5vcm1hbDtcclxuZm9udC1zdHlsZTogbm9ybWFsO1xyXG5saW5lLWhlaWdodDogbm9ybWFsO1xyXG5sZXR0ZXItc3BhY2luZzogbm9ybWFsO1xyXG50ZXh0LWFsaWduOiBsZWZ0O1xyXG5jb2xvcjogIzgxODE4MTtcclxubWFyZ2luOiAxcHggMTBweCAwIDA7XHJcbn1cclxuLnBvcyB7XHJcbmZsb2F0OiByaWdodDtcclxufVxyXG4ubWFpbntcclxuZm9udC1mYW1pbHk6IFBvcHBpbnM7XHJcbmZvbnQtc2l6ZTogMTRweDtcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxuZm9udC1zdHJldGNoOiBub3JtYWw7XHJcbmZvbnQtc3R5bGU6IG5vcm1hbDtcclxubGluZS1oZWlnaHQ6IG5vcm1hbDtcclxubGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcclxudGV4dC1hbGlnbjogbGVmdDtcclxuY29sb3I6ICMwMDAwMDA7XHJcbm1hcmdpbjogMCA1cHggMCAwO1xyXG59XHJcbi5lbWFpbF9kdHtcclxuZm9udC1mYW1pbHk6IFBvcHBpbnM7XHJcbmZvbnQtc2l6ZTogMTJweDtcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxuZm9udC1zdHJldGNoOiBub3JtYWw7XHJcbmZvbnQtc3R5bGU6IG5vcm1hbDtcclxubGluZS1oZWlnaHQ6IG5vcm1hbDtcclxubGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcclxudGV4dC1hbGlnbjogbGVmdDtcclxuLy8gY29sb3I6ICNmZmE1MDA7XHJcbm1hcmdpbjogMCAzcHggMCA1cHg7XHJcbn1cclxuYnV0dG9ue1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICAvLyBoZWlnaHQ6IDMwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNnB4O1xyXG4gIC8vIGJvcmRlcjogc29saWQgMnB4ICMzMzgyZjg7XHJcbiAgbWFyZ2luOiA1cHggMTBweCA1cHggMTBweDtcclxuICAvLyBjb2xvcjogIzMzODJmOCAhaW1wb3J0YW50O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC8vIGZsb2F0OiByaWdodDtcclxufVxyXG4uYWNjZXB0e1xyXG4gIGZvbnQtZmFtaWx5OiBQb3BwaW5zO1xyXG4gIGZvbnQtc2l6ZTogMTNweDtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG4gIGZvbnQtc3RyZXRjaDogbm9ybWFsO1xyXG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcclxuICBsaW5lLWhlaWdodDogbm9ybWFsO1xyXG4gIGxldHRlci1zcGFjaW5nOiBub3JtYWw7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMzMzgyZjg7XHJcbiAgY29sb3I6ICNmZmZmZmY7XHJcbiAgcGFkZGluZzogMTBweCAxMHB4O1xyXG59XHJcblxyXG4ucmVqe1xyXG4gIGZvbnQtZmFtaWx5OiBQb3BwaW5zO1xyXG4gIGZvbnQtc2l6ZTogMTNweDtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG4gIGZvbnQtc3RyZXRjaDogbm9ybWFsO1xyXG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcclxuICBsaW5lLWhlaWdodDogbm9ybWFsO1xyXG4gIGxldHRlci1zcGFjaW5nOiBub3JtYWw7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIGNvbG9yOiAjMzM4MmY4O1xyXG4gIHBhZGRpbmc6IDEwcHggMTBweDtcclxufVxyXG4ucnl0e1xyXG4gIGZsb2F0OiByaWdodDtcclxufSIsImlvbi1zcGlubmVyIHtcbiAgbWFyZ2luOiAyMCUgNDUlO1xufVxuXG4ubm9kYXQge1xuICBjb2xvcjogI2IzYTJhMiAhaW1wb3J0YW50O1xufVxuXG4ubWFpbCB7XG4gIGZsb2F0OiByaWdodDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xuICBmb250LXNpemU6IDFyZW0gIWltcG9ydGFudDtcbn1cblxuaW9uLWNhcmQge1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xufVxuXG4uY2FyZF9kZXNnbiB7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHggMTBweCAwIDA7XG4gIGJveC1zaGFkb3c6IDAgMCAwIDAgcmdiYSgwLCAwLCAwLCAwKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZlZjhlZDtcbiAgcGFkZGluZzogMTVweCAxMHB4IDEwcHggMTBweDtcbn1cblxuLm9yZyB7XG4gIGZvbnQtZmFtaWx5OiBQb3BwaW5zO1xuICBmb250LXNpemU6IDEycHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc3RyZXRjaDogbm9ybWFsO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG4gIGxpbmUtaGVpZ2h0OiBub3JtYWw7XG4gIGxldHRlci1zcGFjaW5nOiBub3JtYWw7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIGNvbG9yOiAjMDAwMDAwO1xuICBtYXJnaW46IDAgMTVweCAxcHggMDtcbn1cblxuLm93bmVyIHtcbiAgZm9udC1mYW1pbHk6IFBvcHBpbnM7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgZm9udC1zdHJldGNoOiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgbGluZS1oZWlnaHQ6IG5vcm1hbDtcbiAgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgY29sb3I6ICM4MTgxODE7XG4gIG1hcmdpbjogMXB4IDEwcHggMCAwO1xufVxuXG4ucG9zIHtcbiAgZmxvYXQ6IHJpZ2h0O1xufVxuXG4ubWFpbiB7XG4gIGZvbnQtZmFtaWx5OiBQb3BwaW5zO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc3RyZXRjaDogbm9ybWFsO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG4gIGxpbmUtaGVpZ2h0OiBub3JtYWw7XG4gIGxldHRlci1zcGFjaW5nOiBub3JtYWw7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIGNvbG9yOiAjMDAwMDAwO1xuICBtYXJnaW46IDAgNXB4IDAgMDtcbn1cblxuLmVtYWlsX2R0IHtcbiAgZm9udC1mYW1pbHk6IFBvcHBpbnM7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgZm9udC1zdHJldGNoOiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgbGluZS1oZWlnaHQ6IG5vcm1hbDtcbiAgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgbWFyZ2luOiAwIDNweCAwIDVweDtcbn1cblxuYnV0dG9uIHtcbiAgd2lkdGg6IDEwMHB4O1xuICBib3JkZXItcmFkaXVzOiA2cHg7XG4gIG1hcmdpbjogNXB4IDEwcHggNXB4IDEwcHg7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuXG4uYWNjZXB0IHtcbiAgZm9udC1mYW1pbHk6IFBvcHBpbnM7XG4gIGZvbnQtc2l6ZTogMTNweDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgZm9udC1zdHJldGNoOiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgbGluZS1oZWlnaHQ6IG5vcm1hbDtcbiAgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzM4MmY4O1xuICBjb2xvcjogI2ZmZmZmZjtcbiAgcGFkZGluZzogMTBweCAxMHB4O1xufVxuXG4ucmVqIHtcbiAgZm9udC1mYW1pbHk6IFBvcHBpbnM7XG4gIGZvbnQtc2l6ZTogMTNweDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgZm9udC1zdHJldGNoOiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbiAgbGluZS1oZWlnaHQ6IG5vcm1hbDtcbiAgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgY29sb3I6ICMzMzgyZjg7XG4gIHBhZGRpbmc6IDEwcHggMTBweDtcbn1cblxuLnJ5dCB7XG4gIGZsb2F0OiByaWdodDtcbn0iXX0= */";
     /***/
   },
 
@@ -591,36 +686,62 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ionic-native/native-geocoder/ngx */
     "./node_modules/@ionic-native/native-geocoder/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
     var TaskDescriptionComponent = /*#__PURE__*/function () {
-      function TaskDescriptionComponent(route, tmsSrv, router, nativeGeocoder) {
+      function TaskDescriptionComponent(route, tmsSrv, router, nativeGeocoder, translate) {
+        var _this9 = this;
+
         _classCallCheck(this, TaskDescriptionComponent);
 
         this.route = route;
         this.tmsSrv = tmsSrv;
         this.router = router;
         this.nativeGeocoder = nativeGeocoder;
+        this.translate = translate;
         this.resonTab = false;
         this.showSpinner = true;
+        this.locStorageLang = window.localStorage.getItem('lang');
+
+        if (this.locStorageLang == '' || this.locStorageLang == undefined || this.locStorageLang == null) {
+          this.lang = 'en';
+          this.translate.setDefaultLang('en');
+          this.translate.use('en');
+        } else {
+          this.lang = this.locStorageLang;
+          this.translate.use(this.lang);
+        }
+
+        this.translate.get('Address NA').subscribe(function (value) {
+          _this9.addressNA = value;
+        });
       }
 
       _createClass(TaskDescriptionComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this10 = this;
 
+          this.currentDay = new Date();
           this.id = this.route.snapshot.params.id;
           this.tmsSrv.taskDes(this.id).subscribe(function (res) {
-            // console.log(res)
-            _this9.details = res['data'];
+            _this10.startingAt = res['data'].start_date;
+            _this10.endingAt = res['data'].finish_date;
+            _this10.startingAt = new Date(_this10.startingAt);
+            _this10.endingAt = new Date(_this10.endingAt);
+            _this10.details = res['data'];
             var goptions = {
               useLocale: true,
               maxResults: 5
             };
 
-            _this9.nativeGeocoder.reverseGeocode(_this9.details.lat, _this9.details.lon, goptions).then(function (result) {
-              // alert(JSON.stringify(result));
-              _this9.address = "";
+            _this10.nativeGeocoder.reverseGeocode(_this10.details.lat, _this10.details.lon, goptions).then(function (result) {
+              _this10.address = "";
               var responseAddress = [];
 
               for (var _i = 0, _Object$entries = Object.entries(result[0]); _i < _Object$entries.length; _i++) {
@@ -629,70 +750,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     value = _Object$entries$_i[1];
 
                 if (value.length > 0) responseAddress.push(value);
-              } // alert(responseAddress);
-
+              }
 
               responseAddress.pop();
               responseAddress.reverse();
 
               for (var _i2 = 0, _responseAddress = responseAddress; _i2 < _responseAddress.length; _i2++) {
                 var _value = _responseAddress[_i2];
-                _this9.address += _value + ", ";
+                _this10.address += _value + ", ";
               }
 
-              _this9.address = _this9.address.slice(0, -2);
+              _this10.address = _this10.address.slice(0, -2);
             })["catch"](function (error) {
-              _this9.address = "Address Not Available!";
+              _this10.address = _this10.addressNA;
             });
 
-            if (_this9.details) _this9.showSpinner = false;
+            if (_this10.details) _this10.showSpinner = false;
           });
-          this.tmsSrv.timeSpent(this.id).subscribe(function (res) {
-            // console.log(res['data']);
-            _this9.workDuration = res['data'];
-
-            if (_this9.workDuration) {
-              _this9.totalSpent = _this9.workDuration[_this9.workDuration.length - 1].entireWorkDuration;
-            } // this.details = res['data'];
-
-          });
+          this.tmsSrv.timeSpent(this.id).subscribe(function (res) {});
         }
       }, {
         key: "rej",
         value: function rej() {
-          var _this10 = this;
+          var _this11 = this;
 
           this.resonTab = false;
           this.tmsSrv.updateTaskStatus(this.id, 'Rejected').subscribe(function (res) {
             // console.log(res);
-            _this10.details.statusString = res['data'].statusString;
+            _this11.details.statusString = res['data'].statusString;
 
-            _this10.router.navigateByUrl('/folder/tms/mytask');
+            _this11.router.navigateByUrl('/folder/tms/mytask');
           });
         }
       }, {
         key: "breadcrumb",
         value: function breadcrumb() {
           this.router.navigateByUrl('/folder/tms/mytask');
-        } // reasonToRej(){
-        //   this.resonTab = false;
-        //   this.reason;
-        //   this.tmsSrv.updateTaskStatus(this.id, 'Reject').subscribe(res=>{
-        //   // console.log(res);
-        //   this.details.statusString = res['data'].statusString
-        //   // this.router.navigateByUrl('/folder/tms/mytask');
-        //   });
-        // }
-
+        }
       }, {
         key: "accept",
         value: function accept() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.tmsSrv.updateTaskStatus(this.id, 'Accepted').subscribe(function (res) {
             // console.log(res);
-            _this11.router.navigateByUrl('/folder/punch/in/' + res['data'].task_id);
-          });
+            _this12.router.navigateByUrl('/folder/punch/in/' + res['data'].task_id);
+          }); // this.router.navigateByUrl('/folder/punch/in/' + this.id);
         }
       }, {
         key: "goBack",
@@ -713,6 +816,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
         type: _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_4__["NativeGeocoder"]
+      }, {
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"]
       }];
     };
 
@@ -744,7 +849,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "ion-col {\n  color: white;\n  margin: 1px 2px;\n}\n\nion-spinner {\n  margin: 20% 45%;\n}\n\nagm-info-window {\n  padding: 2px !important;\n}\n\n.menuBtn {\n  position: absolute;\n  bottom: 23%;\n  right: 0px;\n  background: none;\n  font-size: 29px;\n}\n\n/* Breadcrumb */\n\n.breadcrumb {\n  padding: 5px;\n  list-style: none;\n  background: #0b76aa;\n  font-weight: normal;\n  color: #FFF;\n  overflow: hidden;\n  margin: 0;\n  font-size: 14px;\n}\n\n.breadcrumb li {\n  display: inline-block;\n  color: #FFF;\n}\n\n.breadcrumb span {\n  color: #C7D9E2;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.breadcrumb .fa-chevron-right {\n  color: #C7D9E2 !important;\n}\n\n.view-container {\n  overflow: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL0U6XFxDRVBcXEZsdWVudE1XTV9DRVBfdG1zL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcdGFza2xvY2F0aW9uc1xcdGFza2xvY2F0aW9ucy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL3Rhc2tsb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsZUFBQTtBQ0NGOztBREVBO0VBQ0UsZUFBQTtBQ0NGOztBREVBO0VBQ0MsdUJBQUE7QUNDRDs7QURDQTtFQUNJLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUNFSjs7QURBQSxlQUFBOztBQUNBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFFQSxtQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLFNBQUE7RUFDQSxlQUFBO0FDRUo7O0FEQUU7RUFDRSxxQkFBQTtFQUNBLFdBQUE7QUNHSjs7QURERTtFQUNFLGNBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7QUNJSjs7QURGRTtFQUdFLHlCQUFBO0FDR0o7O0FES0U7RUFDRSxnQkFBQTtBQ0ZKIiwiZmlsZSI6InNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL3Rhc2tsb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY29se1xyXG4gIGNvbG9yOndoaXRlO1xyXG4gIG1hcmdpbjoxcHggMnB4O1xyXG59XHJcblxyXG5pb24tc3Bpbm5lcntcclxuICBtYXJnaW46IDIwJSA0NSU7XHJcbn1cclxuXHJcbmFnbS1pbmZvLXdpbmRvd3tcclxuIHBhZGRpbmc6IDJweCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZW51QnRue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAyMyU7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMjlweDtcclxuICB9XHJcbi8qIEJyZWFkY3J1bWIgKi9cclxuLmJyZWFkY3J1bWIge1xyXG4gICAgcGFkZGluZzogNXB4O1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6IzBiNzZhYTtcclxuICAgIC8vIGhlaWdodDogNDBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICBjb2xvcjogI0ZGRjtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG4gIC5icmVhZGNydW1iIGxpIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGNvbG9yOiAjRkZGO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiBzcGFuIHtcclxuICAgIGNvbG9yOiAjQzdEOUUyO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XHJcbiAgICAvLyBwYWRkaW5nOiAwIDEwcHg7XHJcbiAgICAvLyBmb250LXNpemU6IDEzcHg7XHJcbiAgICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xyXG4gIH1cclxuICBcclxuICAvLyAgIEBtZWRpYSAobWF4LXdpZHRoOiA2MDBweCkge1xyXG4gIC8vICAgICB1bCB7XHJcbiAgLy8gICAgICAgbWFyZ2luLWxlZnQ6IC0zMCU7XHJcbiAgLy8gICAgIH1cclxuICAvLyAgIH1cclxuICAudmlldy1jb250YWluZXIge1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICB9IiwiaW9uLWNvbCB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgbWFyZ2luOiAxcHggMnB4O1xufVxuXG5pb24tc3Bpbm5lciB7XG4gIG1hcmdpbjogMjAlIDQ1JTtcbn1cblxuYWdtLWluZm8td2luZG93IHtcbiAgcGFkZGluZzogMnB4ICFpbXBvcnRhbnQ7XG59XG5cbi5tZW51QnRuIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDIzJTtcbiAgcmlnaHQ6IDBweDtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgZm9udC1zaXplOiAyOXB4O1xufVxuXG4vKiBCcmVhZGNydW1iICovXG4uYnJlYWRjcnVtYiB7XG4gIHBhZGRpbmc6IDVweDtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgYmFja2dyb3VuZDogIzBiNzZhYTtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgY29sb3I6ICNGRkY7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIG1hcmdpbjogMDtcbiAgZm9udC1zaXplOiAxNHB4O1xufVxuXG4uYnJlYWRjcnVtYiBsaSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgY29sb3I6ICNGRkY7XG59XG5cbi5icmVhZGNydW1iIHNwYW4ge1xuICBjb2xvcjogI0M3RDlFMjtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5icmVhZGNydW1iIC5mYS1jaGV2cm9uLXJpZ2h0IHtcbiAgY29sb3I6ICNDN0Q5RTIgIWltcG9ydGFudDtcbn1cblxuLnZpZXctY29udGFpbmVyIHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn0iXX0= */";
+    __webpack_exports__["default"] = "ion-col {\n  color: white;\n  margin: 1px 2px;\n}\n\nion-spinner {\n  margin: 20% 45%;\n}\n\nagm-info-window {\n  padding: 2px !important;\n}\n\n.menuBtn {\n  position: absolute;\n  bottom: 23%;\n  right: 0px;\n  background: none;\n  font-size: 29px;\n}\n\n/* Breadcrumb */\n\n.breadcrumb {\n  padding: 5px;\n  list-style: none;\n  background: #0b76aa;\n  font-weight: normal;\n  color: #FFF;\n  overflow: hidden;\n  margin: 0;\n  font-size: 14px;\n}\n\n.breadcrumb li {\n  display: inline-block;\n  color: #FFF;\n}\n\n.breadcrumb span {\n  color: #C7D9E2;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.breadcrumb .fa-chevron-right {\n  color: #C7D9E2 !important;\n}\n\n.view-container {\n  overflow: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL0M6XFxVc2Vyc1xcbWFudW1cXERvd25sb2Fkc1xcZmx1ZW50Y2VwVE1TLW1hc3RlclxcZmx1ZW50Y2VwVE1TL3NyY1xcYXBwXFxmb2xkZXJcXHRtc1xcdGFza2xvY2F0aW9uc1xcdGFza2xvY2F0aW9ucy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL3Rhc2tsb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0EsZUFBQTtBQ0NGOztBREVBO0VBQ0UsZUFBQTtBQ0NGOztBREVBO0VBQ0MsdUJBQUE7QUNDRDs7QURDQTtFQUNJLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUNFSjs7QURBQSxlQUFBOztBQUNBO0VBQ0ksWUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFFQSxtQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLFNBQUE7RUFDQSxlQUFBO0FDRUo7O0FEQUU7RUFDRSxxQkFBQTtFQUNBLFdBQUE7QUNHSjs7QURERTtFQUNFLGNBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7QUNJSjs7QURGRTtFQUNFLHlCQUFBO0FDS0o7O0FESEU7RUFDSSxnQkFBQTtBQ01OIiwiZmlsZSI6InNyYy9hcHAvZm9sZGVyL3Rtcy90YXNrbG9jYXRpb25zL3Rhc2tsb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY29se1xyXG4gIGNvbG9yOndoaXRlO1xyXG4gIG1hcmdpbjoxcHggMnB4O1xyXG59XHJcblxyXG5pb24tc3Bpbm5lcntcclxuICBtYXJnaW46IDIwJSA0NSU7XHJcbn1cclxuXHJcbmFnbS1pbmZvLXdpbmRvd3tcclxuIHBhZGRpbmc6IDJweCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZW51QnRue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAyMyU7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMjlweDtcclxuICB9XHJcbi8qIEJyZWFkY3J1bWIgKi9cclxuLmJyZWFkY3J1bWIge1xyXG4gICAgcGFkZGluZzogNXB4O1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6IzBiNzZhYTtcclxuICAgIC8vIGhlaWdodDogNDBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICBjb2xvcjogI0ZGRjtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG4gIC5icmVhZGNydW1iIGxpIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGNvbG9yOiAjRkZGO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiBzcGFuIHtcclxuICAgIGNvbG9yOiAjQzdEOUUyO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIH1cclxuICAuYnJlYWRjcnVtYiAuZmEtY2hldnJvbi1yaWdodCB7XHJcbiAgICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAudmlldy1jb250YWluZXIge1xyXG4gICAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIH0iLCJpb24tY29sIHtcbiAgY29sb3I6IHdoaXRlO1xuICBtYXJnaW46IDFweCAycHg7XG59XG5cbmlvbi1zcGlubmVyIHtcbiAgbWFyZ2luOiAyMCUgNDUlO1xufVxuXG5hZ20taW5mby13aW5kb3cge1xuICBwYWRkaW5nOiAycHggIWltcG9ydGFudDtcbn1cblxuLm1lbnVCdG4ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogMjMlO1xuICByaWdodDogMHB4O1xuICBiYWNrZ3JvdW5kOiBub25lO1xuICBmb250LXNpemU6IDI5cHg7XG59XG5cbi8qIEJyZWFkY3J1bWIgKi9cbi5icmVhZGNydW1iIHtcbiAgcGFkZGluZzogNXB4O1xuICBsaXN0LXN0eWxlOiBub25lO1xuICBiYWNrZ3JvdW5kOiAjMGI3NmFhO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBjb2xvcjogI0ZGRjtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgbWFyZ2luOiAwO1xuICBmb250LXNpemU6IDE0cHg7XG59XG5cbi5icmVhZGNydW1iIGxpIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBjb2xvcjogI0ZGRjtcbn1cblxuLmJyZWFkY3J1bWIgc3BhbiB7XG4gIGNvbG9yOiAjQzdEOUUyO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmJyZWFkY3J1bWIgLmZhLWNoZXZyb24tcmlnaHQge1xuICBjb2xvcjogI0M3RDlFMiAhaW1wb3J0YW50O1xufVxuXG4udmlldy1jb250YWluZXIge1xuICBvdmVyZmxvdzogaGlkZGVuO1xufSJdfQ== */";
     /***/
   },
 
@@ -812,6 +917,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var TasklocationsComponent = /*#__PURE__*/function () {
       function TasklocationsComponent(geolocation, nativeGeocoder, router, route, nativeStorage, tmsSrv) {
+        var _this13 = this;
+
         _classCallCheck(this, TasklocationsComponent);
 
         this.geolocation = geolocation;
@@ -831,13 +938,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return false;
         };
 
-        this.router.onSameUrlNavigation = 'reload'; // if (navigator)
-        // {
-        //   navigator.geolocation.getCurrentPosition( pos => {
-        //     this.lon = +pos.coords.longitude;
-        //     this.lat = +pos.coords.latitude;
-        //   });
-        // }
+        this.router.onSameUrlNavigation = 'reload';
+
+        if (navigator) {
+          navigator.geolocation.getCurrentPosition(function (pos) {
+            _this13.lon = +pos.coords.longitude;
+            _this13.lat = +pos.coords.latitude;
+          });
+        }
 
         this.nativeStorage.getItem('loginDetails').then(function (data) {
           return console.log(data);
@@ -849,69 +957,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(TasklocationsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this14 = this;
 
           this.userId = window.localStorage.getItem('userId');
-          this.tmsSrv.getTaskList(this.userId).subscribe(function (res) {
-            // console.log(res);
-            _this12.taskList = res['data'];
-            _this12.showSpinner = false;
+          this.tmsSrv.getMyTasksList(this.userId).subscribe(function (res) {
+            _this14.taskList = res['data'];
+            _this14.showSpinner = false;
             res['data'].map(function (val) {
               if (val.stage == "Created") {
-                _this12.assignedCount++;
+                _this14.assignedCount++;
               }
 
-              if (val.stage == "Completed") _this12.completCount++;
-              if (val.stage == "Accepted") _this12.accepCount++;
-              if (val.stage == "Reopen") _this12.reOpenCount++;
-              if (val.stage == "Rejected") _this12.rejectCount++;
-              if ((val.lat != 0 || val.lat != '') && _this12.lat == undefined) _this12.lat = Number(val.lat);
-              if ((val.lon != 0 || val.lon != '') && _this12.lon == undefined) _this12.lon = Number(val.lon); // console.log(this.lat,this.lon)
+              if (val.stage == "Completed") _this14.completCount++;
+              if (val.stage == "Accepted") _this14.accepCount++;
+              if (val.stage == "Reopen") _this14.reOpenCount++;
+              if (val.stage == "Rejected") _this14.rejectCount++;
+              if ((val.lat != 0 || val.lat != '') && _this14.lat == undefined) _this14.lat = Number(val.lat);
+              if ((val.lon != 0 || val.lon != '') && _this14.lon == undefined) _this14.lon = Number(val.lon);
             });
           });
-          var i = 0; // this.getUserPosition();
-
+          var i = 0;
           this.empId = window.localStorage.getItem('userId');
           this.status = this.route.snapshot.params.status;
           this.tmsSrv.taskLoc(this.empId, this.status).subscribe(function (res) {
-            // console.log("result "+res);
-            _this12.details = res['data']; // console.log(this.details)
-            // alert(JSON.stringify(this.details))
-
+            _this14.details = res['data'];
             var goptions = {
               useLocale: true,
               maxResults: 5
             };
             res['data'].map(function (val, index) {
-              // console.log(val.lat+" , "+val.lon);
-              _this12.nativeGeocoder.reverseGeocode(val.lat, val.lon, goptions).then(function (result) {
-                _this12.address = "";
-                var responseAddress = [];
-
-                for (var _i3 = 0, _Object$entries2 = Object.entries(result[0]); _i3 < _Object$entries2.length; _i3++) {
-                  var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i3], 2),
-                      key = _Object$entries2$_i[0],
-                      value = _Object$entries2$_i[1];
-
-                  if (value.length > 0) responseAddress.push(value);
-                }
-
-                responseAddress.pop();
-                responseAddress.reverse();
-
-                for (var _i4 = 0, _responseAddress2 = responseAddress; _i4 < _responseAddress2.length; _i4++) {
-                  var _value2 = _responseAddress2[_i4];
-                  _this12.address += _value2 + ", ";
-                }
-
-                _this12.address = _this12.address.slice(0, -2);
-                val['address'] = _this12.address; // console.log(val);
+              _this14.nativeGeocoder.forwardGeocode(val.address, goptions).then(function (result) {
+                val.lat = result[0].latitude;
+                val.lon = result[0].longitude;
+                if ((val.lat != 0 || val.lat != '') && _this14.lat == undefined) _this14.lat = Number(val.lat);
+                if ((val.lon != 0 || val.lon != '') && _this14.lon == undefined) _this14.lon = Number(val.lon);
+                _this14.lat = result[0].latitude;
+                _this14.lon = result[0].longitude;
               })["catch"](function (error) {
-                _this12.address = "Address Not Available!";
-                val['address'] = _this12.address; // console.log(res['data']);
+                val.lat = 0;
+                val.lon = 0;
+                console.log(error);
               });
             });
-            if (_this12.details) _this12.showSpinner = false;
+            if (_this14.details) _this14.showSpinner = false;
           });
         }
       }, {
@@ -931,22 +1019,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserPosition",
         value: function getUserPosition() {
-          var _this13 = this;
+          var _this15 = this;
 
           return new Promise(function (resolve, reject) {
-            _this13.options = {
+            _this15.options = {
               maximumAge: 3000,
               enableHighAccuracy: true
             };
 
-            _this13.geolocation.getCurrentPosition(_this13.options).then(function (pos) {
-              _this13.currentPos = pos;
+            _this15.geolocation.getCurrentPosition(_this15.options).then(function (pos) {
+              _this15.currentPos = pos;
               var location = {
                 lat: pos.coords.latitude,
                 lon: pos.coords.longitude,
                 time: new Date()
-              }; // console.log('loc', location);
-
+              };
               resolve(pos);
             }, function (err) {
               console.log("error : " + err.message);
@@ -1085,13 +1172,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     !*** ./src/app/folder/tms/tms.module.ts ***!
     \******************************************/
 
-  /*! exports provided: TmsModule */
+  /*! exports provided: createTranslateLoader, TmsModule */
 
   /***/
   function srcAppFolderTmsTmsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "createTranslateLoader", function () {
+      return createTranslateLoader;
+    });
     /* harmony export (binding) */
 
 
@@ -1125,53 +1218,81 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _my_task_my_task_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+    /* harmony import */
+
+
+    var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ngx-translate/http-loader */
+    "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+    /* harmony import */
+
+
+    var _my_task_my_task_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./my-task/my-task.component */
     "./src/app/folder/tms/my-task/my-task.component.ts");
     /* harmony import */
 
 
-    var _task_description_task_description_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _task_description_task_description_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./task-description/task-description.component */
     "./src/app/folder/tms/task-description/task-description.component.ts");
     /* harmony import */
 
 
-    var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
     /* harmony import */
 
 
-    var _tasklocations_tasklocations_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _tasklocations_tasklocations_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./tasklocations/tasklocations.component */
     "./src/app/folder/tms/tasklocations/tasklocations.component.ts");
     /* harmony import */
 
 
-    var _agm_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _agm_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @agm/core */
     "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
     /* harmony import */
 
 
-    var _newtask_newtask_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _newtask_newtask_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./newtask/newtask.component */
     "./src/app/folder/tms/newtask/newtask.component.ts");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    function createTranslateLoader(http) {
+      return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_5__["TranslateHttpLoader"](http, './assets/i18n/', '.json');
+    }
 
     var TmsModule = function TmsModule() {
       _classCallCheck(this, TmsModule);
     };
 
     TmsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_my_task_my_task_component__WEBPACK_IMPORTED_MODULE_4__["MyTaskComponent"], _task_description_task_description_component__WEBPACK_IMPORTED_MODULE_5__["TaskDescriptionComponent"], _tasklocations_tasklocations_component__WEBPACK_IMPORTED_MODULE_8__["TasklocationsComponent"], _newtask_newtask_component__WEBPACK_IMPORTED_MODULE_10__["NewtaskComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _tms_routing_module__WEBPACK_IMPORTED_MODULE_3__["TmsRoutingModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _agm_core__WEBPACK_IMPORTED_MODULE_9__["AgmCoreModule"]]
+      declarations: [_my_task_my_task_component__WEBPACK_IMPORTED_MODULE_6__["MyTaskComponent"], _task_description_task_description_component__WEBPACK_IMPORTED_MODULE_7__["TaskDescriptionComponent"], _tasklocations_tasklocations_component__WEBPACK_IMPORTED_MODULE_10__["TasklocationsComponent"], _newtask_newtask_component__WEBPACK_IMPORTED_MODULE_12__["NewtaskComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _tms_routing_module__WEBPACK_IMPORTED_MODULE_3__["TmsRoutingModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _agm_core__WEBPACK_IMPORTED_MODULE_11__["AgmCoreModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"].forRoot({
+        loader: {
+          provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateLoader"],
+          useFactory: createTranslateLoader,
+          deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClient"]]
+        }
+      })]
     })], TmsModule);
     /***/
   }

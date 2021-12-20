@@ -7,6 +7,8 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@awesome-cordova-plugins/background-geolocation/ngx';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 @Component({
   selector: 'app-root',
@@ -95,7 +97,9 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private route: ActivatedRoute,
     private _location: Location,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private backgroundGeolocation: BackgroundGeolocation,
+    private localNotifications: LocalNotifications
   ) {
 
       this.locStorageLang=window.localStorage.getItem('lang');
@@ -132,8 +136,42 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    });
+      const config: BackgroundGeolocationConfig = {
+              desiredAccuracy: 0, // high
+              stationaryRadius: 1,
+              distanceFilter: 1,
+              debug: false, //  enable this hear sounds for background-geolocation life-cycle.
+              stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+              startOnBoot:true,
+              interval:1000,
+              fastestInterval:1000,
+              notificationsEnabled:true,
+              notificationTitle:'FluentMTMCB',
+              notificationText:'Your location is being monitored'
+      };
 
+      this.backgroundGeolocation.configure(config).then(() => {
+        this.backgroundGeolocation.getCurrentLocation().then(data=>{
+          this.track(data);
+        });
+        this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
+          this.track(location);
+          if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
+        });
+        this.backgroundGeolocation.on(BackgroundGeolocationEvents.stationary).subscribe((location: BackgroundGeolocationResponse) => {
+          this.track(location);
+          if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
+        });
+        this.backgroundGeolocation.on(BackgroundGeolocationEvents.activity).subscribe((location: BackgroundGeolocationResponse) => {
+          this.track(location);
+          if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
+        });
+
+      });
+
+      // start recording location
+      this.backgroundGeolocation.start();
+    });
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
       // console.log('Back press handler!');
       if (this._location.isCurrentPathEqualTo('/folder/tms/mytask') 
@@ -163,7 +201,19 @@ export class AppComponent implements OnInit {
     });
 
   }
+  track(location: BackgroundGeolocationResponse){
+    
+    let officeLat = 10.0173107; // read this from localstorage or API
+    let officeLon = 76.3341728; // read this from localstorage or API
 
+    let distance = this.getDistanceFromLatLonInKm(officeLat,officeLon,location.latitude,location.longitude);
+    this.localNotifications.schedule({
+      id: 1,
+      text: 'You are '+distance+'mtr away',
+      sound: 'file://sound.mp3',
+      data: { data: distance }
+    });
+  }
   showExitConfirm() {
     this.alertController.create({
       header: this.confirm,
@@ -235,5 +285,22 @@ export class AppComponent implements OnInit {
 
   ngOnDestroy() { 
     // this.backButtonSubscription.unsubscribe();
+  }
+  getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371;
+    var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = this.deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    return d*1000; // convert to meter
+  }
+  
+  deg2rad(deg) {
+    return deg * (Math.PI/180)
   }
 }

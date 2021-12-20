@@ -48,10 +48,19 @@
     },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "io.ionic.cep_tms"
+    },
+    "cordova-plugin-background-geolocation": {
+      "PACKAGE_NAME": "io.ionic.cep_tms"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "io.ionic.cep_tms"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "io.ionic.cep_tms"
+    },
+    "cordova-plugin-badge": {
       "PACKAGE_NAME": "io.ionic.cep_tms"
     }
   }

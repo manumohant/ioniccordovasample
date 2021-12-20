@@ -26,6 +26,8 @@ import { HttpConfigInterceptor } from './http.Config.Interceptor';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BackgroundGeolocation } from '@awesome-cordova-plugins/background-geolocation/ngx';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -53,6 +55,8 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     Geolocation,
+    BackgroundGeolocation,
+    LocalNotifications,
     StatusBar,
     SplashScreen,
     SQLite,

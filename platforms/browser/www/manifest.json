@@ -1,10 +1,10 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "CEPTMS",
-  "short_name": "CEPTMS",
+  "name": "FluentMTMCB",
+  "short_name": "FluentMTMCB",
   "version": "io.ionic.cep_tms",
-  "description": "CEPTMS",
+  "description": "FluentMTMCB",
   "author": "Ionic Framework Team",
   "icons": [],
   "start_url": "index.html"

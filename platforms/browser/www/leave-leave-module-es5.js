@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar  class=\"toolBar\">\n      <ion-buttons slot=\"start\">\n          <ion-buttons slot=\"start\" *ngIf=\"enableRequest == false\">\n              <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          \n          <ion-button class=\"btnHome\" *ngIf=\"enableRequest == true\" (click)=\"goBack()\">\n            <i class=\"fas fa-arrow-left\"></i> &nbsp;\n          </ion-button>\n      </ion-buttons>\n    <ion-title *ngIf=\"enableRequest == false\">Leaves</ion-title>\n    <ion-title *ngIf=\"enableRequest == true\">Request Leave</ion-title>\n\n    <ion-buttons class=\"req\" slot=\"end\" (click)=\"leaveRequest()\">\n      REQUEST\n  </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid *ngIf=\"enableRequest == false\">\n    <ion-row>\n      <ion-col size=\"4\">\n          <ion-item>\n              <ion-label position=\"floating\">Start Date</ion-label>\n              <ion-datetime displayFormat=\"MMM DD YYYY\" [(ngModel)]=\"firstDay\"  value=\"firstDay\" name=\"firstDate\" ngDefaultControl></ion-datetime>\n          </ion-item>         \n      </ion-col>\n      <ion-col size=\"4\">\n          <ion-item>\n              <ion-label position=\"floating\">End Date</ion-label>\n              <ion-datetime displayFormat=\"MMM DD YYYY\" [(ngModel)]=\"lastDay\"  value=\"lastDay\" name=\"lastDay\"  ngDefaultControl></ion-datetime>\n          </ion-item>          \n      </ion-col>\n      <ion-col size=\"4\">\n      <ion-button type=\"button\" class=\"gene\" color=\"#00aaa0\" (click)=\"getLeaves()\">GENERATE</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n    <ion-list *ngIf=\"enableRequest == false\">\n\n        <ion-item *ngFor=\"let l of leaveList | slice:0:slice\">\n          <ion-label> \n            <h5>{{l.reason}}</h5>\n            <h6>{{l.fromdate | date }} - {{l.todate | date }}</h6>\n          </ion-label>\n          <h6  [ngStyle]=\"{'color': (l.status == 0 ) ? '#eb445a' : ''}\" *ngIf=\"l.status == 0\"> Rejected</h6>\n          <h6 [ngStyle]=\"{'color': (l.status == 1 ) ? '#50c8ff' : ''}\" *ngIf=\"l.status == 1\">Active</h6>\n          <h6 [ngStyle]=\"{'color': (l.status == 2 ) ? '#28ba62' : ''}\" *ngIf=\"l.status == 2\">Approved</h6>\n\n        </ion-item>\n\n      </ion-list>\n\n  <div class=\"top\" *ngIf=\"enableRequest == true\">\n      <ion-item>\n        <ion-label>Start Date</ion-label>\n        <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"startDate\" name=\"title\" placeholder=\"Start Date\"></ion-datetime>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>End Date</ion-label>\n        <ion-datetime displayFormat=\"MMMM DD YYYY\" [(ngModel)]=\"endDate\" name=\"title\" placeholder=\"End Date\"></ion-datetime>\n      </ion-item>\n\n      <ion-item>\n        <ion-label position=\"floating\">Reason</ion-label>\n        <ion-input type=\"text\" [(ngModel)]=\"reason\" name=\"title\"></ion-input>\n      </ion-item>\n\n      <ion-button class=\"gen\" color=\"#00aaa0\" (click)=\"generate()\">GENERATE</ion-button>\n  </div>\n\n  <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\n      <ion-infinite-scroll-content loadingSpinner=\"bubbles\"\n      loadingText=\"Loading more data…\"></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar  class=\"toolBar\">\r\n    <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>{{'Leaves'|translate}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content> \r\n  <ion-row>\r\n    <!-- Move back one screen of the slides -->\r\n    <ion-col size=\"2\">\r\n      <ion-button fill=\"clear\" size=\"small\" (click)=\"back()\" class=\"iconBtn\">\r\n        <ion-icon name=\"chevron-back-outline\" slot=\"icon-only\"></ion-icon>\r\n      </ion-button>\r\n    </ion-col>\r\n \r\n    <ion-col size=\"8\" class=\"ion-text-center\">\r\n      <h2 class=\"pos\">{{ viewTitle }}</h2>\r\n    </ion-col>\r\n \r\n    <!-- Move forward one screen of the slides -->\r\n    <ion-col size=\"2\">\r\n      <ion-button fill=\"clear\" size=\"small\" (click)=\"next()\" class=\"iconBtn\">\r\n        <ion-icon name=\"chevron-forward-outline\" slot=\"icon-only\"></ion-icon>\r\n      </ion-button>\r\n    </ion-col>\r\n  </ion-row>\r\n \r\n  <calendar\r\n    [eventSource]=\"eventSource\"\r\n    [calendarMode]=\"calendar.mode\"\r\n    [currentDate]=\"calendar.currentDate\"\r\n    (onTitleChanged)=\"onViewTitleChanged($event)\"\r\n    (onTimeSelected)=\"onTimeSelected($event)\"\r\n    (onEventSelected)=\"onEventSelected($event)\"\r\n    (click)=\"applyLeave(calendar.currentDate)\"    \r\n    id=\"cal\"\r\n  >\r\n  </calendar> \r\n<br/>\r\n  <ion-button color=\"primary\" (click)=\"onSubmit()\" class=\"leavBtn\">\r\n    {{'Apply leave'|translate}}\r\n  </ion-button>\r\n</ion-content>\r\n";
     /***/
   },
 
@@ -101,7 +101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".req {\n  color: white;\n}\n\n.gen {\n  color: black;\n  background: #ddd;\n  text-align: center;\n  margin: 20% 30%;\n}\n\n.gene {\n  color: black;\n  background: #ddd;\n  font-size: small !important;\n}\n\n.top {\n  padding: 4% 1%;\n}\n\n.btnHome {\n  color: white;\n}\n\nion-datetime {\n  font-size: small !important;\n}\n\nion-button {\n  font-size: small !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL2xlYXZlL2xlYXZlLXN1bW1hcnkvRTpcXENFUFxcRmx1ZW50TVdNX0NFUF90bXMvc3JjXFxhcHBcXGZvbGRlclxcbGVhdmVcXGxlYXZlLXN1bW1hcnlcXGxlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2ZvbGRlci9sZWF2ZS9sZWF2ZS1zdW1tYXJ5L2xlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0FDQ0Y7O0FERUE7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7QUNDRjs7QURDQTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtFQUNBLDJCQUFBO0FDRUY7O0FEQUE7RUFDRSxjQUFBO0FDR0Y7O0FEREE7RUFDRSxZQUFBO0FDSUY7O0FERkE7RUFDRSwyQkFBQTtBQ0tGOztBREhBO0VBQ0EsMkJBQUE7QUNNQSIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci9sZWF2ZS9sZWF2ZS1zdW1tYXJ5L2xlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVxe1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmdlbntcclxuICBjb2xvcjpibGFjaztcclxuICBiYWNrZ3JvdW5kOiAjZGRkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBtYXJnaW46IDIwJSAzMCU7XHJcbn1cclxuLmdlbmV7XHJcbiAgY29sb3I6YmxhY2s7XHJcbiAgYmFja2dyb3VuZDogI2RkZDtcclxuICBmb250LXNpemU6IHNtYWxsICFpbXBvcnRhbnQ7ICAgXHJcbn1cclxuLnRvcHtcclxuICBwYWRkaW5nOiA0JSAxJTtcclxufVxyXG4uYnRuSG9tZXtcclxuICBjb2xvcjp3aGl0ZTtcclxufVxyXG5pb24tZGF0ZXRpbWV7XHJcbiAgZm9udC1zaXplOiBzbWFsbCAhaW1wb3J0YW50O1xyXG59XHJcbmlvbi1idXR0b24ge1xyXG5mb250LXNpemU6IHNtYWxsICFpbXBvcnRhbnQ7ICAgXHJcbn0iLCIucmVxIHtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4uZ2VuIHtcbiAgY29sb3I6IGJsYWNrO1xuICBiYWNrZ3JvdW5kOiAjZGRkO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogMjAlIDMwJTtcbn1cblxuLmdlbmUge1xuICBjb2xvcjogYmxhY2s7XG4gIGJhY2tncm91bmQ6ICNkZGQ7XG4gIGZvbnQtc2l6ZTogc21hbGwgIWltcG9ydGFudDtcbn1cblxuLnRvcCB7XG4gIHBhZGRpbmc6IDQlIDElO1xufVxuXG4uYnRuSG9tZSB7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuaW9uLWRhdGV0aW1lIHtcbiAgZm9udC1zaXplOiBzbWFsbCAhaW1wb3J0YW50O1xufVxuXG5pb24tYnV0dG9uIHtcbiAgZm9udC1zaXplOiBzbWFsbCAhaW1wb3J0YW50O1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".btnHome {\n  color: white;\n  margin-right: 1rem;\n  font-size: 1.5rem;\n}\n\n.pos {\n  margin-top: 8px;\n}\n\n.leavBtn {\n  float: right;\n  margin-right: 1rem;\n}\n\n.iconBtn {\n  background-color: #eaf2fe;\n}\n\n:host ::ng-deep .monthview-container {\n  height: auto !important;\n}\n\n:host ::ng-deep .event-detail-container {\n  display: none;\n}\n\n.avl {\n  color: var(--ion-color-danger) !important;\n  font-size: 0.5rem !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL2xlYXZlL2xlYXZlLXN1bW1hcnkvQzpcXFVzZXJzXFxtYW51bVxcRG93bmxvYWRzXFxmbHVlbnRjZXBUTVMtbWFzdGVyXFxmbHVlbnRjZXBUTVMvc3JjXFxhcHBcXGZvbGRlclxcbGVhdmVcXGxlYXZlLXN1bW1hcnlcXGxlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2ZvbGRlci9sZWF2ZS9sZWF2ZS1zdW1tYXJ5L2xlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtBQ0NGOztBRENBO0VBQ0UsZUFBQTtBQ0VGOztBREFBO0VBQ0UsWUFBQTtFQUNBLGtCQUFBO0FDR0Y7O0FEREE7RUFDRSx5QkFBQTtBQ0lGOztBREFJO0VBQ0ksdUJBQUE7QUNHUjs7QURBSTtFQUNJLGFBQUE7QUNFUjs7QURDQTtFQUNFLHlDQUFBO0VBQ0EsNEJBQUE7QUNFRiIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci9sZWF2ZS9sZWF2ZS1zdW1tYXJ5L2xlYXZlLXN1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRuSG9tZXtcclxuICBjb2xvcjp3aGl0ZTtcclxuICBtYXJnaW4tcmlnaHQ6IDFyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbn1cclxuLnBvcyB7XHJcbiAgbWFyZ2luLXRvcDogOHB4O1xyXG59XHJcbi5sZWF2QnRuIHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxcmVtO1xyXG59XHJcbi5pY29uQnRue1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNlYWYyZmU7XHJcbn1cclxuXHJcbjpob3N0IDo6bmctZGVlcCB7XHJcbiAgICAubW9udGh2aWV3LWNvbnRhaW5lciB7XHJcbiAgICAgICAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiBcclxuICAgIC5ldmVudC1kZXRhaWwtY29udGFpbmVyIHtcclxuICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgfVxyXG59XHJcbi5hdmwge1xyXG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItZGFuZ2VyKSAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMC41cmVtICFpbXBvcnRhbnQ7XHJcbn0iLCIuYnRuSG9tZSB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgbWFyZ2luLXJpZ2h0OiAxcmVtO1xuICBmb250LXNpemU6IDEuNXJlbTtcbn1cblxuLnBvcyB7XG4gIG1hcmdpbi10b3A6IDhweDtcbn1cblxuLmxlYXZCdG4ge1xuICBmbG9hdDogcmlnaHQ7XG4gIG1hcmdpbi1yaWdodDogMXJlbTtcbn1cblxuLmljb25CdG4ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWFmMmZlO1xufVxuXG46aG9zdCA6Om5nLWRlZXAgLm1vbnRodmlldy1jb250YWluZXIge1xuICBoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcbn1cbjpob3N0IDo6bmctZGVlcCAuZXZlbnQtZGV0YWlsLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5hdmwge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhbmdlcikgIWltcG9ydGFudDtcbiAgZm9udC1zaXplOiAwLjVyZW0gIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
@@ -158,88 +158,443 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var ionic2_calendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ionic2-calendar */
+    "./node_modules/ionic2-calendar/__ivy_ngcc__/fesm2015/ionic2-calendar.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
     var LeaveSummaryComponent = /*#__PURE__*/function () {
-      function LeaveSummaryComponent(sqlite, leavSer) {
+      function LeaveSummaryComponent(sqlite, leavSer, alertCtrl, translate, locale) {
         _classCallCheck(this, LeaveSummaryComponent);
 
         this.sqlite = sqlite;
         this.leavSer = leavSer;
+        this.alertCtrl = alertCtrl;
+        this.translate = translate;
+        this.locale = locale;
         this.enableRequest = false;
-        this.slice = 15;
+        this.leaveRequest = false;
+        this.leaveApplied = false; // consecutiveLeave:boolean=false;
+
+        this.remFrmSrcArr = false;
+        this.events = [];
+        this.eventSource = [];
+        this.leaveSource = [];
+        this.dbEventSource = [];
+        this.calendar = {
+          mode: 'month',
+          currentDate: new Date()
+        };
+        this.event = {
+          title: 'Leave Applied',
+          startTime: null,
+          endTime: '',
+          allDay: true
+        };
+        this.modalReady = false;
+        this.remSelectedDt = false;
+        this.remBackendSelDt = false;
+        this.siteId = window.localStorage.getItem('siteId');
+        this.locStorageLang = window.localStorage.getItem('lang');
+
+        if (this.locStorageLang == '' || this.locStorageLang == undefined || this.locStorageLang == null) {
+          this.lang = 'en';
+          this.translate.setDefaultLang('en');
+          this.translate.use('en');
+        } else {
+          this.lang = this.locStorageLang;
+          this.translate.use(this.lang);
+        }
+
+        this.emprecnum = window.localStorage.getItem('user2employee');
       }
 
       _createClass(LeaveSummaryComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this = this;
+
+          this.leaveSource = [];
           var date = new Date();
           this.firstDay = moment__WEBPACK_IMPORTED_MODULE_4__(new Date(date.getFullYear(), date.getMonth(), 1)).format('YYYY-MM-DD');
-          this.lastDay = moment__WEBPACK_IMPORTED_MODULE_4__(new Date(date.getFullYear(), date.getMonth() + 1, 0)).format('YYYY-MM-DD');
+          this.lastDay = moment__WEBPACK_IMPORTED_MODULE_4__(new Date(date.getFullYear(), date.getMonth() + 1, 0)).format('YYYY-MM-DD'); // language
+
+          this.translate.get('Not Allowed').subscribe(function (value) {
+            _this.NALbl = value;
+          });
+          this.translate.get('NALeave').subscribe(function (value) {
+            _this.NAmsg = value;
+          });
+          this.translate.get('Cancel').subscribe(function (value) {
+            _this.cancelLbl = value;
+          });
+          this.translate.get('Ok').subscribe(function (value) {
+            _this.okLbl = value;
+          });
+          this.translate.get('From').subscribe(function (value) {
+            _this.fromLbl = value;
+          });
+          this.translate.get('To').subscribe(function (value) {
+            _this.toLbl = value;
+          });
+          this.translate.get('Cancel Leave').subscribe(function (value) {
+            _this.cancelLeave = value;
+          });
+          this.translate.get('Cancel Msg').subscribe(function (value) {
+            _this.cancelMsg = value;
+          });
+          this.translate.get('Not Allowed').subscribe(function (value) {
+            _this.NAprevdt = value;
+          });
+          this.translate.get('Greater than today').subscribe(function (value) {
+            _this.greaterDayMsg = value;
+          });
           this.getLeaves();
         }
       }, {
         key: "getLeaves",
         value: function getLeaves() {
-          var _this = this;
-
-          this.empId = window.localStorage.getItem('empId');
-          var firstDay = moment__WEBPACK_IMPORTED_MODULE_4__(this.firstDay).format('YYYY-MM-DD');
-          var lastDay = moment__WEBPACK_IMPORTED_MODULE_4__(this.lastDay).format('YYYY-MM-DD');
-          this.leavSer.leaves(this.empId, firstDay, lastDay).subscribe(function (res) {
-            _this.leaveList = res['data']; // this.totalSpent = this.report[this.report.length-1].entireWorkDuration
-          }, function (err) {// this.errMsg = err;
-          });
-        } // this.leavSer.leaveSummary(this.empId).subscribe(res=>{
-        //   this.leaveList = res['data']
-        // }, err=>{
-        // })
-        // }
-
-      }, {
-        key: "leaveRequest",
-        value: function leaveRequest() {
-          this.enableRequest = true;
-        }
-      }, {
-        key: "generate",
-        value: function generate() {
           var _this2 = this;
 
-          this.enableRequest = false;
-          var payload = {
-            FromDate: moment__WEBPACK_IMPORTED_MODULE_4__(this.startDate).format('YYYY-MM-DD'),
-            ToDate: moment__WEBPACK_IMPORTED_MODULE_4__(this.endDate).format('YYYY-MM-DD'),
-            Reason: this.reason,
-            EmpId: window.localStorage.getItem('empId'),
-            Status: 1
-          };
-          this.leavSer.applyLeave(payload).subscribe(function (res) {
-            // console.log(res['data']);
+          this.events = [];
+          this.dbEventSource = [];
+          this.empId = window.localStorage.getItem('user2employee');
+          var fDay = moment__WEBPACK_IMPORTED_MODULE_4__(this.firstDay).format('YYYY-MM-DD');
+          var lDay = moment__WEBPACK_IMPORTED_MODULE_4__(this.lastDay).format('YYYY-MM-DD');
+          this.leavSer.leaves(this.empId, fDay, lDay).subscribe(function (res) {
             if (res['data']) {
-              _this2.leavSer.leaveSummary(_this2.empId).subscribe(function (res) {
-                _this2.leaveList = res['data'];
-              }, function (err) {
-                console.log(err);
-              });
+              var len = res['data'].length;
+
+              for (var i = 0; i < len; i++) {
+                if (res['data'][i].status == 1 || res['data'][i].status == 0) {
+                  _this2.events.push({
+                    title: res['data'][i].status,
+                    startTime: new Date(res['data'][i].fromdate),
+                    endTime: new Date(res['data'][i].todate),
+                    allDay: true,
+                    leaveid: res['data'][i].id,
+                    status: res['data'][i].status
+                  });
+                }
+              }
+
+              _this2.dbEventSource = _this2.events;
+              _this2.eventSource = _this2.events;
+
+              _this2.myCal.loadEvents();
             }
           }, function (err) {
             console.log(err);
           });
         }
       }, {
-        key: "goBack",
-        value: function goBack() {
-          this.enableRequest = false;
-        }
-      }, {
-        key: "doInfinite",
-        value: function doInfinite(infiniteScrollEvent) {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
           var _this3 = this;
 
           setTimeout(function () {
-            _this3.slice += 5;
-            infiniteScrollEvent.target.complete();
-          }, 500);
+            _this3.modalReady = true;
+          }, 0);
+        } // Change current month/week/day
+
+      }, {
+        key: "next",
+        value: function next() {
+          this.myCal.slideNext();
+          this.getLeaves();
+        }
+      }, {
+        key: "back",
+        value: function back() {
+          this.myCal.slidePrev();
+          this.getLeaves();
+        } // Selected date reange and hence title changed
+
+      }, {
+        key: "onViewTitleChanged",
+        value: function onViewTitleChanged(title) {
+          this.viewTitle = title;
+        }
+      }, {
+        key: "onTimeSelected",
+        value: function onTimeSelected(ev) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            var _this4 = this;
+
+            var dt, endDt, nwdt, todt, dt_str, i, newDt, selDt, removed, _i, _newDt, _selDt, _removed, _loop, _i2, alert;
+
+            return regeneratorRuntime.wrap(function _callee$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    this.event.startTime = new Date(ev.selectedTime);
+                    dt = this.event.startTime.toISOString();
+                    endDt = this.event.startTime;
+                    endDt = new Date(endDt);
+                    nwdt = endDt.setDate(endDt.getDate());
+                    todt = new Date(nwdt).toISOString();
+                    dt_str = this.event.startTime.toDateString();
+
+                    if (!(this.leaveRequest == true && this.event.startTime >= this.currDt)) {
+                      _context2.next = 20;
+                      break;
+                    }
+
+                    //To avoid applying leaves on consecutive days.
+                    // for(let i=0; i<this.eventSource.length; i++){
+                    //   let d1 = moment(this.eventSource[i].startTime.toLocaleDateString());
+                    //   let d2 = moment(this.event.startTime.toLocaleDateString());
+                    //   let diffDays = d2.diff(d1, 'days');
+                    //   if((diffDays == 1 || diffDays == -1) && this.consecutiveLeave==false){
+                    //     this.consecutiveLeave=true;
+                    //     let alert = await this.alertCtrl.create({
+                    //       header: this.NALbl,
+                    //       message: this.NAmsg,
+                    //       buttons: [
+                    //         {
+                    //           text: this.okLbl,
+                    //           role: 'cancel',
+                    //           handler: () => {
+                    //             this.leaveRequest=false;
+                    //           }
+                    //         }
+                    //       ]
+                    //     });
+                    //     alert.present();
+                    //   }
+                    // }
+                    //end of consecutive day leaves
+                    // to remove from source array which is for insert purpose
+                    for (i = 0; i < this.leaveSource.length; i++) {
+                      newDt = this.leaveSource[i].date.toDateString();
+                      selDt = this.event.startTime.toDateString();
+
+                      if (newDt === selDt) {
+                        removed = this.leaveSource.splice(i, 1);
+                        this.remSelectedDt = true;
+                        this.remFrmSrcArr = true;
+                        this.myCal.loadEvents();
+                      }
+                    }
+
+                    if (this.remFrmSrcArr) {
+                      // to remove from main src array which is for insert purpose
+                      for (_i = 0; _i < this.eventSource.length; _i++) {
+                        _newDt = this.eventSource[_i].startTime.toDateString();
+                        _selDt = this.event.startTime.toDateString();
+
+                        if (_newDt === _selDt && this.eventSource[_i].title == 12) {
+                          _removed = this.eventSource.splice(_i, 1);
+                          this.remSelectedDt = true;
+                          this.remFrmSrcArr = true;
+                          this.myCal.loadEvents();
+                        }
+                      }
+                    } // end of selected array
+                    // to remove from dbEventsource(leaves list from backend)
+
+
+                    _loop = /*#__PURE__*/regeneratorRuntime.mark(function _loop(_i2) {
+                      var newDt, selDt, alert;
+                      return regeneratorRuntime.wrap(function _loop$(_context) {
+                        while (1) {
+                          switch (_context.prev = _context.next) {
+                            case 0:
+                              newDt = _this4.dbEventSource[_i2].startTime.toDateString();
+                              selDt = _this4.event.startTime.toDateString();
+
+                              if (!(newDt === selDt)) {
+                                _context.next = 9;
+                                break;
+                              }
+
+                              if (!(_this4.dbEventSource[_i2].status == 0 && _this4.remBackendSelDt == false)) {
+                                _context.next = 8;
+                                break;
+                              }
+
+                              _context.next = 6;
+                              return _this4.alertCtrl.create({
+                                header: _this4.cancelLeave,
+                                subHeader: _this4.cancelMsg,
+                                message: _this4.dbEventSource[_i2].startTime.toDateString(),
+                                buttons: [{
+                                  text: _this4.okLbl,
+                                  role: 'cancel',
+                                  handler: function handler() {}
+                                }, {
+                                  text: _this4.cancelLeave,
+                                  handler: function handler(data) {
+                                    _this4.leavSer.updateLeave(_this4.dbEventSource[_i2].leaveid).subscribe(function (res) {
+                                      if (res['data'] == 'Success') {
+                                        _this4.getLeaves();
+                                      }
+                                    }, function (err) {// console.log(err)
+                                    });
+
+                                    _this4.leaveRequest = false;
+                                  }
+                                }]
+                              });
+
+                            case 6:
+                              alert = _context.sent;
+                              alert.present();
+
+                            case 8:
+                              _this4.remBackendSelDt = true;
+
+                            case 9:
+                            case "end":
+                              return _context.stop();
+                          }
+                        }
+                      }, _loop);
+                    });
+                    _i2 = 0;
+
+                  case 12:
+                    if (!(_i2 < this.dbEventSource.length)) {
+                      _context2.next = 17;
+                      break;
+                    }
+
+                    return _context2.delegateYield(_loop(_i2), "t0", 14);
+
+                  case 14:
+                    _i2++;
+                    _context2.next = 12;
+                    break;
+
+                  case 17:
+                    // && !this.consecutiveLeave
+                    if (!this.remSelectedDt && this.remBackendSelDt == false) {
+                      this.events.push({
+                        title: 12,
+                        startTime: new Date(this.event.startTime),
+                        endTime: new Date(this.event.startTime),
+                        allDay: true,
+                        leaveid: null,
+                        status: 0
+                      });
+                      this.leaveData = {
+                        EmpId: this.emprecnum,
+                        FromDate: dt,
+                        ToDate: todt,
+                        Status: 0,
+                        date: this.event.startTime,
+                        siteid: this.siteId
+                      };
+                      this.leaveSource.push(this.leaveData);
+                      this.eventSource = this.events;
+                      this.leaveRequest = false;
+                      this.myCal.loadEvents();
+                    } // console.log(this.leaveSource);
+
+
+                    _context2.next = 25;
+                    break;
+
+                  case 20:
+                    if (!(this.leaveRequest == true)) {
+                      _context2.next = 25;
+                      break;
+                    }
+
+                    _context2.next = 23;
+                    return this.alertCtrl.create({
+                      header: this.NAprevdt,
+                      message: this.greaterDayMsg,
+                      buttons: [this.okLbl]
+                    });
+
+                  case 23:
+                    alert = _context2.sent;
+                    alert.present();
+
+                  case 25:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+        }
+      }, {
+        key: "onSubmit",
+        value: function onSubmit() {
+          var _this5 = this;
+
+          for (var i = 0; i < this.leaveSource.length; i++) {
+            this.leavSer.applyLeave(this.leaveSource[i]).subscribe(function (res) {
+              if (res['data'] == "requested") {
+                _this5.getLeaves();
+              }
+            }, function (err) {
+              console.log(err);
+            });
+          }
+
+          this.myCal.loadEvents();
+          this.leaveSource = [];
+        }
+      }, {
+        key: "applyLeave",
+        value: function applyLeave(currentDt) {
+          this.leaveRequest = true;
+          this.leaveApplied = false;
+          this.currDt = currentDt;
+          this.remSelectedDt = false; // this.consecutiveLeave=false;
+
+          this.remBackendSelDt = false;
+          this.remFrmSrcArr = false;
+        } // Calendar event was clicked
+
+      }, {
+        key: "onEventSelected",
+        value: function onEventSelected(event) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            var start, end, alert;
+            return regeneratorRuntime.wrap(function _callee2$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    // Use Angular date pipe for conversion
+                    start = new Date(event.startTime);
+                    end = new Date(event.endTime);
+                    _context3.next = 4;
+                    return this.alertCtrl.create({
+                      header: event.title,
+                      subHeader: event.desc,
+                      message: this.fromLbl + ': ' + start + '<br><br>' + this.toLbl + ': ' + end,
+                      buttons: [this.okLbl]
+                    });
+
+                  case 4:
+                    alert = _context3.sent;
+                    alert.present();
+
+                  case 6:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
         }
       }]);
 
@@ -251,9 +606,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__["SQLite"]
       }, {
         type: _leave_service__WEBPACK_IMPORTED_MODULE_3__["LeaveService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
+      }, {
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]
+      }, {
+        type: String,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+          args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"]]
+        }]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(ionic2_calendar__WEBPACK_IMPORTED_MODULE_6__["CalendarComponent"])], LeaveSummaryComponent.prototype, "myCal", void 0);
     LeaveSummaryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-leave-summary',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -262,7 +628,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./leave-summary.component.scss */
       "./src/app/folder/leave/leave-summary/leave-summary.component.scss"))["default"]]
-    })], LeaveSummaryComponent);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"]))], LeaveSummaryComponent);
     /***/
   },
 
@@ -272,13 +638,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/folder/leave/leave.module.ts ***!
     \**********************************************/
 
-  /*! exports provided: LeaveModule */
+  /*! exports provided: createTranslateLoader, LeaveModule */
 
   /***/
   function srcAppFolderLeaveLeaveModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "createTranslateLoader", function () {
+      return createTranslateLoader;
+    });
     /* harmony export (binding) */
 
 
@@ -327,6 +699,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var ionic2_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ionic2-calendar */
+    "./node_modules/ionic2-calendar/__ivy_ngcc__/fesm2015/ionic2-calendar.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+    /* harmony import */
+
+
+    var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @ngx-translate/http-loader */
+    "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js"); // import localeZh from '@angular/common/locales/zh-Hans';
+    // registerLocaleData(localeZh);
+
+
+    function createTranslateLoader(http) {
+      return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__["TranslateHttpLoader"](http, './assets/i18n/', '.json');
+    }
 
     var LeaveModule = function LeaveModule() {
       _classCallCheck(this, LeaveModule);
@@ -334,7 +736,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     LeaveModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_leave_summary_leave_summary_component__WEBPACK_IMPORTED_MODULE_4__["LeaveSummaryComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _leave_routing_module__WEBPACK_IMPORTED_MODULE_3__["LeaveRoutingModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"]]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _leave_routing_module__WEBPACK_IMPORTED_MODULE_3__["LeaveRoutingModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], ionic2_calendar__WEBPACK_IMPORTED_MODULE_7__["NgCalendarModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"].forRoot({
+        loader: {
+          provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateLoader"],
+          useFactory: createTranslateLoader,
+          deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClient"]]
+        }
+      })],
+      providers: [// { 
+        // provide: LOCALE_ID, 
+        // useValue: 'zh-Hans' 
+        // }
+      ]
     })], LeaveModule);
     /***/
   },
@@ -425,12 +838,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.http = http;
         this.storage = storage;
-        this.httpOptions = {
-          headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + window.localStorage.getItem('token')
-          })
-        };
+        this.userId = window.localStorage.getItem('userId');
+        this.emprecnum = window.localStorage.getItem('user2employee');
       }
 
       _createClass(LeaveService, [{
@@ -444,6 +853,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "applyLeave",
         value: function applyLeave(data) {
           return this.http.post(src_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].urlPHP + 'attendance/applyleave', data, this.httpOptions).map(function (Response) {
+            return Response;
+          })["catch"](this.handleErrors);
+        }
+      }, {
+        key: "updateLeave",
+        value: function updateLeave(leaveid) {
+          return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].urlPHP + 'employee/updateLeave/' + this.userId + '/' + leaveid, this.httpOptions).map(function (Response) {
             return Response;
           })["catch"](this.handleErrors);
         }
