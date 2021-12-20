@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationResponse } from '@awesome-cordova-plugins/background-geolocation/ngx';
 import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
+import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-root',
@@ -98,6 +99,7 @@ export class AppComponent implements OnInit {
     private route: ActivatedRoute,
     private _location: Location,
     public translate: TranslateService,
+    private geolocation: Geolocation,
     private backgroundGeolocation: BackgroundGeolocation,
     private localNotifications: LocalNotifications
   ) {
@@ -149,7 +151,9 @@ export class AppComponent implements OnInit {
               notificationTitle:'FluentMTMCB',
               notificationText:'Your location is being monitored'
       };
-
+      this.geolocation.watchPosition().subscribe(data=>{
+        this.track(data.coords);
+      });
       this.backgroundGeolocation.configure(config).then(() => {
         this.backgroundGeolocation.getCurrentLocation().then(data=>{
           this.track(data);
@@ -163,6 +167,10 @@ export class AppComponent implements OnInit {
           if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
         });
         this.backgroundGeolocation.on(BackgroundGeolocationEvents.activity).subscribe((location: BackgroundGeolocationResponse) => {
+          this.track(location);
+          if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
+        });
+        this.backgroundGeolocation.on(BackgroundGeolocationEvents.background).subscribe((location: BackgroundGeolocationResponse) => {
           this.track(location);
           if(this.platform.is('ios')) this.backgroundGeolocation.finish(); // FOR IOS ONLY
         });
@@ -201,7 +209,7 @@ export class AppComponent implements OnInit {
     });
 
   }
-  track(location: BackgroundGeolocationResponse){
+  track(location: any){
     
     let officeLat = 10.0173107; // read this from localstorage or API
     let officeLon = 76.3341728; // read this from localstorage or API
@@ -210,9 +218,24 @@ export class AppComponent implements OnInit {
     this.localNotifications.schedule({
       id: 1,
       text: 'You are '+distance+'mtr away',
-      sound: 'file://sound.mp3',
+      sound: !this.platform.is('ios')? 'file://sound.mp3': 'file://beep.caf',
       data: { data: distance }
     });
+    if(distance > 500){ // 500meter away 
+      this.localNotifications.schedule({
+        id: 2,
+        text: 'You are out of region',
+        sound: !this.platform.is('ios')? 'file://sound.mp3': 'file://beep.caf',
+        data: { data: distance }
+      });
+    } else {
+      this.localNotifications.schedule({
+        id: 2,
+        text: 'You are inside region',
+        sound: !this.platform.is('ios')? 'file://sound.mp3': 'file://beep.caf',
+        data: { data: distance }
+      });
+    }
   }
   showExitConfirm() {
     this.alertController.create({
